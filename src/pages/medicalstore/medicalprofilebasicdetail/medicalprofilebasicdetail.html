@@ -1,0 +1,54 @@
+<!--
+  Generated template for the PatientprofilepersonalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+</ion-header>
+
+
+<ion-content padding>
+  <!-- <ion-item>
+    <ion-label floating>Username</ion-label>
+    <ion-input [(ngModel)]="profilePersonal.username" type="text"></ion-input>
+  </ion-item> -->
+  <ion-item>
+    <ion-label floating>Pharmacy Name</ion-label>
+    <ion-input [(ngModel)]="profileMedical.medicalName" type="text"></ion-input>
+  </ion-item>
+ 
+
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input [(ngModel)]="profileMedical.medicalEmailPrimary" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Secondary Email</ion-label>
+    <ion-input type="text" [(ngModel)]="secondaryEmail"></ion-input>
+  </ion-item>
+
+  <button ion-button (click)="addtoList()">Add</button>
+
+  <ion-item>
+    <ion-list>
+      <ion-item *ngFor="let list of profileMedical.medicalEmailLists">
+        {{list}}
+        <ion-icon class="trashicon" (click)="deleteelement(list)" name="trash" data-ng-if="(profileMedical.medicalEmailLists.length > 0)"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Additional Information</ion-label>
+    <ion-input [(ngModel)]="profileMedical.additionalInformation" type="text"></ion-input>
+  </ion-item>
+  <div padding align="center">
+    <div padding>
+      <button ion-button type="submit" (click)="submitDetails()">Submit</button>
+      <button ion-button type="Cancel">Cancel</button>
+    </div>
+  </div>
+
+</ion-content>

@@ -1,0 +1,139 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle left>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>Incoming Appointment List</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <ion-icon name="" class="notification-icon"
+          ><span class="ntfctn-dot"></span
+        ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="cmn-list">
+    <div
+      class="cmn-apmnt-row clearfix"
+      (click)="openItem(item)"
+      *ngFor="let item of labIncomingAppoimentList"
+    >
+      <div class="apmn-lft">
+        <div class="dr-name">{{ item.name }}</div>
+        <div class="rson-fr-meet" *ngFor="let rep of item.data">
+          {{ rep.lrl1Name }}
+        </div>
+        <div class="rson-fr-meet">{{ item.facilityCenterType }}</div>
+        <div class="apmnt-tm">
+          {{ item.patLabAppDate | date: "dd/MM/yyyy" }} {{
+          item.patLabAppTimeFrom | date: "shortTime" }}- {{ item.patLabAppTimeTo
+          | date: "shortTime" }}
+        </div>
+      </div>
+
+      <div
+        *ngIf="item.patAppStatus == 'Approved'"
+        class="apmn-rgt"
+        (click)="openItem(item)"
+      >
+        <span class="apmnt-lbl accepted">
+          {{ item.patAppStatus }}
+        </span>
+      </div>
+
+      <div
+        *ngIf="item.patAppStatus == 'Cancel'"
+        class="apmn-rgt"
+        (click)="openItem(item)"
+      >
+        <span class="apmnt-lbl cancelled">
+          {{ item.patAppStatus }}
+        </span>
+      </div>
+
+      <div
+        *ngIf="item.patAppStatus == 'Rejected'"
+        class="apmn-rgt"
+        (click)="openItem(item)"
+      >
+        <span class="apmnt-lbl rejected">
+          {{ item.patAppStatus }}
+        </span>
+      </div>
+
+      <div
+        *ngIf="item.patAppStatus == 'Pending'"
+        class="apmn-rgt"
+        (click)="openItem(item)"
+      >
+        <span class="apmnt-lbl pending">
+          {{ item.patAppStatus }}
+        </span>
+      </div>
+
+      <div
+        *ngIf="item.patAppStatus == 'Completed'"
+        class="apmn-rgt"
+        (click)="openItem(item)"
+      >
+        <span class="apmnt-lbl accepted">
+          {{ item.patAppStatus }}
+        </span>
+      </div>
+
+      <!-- <div class="apmn-rgt">
+        <span class="apmnt-lbl accepted">
+          {{ item.patAppStatus }}
+        </span>
+      </div> -->
+
+      <ion-item-options *ngIf="item.patAppStatus == 'Pending'">
+        <button ion-button (click)="Approved(item)">Approve</button>
+        <button ion-button color="danger" (click)="Rejected(item)">
+          Reject
+        </button>
+        <button ion-button color="danger" (click)="Canceled(item)">
+          Cancel
+        </button>
+      </ion-item-options>
+
+      <ion-item-options *ngIf="item.patAppStatus == 'Approved'">
+        <button ion-button (click)="Add(item)">Add Report</button>
+        <button ion-button color="danger" (click)="Canceled(item)">
+          Cancel
+        </button>
+      </ion-item-options>
+    </div>
+  </div>
+</ion-content>
+
+<!-- <div class="cmn-list-page">
+  <div class="cmn-tab-dsgn"></div>
+  <ion-list class="cmn-tb-cntnt">
+    <ion-item-sliding
+      #slidingItem
+      *ngFor="let item of labIncomingAppoimentList"
+    >
+      <ion-item (click)="openItem(item)">
+        <div class="ptnt-name">{{ item.name }}</div>
+        <div class="ptnt-name" *ngFor="let rep of item.data">
+          {{ rep.lrl1Name }}
+        </div>
+        <div class="rson-fr-meet">{{ item.facilityCenterType }}</div>
+
+        <div class="apmnt-tm">
+          {{ item.patLabAppDate | date: "dd/MM/yyyy" }}
+          {{ item.patLabAppTimeFrom | date: "shortTime" }}-
+          {{ item.patLabAppTimeTo | date: "shortTime" }}
+        </div>
+
+        <div class="apmnt-status">{{ item.patAppStatus }}</div>
+      </ion-item>
+
+      
+    </ion-item-sliding>
+  </ion-list>
+</div> -->

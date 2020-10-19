@@ -1,0 +1,227 @@
+<!--
+  Generated template for the LabaddreportPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <!-- <ion-navbar hideBackButton="false">
+
+   <ion-title>Add Report</ion-title>
+ </ion-navbar>     -->
+
+  <ion-navbar>
+    <button ion-button menuToggle right>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>Add Report</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only>
+        <ion-icon name="" class="header-logo"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="login-hc">
+  <form text-center class="login-inner-hc">
+    <ion-list>
+      <!-- <ion-img width="112" height="120" src="assets/imgs/health-chain-logo.png"></ion-img> -->
+      <div class="login-signin-hc">
+        <div class="login-head-hc">
+          <!-- <div style="float:left;margin-top: 5px;margin-left: 10px;position: absolute;" *ngIf="IsShow == true">
+               <button
+               (click)="BackClicked()"ion-button small class="" color="default" light>Back</button>
+           </div> -->
+          <!-- <h5>Add Report</h5> -->
+        </div>
+
+        <div *ngIf="IsShow == false">
+          <ion-item>
+            <ion-label>Patient Id</ion-label>
+            <ion-select
+              [disabled]="IsShowDataFromOtherPage == true"
+              [(ngModel)]="LabReport.Patient"
+              name="LabReport.Patient"
+              (ionChange)="onSelectChange($event)"
+            >
+              <ion-option *ngFor="let P of Patients" [value]="P">
+                {{P.patientName}}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="" floating>Report Detail</ion-label>
+            <ion-textarea
+              [(ngModel)]="LabReport.ReportDetail"
+              name="LabReport.ReportDetail"
+            ></ion-textarea>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="" floating>Additional Detail</ion-label>
+            <ion-textarea
+              [(ngModel)]="LabReport.AdditionalDetail"
+              name="LabReport.AdditionalDetail"
+            ></ion-textarea>
+          </ion-item>
+        </div>
+
+        <div *ngIf="IsShow == true">
+          <!-- <ion-item>
+               <ion-label color="" floating>Report Name</ion-label>
+               <ion-textarea  [(ngModel)]="LabReport.ReportName" name="LabReport.ReportName"></ion-textarea>
+             </ion-item> -->
+
+          <ion-item>
+            <ion-label>Report Name</ion-label>
+            <ion-select
+              [(ngModel)]="LabReport.ReportName"
+              name="LabReport.ReportName"
+              (ionChange)="onSelectChangeReportName($event)"
+            >
+              <ion-option *ngFor="let A of AllReportList" [value]="A">
+                {{A.lrl1Name}}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item no-lines>
+            <ion-label>Upload Report</ion-label>
+          </ion-item>
+          <ion-item no-lines>
+            <button ion-button small (click)="buttonClickForChooseReports()">
+              Choose File
+            </button>
+          </ion-item>
+          <div class="uploaded-img">
+            <img
+              src="{{LabReportFile}}"
+              style="width: 100%"
+              [hidden]="imagePancard === null"
+            />
+          </div>
+
+          <ion-item no-lines>
+            <ion-label>Upload Video</ion-label>
+          </ion-item>
+          <!-- <ion-item no-lines>
+              <button ion-button small (click)="buttonClickForChooseReportsvideo()">Choose File</button>
+          </ion-item> -->
+
+          <!-- <video #myVideo style="width: 100%; margin-top: 6px; height: 180px;;padding: 6px 10px" controls="controls"
+              preload="metadata" webkit-playsinline="webkit-playsinline">
+              <source src="{{LabReportvideoFile}}" style="width: 100%" type="video/mp4" >
+              </video> -->
+          <!-- <video src="{{LabReportvideoFile}}"  type="video/mp4">
+              </video> -->
+
+          <div class="video-selection" *ngIf="!selectedVideo">
+            <p>Please select a video for upload from your gallery</p>
+            <button ion-button (click)="buttonClickForChooseReportsvideo()">
+              Select Video
+            </button>
+          </div>
+
+          <div class="video-section" *ngIf="selectedVideo">
+            <video width="400" height="200" controls>
+              <source [src]="selectedVideo" />
+            </video>
+          </div>
+
+          <div class="video-section" *ngIf="selectedVideo">
+            <video width="400" height="200" controls>
+              <source [src]="selectedVideo" />
+            </video>
+          </div>
+
+          <ion-item>
+            <ion-label>Disease Associated</ion-label>
+            <ion-select
+              [(ngModel)]="LabReport.DiseaseAssociated"
+              name="LabReport.DiseaseAssociated"
+              (ionChange)="onSelectChangeDesease($event)"
+            >
+              <ion-option *ngFor="let D of arrDiseaseAssociated" [value]="D">
+                {{D.diagnosiseName}}
+              </ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="" floating>Extra Detail</ion-label>
+            <ion-textarea
+              [(ngModel)]="LabReport.ExtraDetail"
+              name="LabReport.ExtraDetail"
+            ></ion-textarea>
+          </ion-item>
+        </div>
+
+        <div *ngIf="IsShow == false" padding>
+          <button
+            (click)="NextClicked()"
+            ion-button
+            class=""
+            color="default"
+            light
+          >
+            Next
+          </button>
+        </div>
+
+        <div *ngIf="IsShow == true" style="margin-top: 10px;">
+          <button
+            (click)="SaveClicked()"
+            ion-button
+            small
+            class=""
+            color="secondary"
+            light
+          >
+            Save
+          </button>
+
+          <button
+            (click)="SaveAndAddClicked()"
+            ion-button
+            small
+            class=""
+            color="secondary"
+            light
+          >
+            Save & Add New
+          </button>
+
+          <!-- <button 
+                     (click)="ResetClicked()"ion-button small class="" style="background:#CCC; color:black "light>Reset</button> -->
+        </div>
+
+        <ion-list class="cmn-tb-cntnt">
+          <ion-item-sliding #slidingItem *ngFor="let obj of labReportList">
+            <ion-item (click)="viewReportList(obj)">
+              <div class="ptnt-name">Report Name - {{obj.ReportName}}</div>
+              <div class="ptnt-name">Patient Id - {{obj.PatientId}}</div>
+              <div class="ptnt-name">
+                Disease Associated - {{obj.DiseaseAssociated}}
+              </div>
+              <div class="apmnt-tm">{{obj.ReportDate}} {{obj.ReportTime}}</div>
+            </ion-item>
+            <ion-item-options>
+              <button
+                ion-button
+                color="calm"
+                (click)="editItem(item.patAppointmentID)"
+              >
+                Edit
+              </button>
+              <button ion-button color="danger" (click)="DeleteFromList(obj)">
+                Delete
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>

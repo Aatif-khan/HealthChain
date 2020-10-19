@@ -1,0 +1,61 @@
+<!--
+  Generated template for the TransactionhistoryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle left>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>Transaction History List</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <ion-icon name="" class="notification-icon"
+          ><span class="ntfctn-dot"></span
+        ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="cmn-list">
+    <div class="cmn-apmnt-row clearfix" *ngFor="let item of transactionlist">
+      <div class="apmn-lft">
+        <div class="dr-name">{{item.name}}</div>
+        <div class="dr-adrs">{{item.patAppDate}}</div>
+        <div class="dr-adrs">{{item.fees}}</div>
+        <div class="dr-adrs">Appointment Status : {{item.patAppStatus}}</div>
+      </div>
+
+      <div *ngIf="item.txnStatus == 'TXN_FAILURE'" class="apmn-rgt">
+        <span class="apmnt-lbl rejected">
+          {{ item.txnStatus }}
+        </span>
+      </div>
+      <div *ngIf="item.txnStatus == 'Pending'" class="apmn-rgt">
+        <span class="apmnt-lbl pending">
+          {{ item.txnStatus }}
+        </span>
+      </div>
+
+      <div *ngIf="item.txnStatus == 'TXN_SUCCESS'" class="apmn-rgt">
+        <span class="apmnt-lbl accepted">
+          {{ item.txnStatus }}
+        </span>
+      </div>
+
+      <!-- <div class="apmn-rgt">
+        <span class="apmnt-lbl accepted">
+          Transaction Status : {{ item.txnStatus }}
+        </span>
+      </div> -->
+
+      <!-- <div class="apmnt-date">
+        On {{ item.patAppDate | date: "dd/MM/yyyy" }}
+      </div> -->
+    </div>
+  </div>
+</ion-content>

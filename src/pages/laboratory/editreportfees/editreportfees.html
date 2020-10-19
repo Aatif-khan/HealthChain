@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle left>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>Edit Report Cost</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <ion-icon name="" class="notification-icon"
+          ><span class="ntfctn-dot"></span
+        ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="cmn-inr-form">
+    <ion-list>
+      <ion-item>
+        <ion-label color="" floating></ion-label>
+        <ion-select [(ngModel)]="labReportLevel1ID" [disabled]="true">
+          <ion-option [value]="labReportLevel1ID" selected="labReportLevel1ID"
+            >{{ lrl1Name }}</ion-option
+          >
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label color="" floating>Cost</ion-label>
+
+        <ion-input type="number" name="Cost" [(ngModel)]="Cost"></ion-input>
+      </ion-item>
+
+      <div class="form-button bg-gray pt-25 text-center">
+        <button
+          type="button"
+          class="cmn-thm-btn mr-25"
+          (click)="callAddAppointmentApi()"
+        >
+          Save
+        </button>
+        <button type="button" class="cmn-wht-btn">
+          Cancel
+        </button>
+      </div>
+    </ion-list>
+  </div></ion-content
+>
+
+<!-- <button
+    (click)="callAddAppointmentApi()"
+    ion-button
+    class="cmn-btn-styl prpl-btn"
+    block
+  >
+    Save
+  </button> -->

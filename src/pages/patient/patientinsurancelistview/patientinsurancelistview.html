@@ -1,0 +1,62 @@
+<!--
+  Generated template for the PatientinsurancelistviewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Patient Insurance List View</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form text-center class="login-inner-hc" style="height: 50%;">
+        <ion-list >
+          <div class="login-signin-hc">  
+            <div class="login-head-hc">
+              <h5>Patient Insurance List View</h5>
+            </div>     
+          
+            <ion-item>
+              <ion-label color="">Plan Name :</ion-label>
+              <ion-input type="text" [(ngModel)]="PatientDoctorVisitlist.patVisitDate" name="patVisitDate" disabled="true"></ion-input>
+            </ion-item>
+    
+            <ion-item>
+                <ion-label color="">Insurance Company Name :</ion-label>
+                <ion-input type="text" [(ngModel)]="PatientDoctorVisitlist.times" name="times" disabled="true"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label color="">Coverage :</ion-label>
+                <ion-input type="text" [(ngModel)]="PatientDoctorVisitlist.name" name="name" disabled="true"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label color="">Additional Detail :</ion-label>
+                <ion-input type="text" [(ngModel)]="PatientDoctorVisitlist.patientID" name="patientID" disabled="true"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label color="">Years :</ion-label>
+                <ion-input type="text"  name="Purpose" [(ngModel)]="PatientDoctorVisitlist.patVisitType" disabled="true"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label color="">Document Attached :</ion-label>
+                <ion-input type="text" [(ngModel)]="PatientDoctorVisitlist.patSymptoms" name="Symptoms" disabled="true"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label color="">Status :</ion-label>
+                <ion-input type="text" [(ngModel)]="PatientDoctorVisitlist.patVisitType"  name="Treatment" disabled="true"></ion-input>
+            </ion-item>
+
+          </div>       
+        </ion-list>
+      </form>
+</ion-content>

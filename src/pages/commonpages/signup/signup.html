@@ -1,0 +1,343 @@
+<ion-content padding class="loginpage">
+  <div class="dis-tbl">
+    <div class="dis-tbl-cl">
+      <div class="lgn-cntnt">
+        <div class="lgn-lgo text-center">
+          <a href="javascript:;"
+            ><img class="img-responsive" src="assets/images/logo.png" alt="Logo"
+          /></a>
+        </div>
+        <div class="lgn-frm-box">
+          <div class="login-form">
+            <div class="lgn-ttl text-center">REGISTER</div>
+            <form class="cmn-form mt-10">
+              <div class="row">
+                  <div class="col-md-12">
+                    <div class="order-radio-main mb-4">
+                        <label class="bmd-label-floating">User Type</label>
+                        <div class="order-type-radio d-flex">
+                            <div class="custom-control custom-radio ml-0">
+                                <input type="radio" 
+                                      id="registerInput1" 
+                                      name="roleId" 
+                                      #roleId="ngModel"
+                                      [(ngModel)]="account.roleId"
+                                      value="3" 
+                                      class="custom-control-input">
+                                <label class="custom-control-label" 
+                                for="registerInput1">Patient</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" 
+                                      id="registerInput2" 
+                                      name="roleId" 
+                                      #roleId="ngModel"
+                                      [(ngModel)]="account.roleId" 
+                                      value="4"
+                                      class="custom-control-input">
+                                <label class="custom-control-label" 
+                                      for="registerInput2">Doctor</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" 
+                                      id="registerInput3" 
+                                      name="roleId" 
+                                     #roleId="ngModel"
+                                      [(ngModel)]="account.roleId" 
+                                      value="5"
+                                      class="custom-control-input">
+                                <label class="custom-control-label" 
+                                      for="registerInput3">Leboratory</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" 
+                                      id="registerInput4" 
+                                      name="roleId" 
+                                      #roleId="ngModel"
+                                      [(ngModel)]="account.roleId" 
+                                      value="9"
+                                      class="custom-control-input">
+                                <label class="custom-control-label" 
+                                      for="registerInput4">Pharma</label>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">User Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="account.userName"
+                      name="username"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      [(ngModel)]="account.userPassword"
+                      name="Password"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Confirm Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      [(ngModel)]="account.confirmPassword"
+                      name="Confirm Password"
+                    />
+                  </div>
+                </div>
+                <!-- <div class="floating-label cmn-select">
+                  <select
+                    class="floating-select form-control"
+                    placeholder=""
+                    [(ngModel)]="account.roleId"
+                    name="roleId"
+                    id="registerInput1"
+                    #roleId="ngModel"
+                  >
+                    <option value="" hidden=""></option>
+                    <option value="3">Patient</option>
+                    <option value="4">Doctor</option>
+                    <option value="5">Laboratory</option>
+                    <option value="9">Pharma</option>
+                  </select>
+                  <label>User Type</label>
+                </div> -->
+                <div
+                  *ngIf="account.roleId != '3' && account.roleId != ''"
+                  class="w-100"
+                >
+                  <div class="floating-label cmn-select">
+                    <input
+                      class="floating-select form-control"
+                      type="text"
+                      [(ngModel)]="account.unique_ID"
+                      name="Identity"
+                    />
+                    <label>Licenec Id</label>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">First Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="account.perFname"
+                      name="Firstname"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Last Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="account.perLname"
+                      name="Lasttname"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Email Address</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      [(ngModel)]="account.userEmail"
+                      name="Email Address"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Phone Number</label>
+                    <input
+                      type="tel"
+                      class="form-control"
+                      [(ngModel)]="account.perContactNumber"
+                      name="Phone number"
+                      maxlength="10"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">OTP</label>
+                    <input
+                      type="tel"
+                      class="form-control"
+                      [(ngModel)]="account.otp"
+                      name="otp"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="ml-auto mr-auto text-center">
+                    <button
+                      class="btn lgn-btn thm-btn otp-btn"
+                      size="small"
+                      (click)="getOtp()"
+                    >
+                      OTP
+                    </button>
+                  </div>
+                </div>
+                <br />
+                <br />
+                <br />
+
+                <!-- <button
+                  size="small"
+              color="primary"
+                  class="ml-auto mr-auto text-center"
+                  (click)="getOtp()"
+                >
+                  Get Otp
+                </button>  -->
+              </div>
+              <div class="row">
+                <div class="ml-auto mr-auto text-center">
+                  <button class="btn lgn-btn thm-btn" (click)="doSignup()">
+                    Join Now <img src="assets/images/arwrgt.png" />
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="signup-link">
+          <span class="opacity-6">Already have an account?</span>
+          <a (click)="doLogin()" href="javascript:;">Sign In</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+
+<!-- <form text-center class="login-inner-hc">
+    <ion-list>
+      <ion-img
+        width="112"
+        height="120"
+        src="assets/imgs/health-chain-logo.png"
+      ></ion-img>
+      <div class="login-signin-hc">
+        <div class="login-head-hc">
+          <h5>Create an Account</h5>
+        </div>
+
+
+        <ion-item>
+          <ion-label color="" floating>User Name</ion-label>
+          <ion-input
+            type="text"
+            [(ngModel)]="account.userName"
+            name="username"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="" floating>Password</ion-label>
+          <ion-input
+            type="password"
+            [(ngModel)]="account.userPassword"
+            name="Password"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="" floating>Confirm Password</ion-label>
+          <ion-input
+            type="password"
+            [(ngModel)]="account.confirmpassword"
+            name="Confirm Password"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>User Type</ion-label>
+          <ion-select
+            placeholder=""
+            [(ngModel)]="account.userType"
+            name="roleId"
+            id="registerInput1"
+            #roleId="ngModel"
+          >
+            <ion-option value="3">Patient</ion-option>
+            <ion-option value="4">Doctor</ion-option>
+            <ion-option value="5">Laboratory</ion-option>
+            <ion-option value="9">Pharma</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item *ngIf="account.userType != '3' && account.userType != ''"> 
+          <ion-label color="" floating>Unique Identity</ion-label>
+          <ion-input
+            type="text"
+            [(ngModel)]="account.unique_ID"
+            name="Identity"
+          ></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label color="" floating>First Name</ion-label>
+          <ion-input
+            type="text"
+            [(ngModel)]="account.perFname"
+            name="Firstname"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="" floating>Last Name</ion-label>
+          <ion-input
+            type="text"
+            [(ngModel)]="account.perLname"
+            name="Lastname"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="" floating>Email Address</ion-label>
+          <ion-input
+            type="email"
+            [(ngModel)]="account.userEmail"
+            name="Email Address"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="" floating>Phone Number</ion-label>
+          <ion-input
+            type="tel"
+            [(ngModel)]="account.perContactNumber"
+            name="Phone number"
+            maxlength="10"
+          ></ion-input>
+        </ion-item>
+
+        <div padding>
+          <button (click)="doSignup()" ion-button class="" block>
+            Register
+          </button>
+        </div>
+      </div>
+    </ion-list>
+  </form>
+  <div class="alredayHave-hc" text-center>
+    Already have account? <a (click)="doLogin()" href="#">Login</a>
+  </div> -->

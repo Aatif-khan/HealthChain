@@ -1,0 +1,76 @@
+<!--
+  Generated template for the DoctorprofileprofessionalinfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header> </ion-header>
+
+<ion-content>
+  <div class="pl15 pr15 form-bb">
+    <div class="form-group">
+      <label class="bmd-label-floating">Speciality Name</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="profilePersonal.specialityName"
+        name="specialityName"
+      />
+    </div>
+  </div>
+  <div class="floating-label cmn-select">
+    <select
+      class="floating-select form-control"
+      [(ngModel)]="profilePersonal.specialityCode"
+      name="specialityCode"
+    >
+      <option value="specialityCode">specialityCode</option>
+      <option value="GeneralPractice">General Practice</option>
+      <option value="GeneralSurgery">General Surgery</option>
+      <option value="AllErgyorimmunology">All Ergyorimmunolog</option>
+      <option value="LabSpeciality">Lab Speciality</option>
+      <option value="Otolaryngology">Otolaryngology</option>
+    </select>
+    <label>Speciality Code</label>
+  </div>
+
+  <div padding align="center">
+    <div class="form-button bg-gray pt-25 mb-20 text-center">
+      <button class="btn cmn-thm-btn mr-25" (click)="submitDetails()">
+        SAVE
+      </button>
+      <button type="button" class="cmn-wht-btn">
+        CANCEL
+      </button>
+    </div>
+  </div>
+</ion-content>
+
+<!-- 
+<ion-item>
+  <ion-label floating>Speciality Name</ion-label>
+  <ion-input
+    [(ngModel)]="profilePersonal.specialityName"
+    type="text"
+    name="specialityName"
+  ></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label color="" floating>Speciality Code</ion-label>
+  <ion-input
+    [(ngModel)]="profilePersonal.specialityCode"
+    type="text"
+    name="specialityCode"
+  ></ion-input>
+  <ion-select>
+    <ion-option value="specialityCode">specialityCode</ion-option>
+    <ion-option value="General Practice">General Practice</ion-option>
+    <ion-option value="General Surgery">General Surgery</ion-option>
+    <ion-option value="All Ergyorimmunolog">All Ergyorimmunolog</ion-option>
+    <ion-option value="Lab Speciality">Lab Speciality</ion-option>
+    <ion-option value="Otolaryngology">Otolaryngology</ion-option>
+  </ion-select>
+</ion-item> 
+
+</ion-content> -->

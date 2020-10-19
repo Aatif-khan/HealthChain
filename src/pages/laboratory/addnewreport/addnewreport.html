@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle right>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>Add New Report</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only>
+        <ion-icon name="" class="header-logo"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="cmn-inr-form">
+    <ion-list>
+      <ion-item>
+        <ion-label color="" floating>Report Type</ion-label>
+        <ion-select [(ngModel)]="reporttypeId">
+          <ion-option>
+            Pathology
+          </ion-option>
+          <ion-option>
+            RadioImaging
+          </ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label color="" floating>Category</ion-label>
+
+        <ion-input
+          type="text"
+          name="Category"
+          [(ngModel)]="category"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="" floating>Report Name</ion-label>
+
+        <ion-input
+          type="text"
+          name="Report Name"
+          [(ngModel)]="reportname"
+        ></ion-input>
+      </ion-item>
+
+      <div class="cmn-ftr-btn">
+        <button
+          ion-button
+          class="cmn-btn-styl prpl-btn"
+          (click)="callAddNewReport()"
+          block
+        >
+          Save
+        </button>
+      </div>
+    </ion-list>
+  </div></ion-content
+>

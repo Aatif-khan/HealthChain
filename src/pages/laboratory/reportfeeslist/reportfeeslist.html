@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle left>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>Report Fees List</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <ion-icon name="" class="notification-icon"
+          ><span class="ntfctn-dot"></span
+        ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="cmn-list">
+    <div
+      class="cmn-apmnt-row clearfix"
+      #slidingItem
+      *ngFor="let item of reportFeesList"
+    >
+      <div class="apmn-lft">
+        <div class="dr-name">Report Name : {{ item.reportName }}</div>
+        <div class="dr-name">Cost : {{ item.costperreport }}</div>
+        <button ion-button (click)="editreportfees(item)">Edit</button>
+      </div>
+    </div>
+  </div>
+
+  <ion-fab bottom right>
+    <button class="cmn-create-btn" ion-fab (click)="addItem()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>
+
+<!-- <div class="cmn-list-page">
+  <ion-list class="cmn-tb-cntnt">
+    <ion-item-sliding #slidingItem *ngFor="let item of reportFeesList">
+      <ion-item>
+        <div class="ptnt-name">Report Name : {{ item.reportName }}</div>
+        <div class="ptnt-name">Cost : {{ item.costperreport }}</div>
+        <button ion-button (click)="editreportfees(item)">Edit</button>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+</div> -->

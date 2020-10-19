@@ -1,0 +1,80 @@
+<!--
+  Generated template for the MedicineinventoryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Medicine Inventory</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>Medicine Required</ion-label>
+    <ion-select
+      placeholder=""
+      [(ngModel)]="MedicineRequired"
+      name="MedicineRequired"
+    >
+      <ion-option
+        *ngFor="let category of medicineinventory; let idx = index"
+        [value]="category.drugCompoundName"
+      
+        >{{ category.drugCompoundName }}</ion-option
+      >
+    </ion-select>
+  </ion-item>
+ <!-- selected="{{ (idx == 0).drugCompoundName}}" -->
+  <ion-item>
+    <ion-label color="" floating>Medicine quntity</ion-label>
+    <ion-input
+      type="number"
+      [(ngModel)]="medicinequintity"
+      name="Medicinequntity"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="" floating>Cost Per Medicine </ion-label>
+    <ion-input
+      type="number"
+      [(ngModel)]="costpermedicine"
+      name="costpermedicine"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="" floating>Medicine BatchNo</ion-label>
+    <ion-input
+      type="string"
+      [(ngModel)]="batchno"
+      name="medicinebatchno"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="" floating>Medicine Expiry Date</ion-label>
+    <ion-datetime
+      displayFormat="DD MMMM YYYY"
+      pickerFormat="DD MMMM YYYY"
+      name="expirydate"
+      [(ngModel)]="expirydate"
+    ></ion-datetime>
+    <span class="input-icon"><img src="assets/images/date.png"/></span>
+  </ion-item>
+
+  <div class="form-button bg-gray pt-25 text-center">
+    <button
+      type="button"
+      class="cmn-thm-btn mr-25"
+      (click)="callAddAppointmentApi()"
+    >
+      Save
+    </button>
+    <button type="button" class="cmn-wht-btn" (click)="addnewmedicine()">
+      Add New Medicine
+    </button>
+  </div>
+</ion-content>

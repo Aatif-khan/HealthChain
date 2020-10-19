@@ -1,0 +1,64 @@
+<!--
+  Generated template for the PatientlabreportlistPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle left>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>Patient Lab Report List</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <ion-icon name="" class="notification-icon"
+          ><span class="ntfctn-dot"></span
+        ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="cmn-list">
+    <div
+      class="cmn-apmnt-row clearfix"
+      (click)="viewReportList(obj)"
+      *ngFor="let obj of labReportList; let idx = index"
+    >
+      <div class="apmn-lft">
+        <div class="dr-name">Lab Name - {{ obj.providerName }}</div>
+
+        <!-- <div class="dr-name">Patient Name - {{ obj.patientName }}</div> -->
+        <div class="dr-adrs">
+          <img src="assets/images/dis-ic.png" />
+          Report - {{ obj.reportDetail }}
+        </div>
+        <div class="apmnt-dt-tm">
+          <img src="assets/images/cal.png" />
+          {{ obj.date }}<span class="apmn-time">{{ obj.time }}</span>
+        </div>
+      </div>
+      <div class="apmn-rgt pt0">
+        <div class="view-dtl">
+          <a href="javascript:;">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<!-- <div class="cmn-list-page">
+  <ion-list class="cmn-tb-cntnt">
+    <ion-item
+      (click)="viewReportList(obj)"
+      *ngFor="let obj of labReportList; let idx = index"
+    >
+      <div class="ptnt-name">Lab Name - {{ obj.providerName }}</div>
+      <div class="ptnt-name">Report - {{ labReportNames[idx] }}</div>
+      <div class="apmnt-tm">{{ obj.date }} {{ obj.time }}</div>
+    </ion-item>
+  </ion-list>
+</div> -->

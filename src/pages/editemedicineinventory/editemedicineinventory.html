@@ -1,0 +1,56 @@
+<!--
+  Generated template for the MedicineinventoryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title> Edit Medicine Inventory</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>Medicine Required</ion-label>
+    <ion-select
+      placeholder=""
+      [(ngModel)]="MedicineRequired"
+      name="MedicineRequired"
+      disabled="true"
+    >
+      <ion-option [value]="MedicineRequired" selected="true"
+        >{{ MedicineRequired }}</ion-option
+      >
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="" floating>Medicine quntity</ion-label>
+    <ion-input
+      type="number"
+      [(ngModel)]="medicinequintity"
+      name="Medicinequntity"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="" floating>costpermedicine</ion-label>
+    <ion-input
+      type="number"
+      [(ngModel)]="costpermedicine"
+      name="costpermedicine"
+    ></ion-input>
+  </ion-item>
+  <br />
+  <button
+    type="button"
+    class="cmn-thm-btn mr-25"
+    (click)="callupdatemedicineapi()"
+  >
+    Update
+  </button>
+  <!-- <button ion-button (click)="callupdatemedicineapi()">Update</button> -->
+
+  <!-- <button ion-button (click)="addnewmedicine()">Add New Medicine</button> -->
+</ion-content>

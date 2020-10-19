@@ -1,0 +1,57 @@
+<!--
+  Generated template for the AddplanPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle right>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>Add Plan</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only>
+        <ion-icon name="" class="header-logo"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div class="cmn-inr-form">
+    <ion-list>
+      <ion-item>
+        <ion-label color="" floating>Plan name</ion-label>
+        <ion-input type="text" name="planname" [(ngModel)]="account.planname" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="" floating>Description</ion-label>
+        <ion-input type="text" name="Desciption" [(ngModel)]="account.description"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="" floating>Coverage</ion-label>
+        <ion-input type="text" name="Coverage" [(ngModel)]="account.coverage" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="" floating>Disease Associated</ion-label>
+        <ion-input type="text" name="Disease" [(ngModel)]="account.disease" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="" floating>Years</ion-label>
+        <ion-input type="text" name="Years" [(ngModel)]="account.years" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="" floating>Additional Detail</ion-label>
+        <ion-input type="text" name="Additionaldetail" [(ngModel)]="account.additionaldetail"></ion-input>
+      </ion-item>
+
+      <div class="cmn-ftr-btn">
+        <button (click)="callAddBookLabApi()" ion-button class="cmn-btn-styl prpl-btn" block>Save</button>
+      </div>
+
+    </ion-list>
+  </div>
+
+</ion-content>

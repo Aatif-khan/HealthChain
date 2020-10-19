@@ -1,0 +1,67 @@
+<!--
+  Generated template for the PatientmedicineboughtlistPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle right>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>Medicine Bought List</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only>
+        <ion-icon name="" class="header-logo"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="cmn-list-page">
+    <!-- <div class="cmn-tab-dsgn">
+          <ul>
+            <li class="first" (click)="changeItem(1)"><button type="button" class="tab-btn">Today</button></li>
+            <li (click)="changeItem(2)"><button type="button" class="tab-btn">Tomorrow</button></li>
+            <li class="last" (click)="changeItem(3)"><button type="button" class="tab-btn">View All</button></li>
+          </ul>
+      </div> -->
+    <ion-list class="cmn-tb-cntnt">
+      <ion-item-sliding #slidingItem *ngFor="let obj of medicineBoughtList">
+        <ion-item (click)="viewMedicineBoughtList(obj)">
+          <!-- <div class="ptnt-name">{{doctorVisitLists.providerName}}</div> -->
+          <!-- <div class="ptnt-name">{{obj.patVisitDate}}</div> -->
+          <div class="ptnt-name">Appolo Medical Store</div>
+          <div class="rson-fr-meet">
+            Aceclofenac 100 mg Tab Rs. 100.00<br />Aceclofenac 100 mg Tab Rs.
+            100.00
+          </div>
+          <!-- <div class="rson-fr-meet">{{obj.fcLocationName}} - {{obj.facilityCenterType}}</div> -->
+          <div class="apmnt-tm">{{ obj.patVisitDate }} {{ obj.times }}</div>
+          <div class="apmnt-status">{{ obj.patVisitType }}</div>
+        </ion-item>
+        <ion-item-options *ngIf="obj.patVisitType == 'New'"
+          ><!-- Pending -->
+          <button ion-button color="danger" (click)="Cancel(obj)">
+            Cancel
+          </button>
+        </ion-item-options>
+
+        <ion-item-options *ngIf="obj.patVisitType == 'Approved'">
+          <button ion-button color="calm" (click)="Swipe(obj)">Swipe</button>
+        </ion-item-options>
+
+        <ion-item-options
+          *ngIf="
+            obj.patVisitType == 'Reject' &&
+            obj.patVisitType == 'Cancelled' &&
+            obj.patVisitType == 'Completed'
+          "
+        >
+          <button ion-button color="calm" (click)="Add(obj)">Add</button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+</ion-content>

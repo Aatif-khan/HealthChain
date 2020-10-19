@@ -1,0 +1,262 @@
+<!--
+  Generated template for the PatientprofiledocumentsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header> </ion-header>
+
+<ion-content>
+  <div class="tab-pane" id="Documents">
+    <div class="documents">
+      <!-- doc no start -->
+      <div class="document-no bg-fff cmn-form no-input-efct">
+        <!-- <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">SSN No</label>
+            <input
+              type="number"
+              class="form-control"
+              name="ssnNo"
+              [(ngModel)]="profileDocument.perSSN"
+            />
+          </div>
+        </div>
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">SIN No</label>
+            <input
+              type="number"
+              class="form-control"
+              name="ssnNo"
+              [(ngModel)]="profileDocument.perSIN"
+            />
+          </div>
+        </div> -->
+      </div>
+      <!-- doc no end -->
+      <!-- aadhar detail start -->
+      <div class="aadhar-dtl bg-fff cmn-form no-input-efct mt5">
+        <div class="dcmt-se-ttl">Aadhar Card</div>
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">Aadhar No</label>
+            <input
+              type="text"
+              class="form-control"
+              name="aadharCardNumber"
+              [(ngModel)]="profileDocument.perAadhaarCardNo"
+            />
+          </div>
+        </div>
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group cmn-file-upld mb-0 pt-30">
+            <div class="filename"></div>
+            <input
+              id="file-upld"
+              type="file"
+              class="form-control cmn-fl-input custom-file-input"
+              value=""
+            />
+            <label
+              class="custom-file-label bmd-label-floating"
+              (click)="buttonClickForChooseIDs(1)"
+              ><span class="lbl-txt">Upload File</span></label
+            >
+          </div>
+        </div>
+        <div class="preview-thumb pl15 pr15">
+          <div class="prvw-doc">
+            <img
+              src="{{profileDocument.perAadhaarCardID}}"
+              (click)="showPhoto(profileDocument.perAadhaarCardID)"
+              class="prvw-doc"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- aadhar detail end -->
+      <!-- Pan Card detail start -->
+      <div class="aadhar-dtl bg-fff cmn-form no-input-efct mt5">
+        <div class="dcmt-se-ttl">Pan Card</div>
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">Pan No</label>
+            <input
+              type="text"
+              class="form-control"
+              name="panNumber"
+              [(ngModel)]="profileDocument.perPANcardNo"
+            />
+          </div>
+        </div>
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group cmn-file-upld mb-0 pt-30">
+            <div class="filename"></div>
+            <input
+              id="pan-upld"
+              type="file"
+              class="form-control cmn-fl-input custom-file-input"
+              value=""
+            />
+            <label
+              (click)="buttonClickForChooseIDs(2)"
+              class="custom-file-label bmd-label-floating"
+              ><span class="lbl-txt">Upload File</span></label
+            >
+          </div>
+        </div>
+        <div class="preview-thumb pl15 pr15">
+          <div class="prvw-doc">
+            <img
+              src="{{profileDocument.perPANcardID}}"
+              (click)="showPhoto(profileDocument.perPANcardID)"
+              class="prvw-doc"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- Pan Card detail end -->
+      <!-- License detail start -->
+      <div class="aadhar-dtl bg-fff cmn-form no-input-efct mt5">
+        <div class="dcmt-se-ttl">License</div>
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">License No</label>
+            <input
+              type="text"
+              class="form-control"
+              name="licenseNumber"
+              [(ngModel)]="profileDocument.perDrivingLicenseNo"
+            />
+          </div>
+        </div>
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group cmn-file-upld mb-0 pt-30">
+            <div class="filename"></div>
+            <input
+              id="license-upld"
+              type="file"
+              class="form-control cmn-fl-input custom-file-input"
+              value=""
+            />
+            <label
+              (click)="buttonClickForChooseIDs(3)"
+              class="custom-file-label bmd-label-floating"
+              ><span class="lbl-txt">Upload File</span></label
+            >
+          </div>
+        </div>
+        <div class="preview-thumb pl15 pr15"></div>
+        <div class="prvw-doc">
+          <img
+            src="{{profileDocument.perDrivingLicenseID}}"
+            (click)="showPhoto(profileDocument.perDrivingLicenseID)"
+            class="prvw-doc"
+          />
+        </div>
+      </div>
+      <!-- License detail end -->
+      <div class="form-button bg-gray mb-20 pt-25 text-center">
+        <button class="btn cmn-thm-btn mr-25" (click)="clickOnButtonSave()">
+          SAVE
+        </button>
+        <button type="button" class="btn  cmn-wht-btn" (click)="cancel()">
+          CANCEL
+        </button>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<!-- <ion-item no-lines>
+  <ion-label>Aadhar Card</ion-label>
+  <ion-checkbox
+    (click)="isChkBoxAdharCardActive=!isChkBoxAdharCardActive"
+  ></ion-checkbox>
+</ion-item>
+<ion-item no-lines> </ion-item>
+<div *ngIf="isChkBoxAdharCardActive">
+  <ion-item no-lines>
+    <ion-label>Upload Adharcard</ion-label>
+  </ion-item>
+  <ion-item no-lines>
+    <button ion-button small (click)="buttonClickForChooseIDs(1)">
+      Choose File
+    </button>
+  </ion-item>
+  <div class="uploaded-img">
+    <img
+      src="{{profileDocument.perAadhaar}}"
+      style="width: 100%"
+      [hidden]="imageAadharCard === null"
+    />
+  </div>
+</div>
+
+<ion-item no-lines>
+  <ion-label>Pancard Card</ion-label>
+  <ion-checkbox
+    (click)="isChkBoxPanCardActive=!isChkBoxPanCardActive"
+  ></ion-checkbox>
+</ion-item>
+<ion-item no-lines> </ion-item>
+<div *ngIf="isChkBoxPanCardActive">
+  <ion-item no-lines>
+    <ion-label>Upload Pancard</ion-label>
+  </ion-item>
+  <ion-item no-lines>
+    <button ion-button small (click)="buttonClickForChooseIDs(2)">
+      Choose File
+    </button>
+  </ion-item>
+  <div class="uploaded-img">
+    <img
+      src="{{profileDocument.perPANCard}}"
+      style="width: 100%"
+      [hidden]="imagePancard === null"
+    />
+  </div>
+</div>
+
+<ion-item no-lines>
+  <ion-label>License</ion-label>
+  <ion-checkbox
+    (click)="isChkBoxLicenseActive=!isChkBoxLicenseActive"
+  ></ion-checkbox>
+</ion-item>
+<ion-item no-lines> </ion-item>
+<div *ngIf="isChkBoxLicenseActive">
+  <ion-item no-lines>
+    <ion-label>Upload License</ion-label>
+  </ion-item>
+  <ion-item no-lines>
+    <button ion-button small (click)="buttonClickForChooseIDs(3)">
+      Choose File
+    </button>
+  </ion-item>
+  <div class="uploaded-img">
+    <img
+      src="{{profileDocument.perDriving}}"
+      style="width: 100%"
+      [hidden]="imageLicense === null"
+    />
+  </div>
+</div>
+
+<ion-item>
+  <ion-label floating>SSN No</ion-label>
+  <ion-input type="number" [(ngModel)]="profileDocument.perSSN"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label floating>SIN No</ion-label>
+  <ion-input type="text" [(ngModel)]="profileDocument.perSIN"></ion-input>
+</ion-item>
+
+<div padding align="center">
+  <div padding>
+    <button ion-button (click)="clickOnButtonSave()">Save</button>
+    <button ion-button>Reset</button>
+  </div>
+</div> -->

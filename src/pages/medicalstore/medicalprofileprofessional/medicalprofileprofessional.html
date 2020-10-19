@@ -1,0 +1,69 @@
+<!--
+  Generated template for the ProfiledemographicPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+</ion-header>
+
+
+<ion-content padding>
+
+  
+<ion-item>
+      <ion-label floating>Associated Pharmacy</ion-label>
+      <ion-input type="text" [(ngModel)]="associatedPharmacy"></ion-input>
+    </ion-item>
+  
+    <button ion-button (click)="addtoListPharmacy()">Add Pharmacy</button>
+  
+    <ion-item>
+      <ion-list>
+        <ion-item *ngFor="let list of professionalProfile.associatedPharmacyList">
+          {{list}}
+          <ion-icon class="trashicon" (click)="deleteelementPharmacy(list)" name="trash" data-ng-if="(professionalProfile.associatedPharmacyList.length > 0)"></ion-icon>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label floating>Associated Hospital</ion-label>
+      <ion-input type="text" [(ngModel)]="associatedHospital"></ion-input>
+    </ion-item>
+  
+    <button ion-button (click)="addtoListHospital()">Add Hospital</button>
+  
+    <ion-item>
+      <ion-list>
+        <ion-item *ngFor="let list of professionalProfile.associatedHospitalList">
+          {{list}}
+          <ion-icon class="trashicon" (click)="deleteelementHospital(list)" name="trash" data-ng-if="(professionalProfile.associatedHospitalList.length > 0)"></ion-icon>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Associated Doctor</ion-label>
+      <ion-input type="text" [(ngModel)]="associatedDoctor"></ion-input>
+    </ion-item>
+  
+    <button ion-button (click)="addtoListDoctor()">Add Doctor</button>
+  
+    <ion-item>
+      <ion-list>
+        <ion-item *ngFor="let list of professionalProfile.associatedDoctorList">
+          {{list}}
+          <ion-icon class="trashicon" (click)="deleteelementDoctor(list)" name="trash" data-ng-if="(professionalProfile.associatedDoctorList.length > 0)"></ion-icon>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+
+  <div padding align="center">
+    <div padding>
+      <button ion-button type="submit" (click)="submitDetails()">Submit</button>
+      <button ion-button type="Cancel">Cancel</button>
+    </div>
+  </div>
+</ion-content>

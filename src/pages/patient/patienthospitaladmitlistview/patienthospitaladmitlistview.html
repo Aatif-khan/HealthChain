@@ -1,0 +1,87 @@
+<!--
+  Generated template for the PatienthospitaladmitlistviewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>Patient Hospital Admit List View</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+      <form text-center class="login-inner-hc" style="height: 50%;">
+          <ion-list >
+            <div class="login-signin-hc">  
+              <div class="login-head-hc">
+                <h5>Patient Hospital Admit List View</h5>
+              </div>     
+            
+              <ion-item>
+                <ion-label color="">Admitted Date :</ion-label>
+                <ion-input type="text" [(ngModel)]="PatientHospitalAdmitlistView.patVisitDate" name="Admitteddate" disabled="true"></ion-input>
+              </ion-item>
+      
+              <ion-item>
+                  <ion-label color="">Admitted Time :</ion-label>
+                  <ion-input type="text" [(ngModel)]="PatientHospitalAdmitlistView.times" name="Admittedtimes" disabled="true"></ion-input>
+              </ion-item>
+              
+              <ion-item>
+                  <ion-label color="">Patient Id :</ion-label>
+                  <ion-input type="text" [(ngModel)]="PatientHospitalAdmitlistView.patientID" name="patientID" disabled="true"></ion-input>
+              </ion-item>
+  
+              <ion-item>
+                  <ion-label color="">Symptoms Found :</ion-label>
+                  <ion-input type="text" [(ngModel)]="PatientHospitalAdmitlistView.patSymptoms" name="Symptoms" disabled="true"></ion-input>
+              </ion-item>
+              
+  
+              <ion-item>
+                  <ion-label color="">Treatment Provided :</ion-label>
+                  <ion-input type="text" [(ngModel)]="PatientHospitalAdmitlistView.treatmentProvided" name="Treatment" disabled="true"></ion-input>
+              </ion-item>
+  
+              <ion-item>
+                  <ion-label color="">Disease Name :</ion-label>
+                  <ion-input type="text" [(ngModel)]="DiseaseData"  name="Disease " disabled="true"></ion-input>
+                </ion-item>
+  
+              <ion-item>
+                  <ion-label color="">Side Effects :</ion-label>
+                  <ion-input type="text" [(ngModel)]="PatientHospitalAdmitlistView.patSideEffect"  name="Side" disabled="true"></ion-input>
+              </ion-item>
+  
+              <ion-item>
+                  <ion-label color="">Extra Detail :</ion-label>
+                  <ion-input type="text" [(ngModel)]="PatientHospitalAdmitlistView.patExtraDetails" name="Extra" disabled="true"></ion-input>
+              </ion-item>
+  
+              <ion-item>
+                  <ion-label color="">Ward Detail :</ion-label>
+                  <ion-input type="text"   name="Ward" disabled="true"></ion-input>
+              </ion-item>
+  
+              <ion-item>
+                  <ion-label color="">Medicine Given :</ion-label>
+                  <ion-input type="text" [(ngModel)]="Medicine" name="Medicine" disabled="true"></ion-input>
+              </ion-item>
+  
+              <ion-item>
+                  <ion-label color="">Report Taken :</ion-label>
+                  <ion-input type="text" [(ngModel)]="Report" name="Report" disabled="true"></ion-input>
+              </ion-item>
+  
+              <ion-item>
+                 <button ion-button (click)="claimInsurance()" style="float: right;">Claim Insurance</button>
+              </ion-item>
+            </div>       
+          </ion-list>
+        </form>
+  </ion-content>
+  

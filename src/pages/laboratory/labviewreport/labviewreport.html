@@ -1,0 +1,164 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle left>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>Laboratory Report View</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <ion-icon name="" class="notification-icon"
+          ><span class="ntfctn-dot"></span
+        ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="view-list">
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Report Date
+      </div>
+      <div class="view-list-val pull-right">
+        {{ viewReportDetails.date }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Report Time
+      </div>
+      <div class="view-list-val pull-right">
+        {{ viewReportDetails.time }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Patient Name
+      </div>
+      <div class="view-list-val pull-right">
+        {{ viewReportDetails.patientName }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Report Name
+      </div>
+      <div class="view-list-val pull-right">
+        {{ allReportlist }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Disease Associated
+      </div>
+      <div class="view-list-val pull-right">
+        {{ allDiseaseName }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Extra Detail
+      </div>
+      <div
+        class="view-list-val pull-right"
+        *ngFor="let item of viewReportDetails.reportLapdata"
+      >
+        {{ item.extraDetail }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Attached Report
+      </div>
+      <div
+        class="view-list-val pull-right"
+        *ngFor="let item of viewReportDetails.reportLapdata"
+      >
+        {{ item.reportPath | trimPath }}
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<!-- <form text-center class="login-inner-hc" style="height: 50%;">
+  <ion-list>
+    <div class="login-signin-hc">
+      <ion-item>
+        <ion-label color="">Report Date :</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="viewReportDetails.date"
+          name="Date"
+          disabled="true"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="">Report Time :</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="viewReportDetails.time"
+          name="Time"
+          disabled="true"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="">Patient Name :</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="viewReportDetails.patientName"
+          name="ReportID"
+          disabled="true"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="">Report Name :</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="allReportlist"
+          name="Name"
+          disabled="true"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="">Disease Associated :</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="allDiseaseName"
+          name="Disease"
+          disabled="true"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="">Extra Detail :</ion-label>
+        <ion-input
+          *ngFor="let item of viewReportDetails.reportLapdata"
+          type="text"
+          [(ngModel)]="item.extraDetail"
+          name="Detail"
+          disabled="true"
+          wrapping
+        ></ion-input>
+      </ion-item>
+
+      <ion-item text-wrap>
+        <ion-label color="">Attached Report :</ion-label>
+        <ion-input
+          *ngFor="let item of viewReportDetails.reportLapdata"
+          type="text"
+          [(ngModel)]="item.reportPath"
+          name="Detail123"
+          disabled="true"
+          wrapping
+        >
+          {{ item.reportPath | trimPath }}
+        </ion-input>
+      </ion-item>
+    </div>
+  </ion-list>
+</form> -->

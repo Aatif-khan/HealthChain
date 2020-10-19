@@ -1,0 +1,45 @@
+page-login {
+
+}
+/* start login css */
+.login-hc {
+	background: url(../assets/imgs/background.jpg) no-repeat 0 0 / cover;
+	height: 100%;
+	padding:40px 20px 20px 20px;
+	width: 100%;
+}
+
+.login-inner-hc {
+    height: calc(100% - 34px);
+}
+
+.login-hc ion-img {
+	background: transparent;
+}
+
+.login-signin-hc {
+	margin-top:55px;
+	background:#fff;
+	border-radius:5px;
+	box-shadow:2px 0 3px rgba(0,0,0,0.18);
+	overflow:hidden;
+}
+
+.login-head-hc {
+	min-height:44px;
+	background:#eeeeee;
+}
+
+.login-head-hc h5 {
+	color: #6c6c6c;
+	margin: 0;
+	padding-top: 13px;
+	padding-bottom: 13px;
+}
+
+.alredayHave-hc, .alredayHave-hc a {
+	color: #fff;
+	font-weight: 700;
+	vertical-align:bottom;
+}
+/* End login css */

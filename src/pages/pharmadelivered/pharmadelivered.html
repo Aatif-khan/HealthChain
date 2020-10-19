@@ -1,0 +1,281 @@
+<!--
+  Generated template for the AppointmentlistPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle left>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>Pharma Delivered</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <ion-icon name="" class="notification-icon"
+          ><span class="ntfctn-dot"></span
+        ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="cmn-list-page">
+    <div *ngIf="selectRole == 'Patient'">
+      <div
+        class="cmn-apmnt-row clearfix"
+        #slidingItem
+        *ngFor="let item of pharmadeliveredlist"
+      >
+        <div class="apmn-lft">
+          <div class="dr-name">{{ item.providerName }}</div>
+          <div class="dr-adrs">
+            <img src="assets/images/location.png" />
+            {{ item.facilityCenterName }} {{ item.facilityCenterType }} - {{
+            item.fcLocationName }}
+          </div>
+          <div class="vst-type">
+            {{ item.medname }}
+          </div>
+          <div class="vst-type">
+            {{ item.visittype }}
+          </div>
+        </div>
+        <div class="apmn-rgt pt0">
+          <div class="dctr-vst-dt">
+            {{ item.apptdate | date: "dd/MM/yyyy" }}<span class="apmn-time"
+              >{{ item.patAppTimeTo | date: "shortTime" }}</span
+            >
+          </div>
+
+          <div *ngIf="item.status == 'Approved'" class="apmn-rgt">
+            <span class="apmnt-lbl accepted">
+              {{ item.status }}
+            </span>
+          </div>
+
+          <div *ngIf="item.status == 'Cancel'" class="apmn-rgt">
+            <span class="apmnt-lbl cancelled">
+              {{ item.status }}
+            </span>
+          </div>
+
+          <div *ngIf="item.status == 'Rejected'" class="apmn-rgt">
+            <span class="apmnt-lbl rejected">
+              {{ item.status }}
+            </span>
+          </div>
+
+          <div *ngIf="item.status == 'Pending'" class="apmn-rgt">
+            <span class="apmnt-lbl pending">
+              {{ item.status }}
+            </span>
+          </div>
+
+          <div *ngIf="item.status == 'Completed'" class="apmn-rgt">
+            <span
+              class="apmnt-lbl accepted                                    "
+            >
+              {{ item.status }}
+            </span>
+          </div>
+
+          <!-- <div class="apmn-rgt">
+            <span class="apmnt-lbl accepted">
+              {{ item.status }}
+            </span>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="selectRole == 'MedicalCenter'">
+      <div
+        class="cmn-apmnt-row clearfix"
+        #slidingItem
+        *ngFor="let item of pharmadeliveredlist"
+      >
+        <div class="apmn-lft">
+          <div class="dr-name">{{ item.patientName }}</div>
+          <!-- <div class="dr-adrs">
+              <img src="assets/images/location.png" />
+              {{ item.facilityCenterName }} {{ item.facilityCenterType }} -
+              {{ item.fcLocationName }}
+            </div> -->
+          <div class="vst-type">
+            {{ item.medname }}
+          </div>
+          <div class="vst-type">
+            {{ item.visittype }}
+          </div>
+          <div class="dctr-vst-dt">
+            {{ item.apptdate | date: "dd/MM/yyyy" }}<span class="apmn-time"
+              >{{ item.patAppTimeTo | date: "shortTime" }}</span
+            >
+          </div>
+        </div>
+        <div class="apmn-rgt pt0">
+          <div *ngIf="item.status == 'Approved'" class="apmn-rgt">
+            <span class="apmnt-lbl accepted">
+              {{ item.status }}
+            </span>
+          </div>
+
+          <div *ngIf="item.status == 'Cancel'" class="apmn-rgt">
+            <span class="apmnt-lbl cancelled">
+              {{ item.status }}
+            </span>
+          </div>
+
+          <div *ngIf="item.status == 'Rejected'" class="apmn-rgt">
+            <span class="apmnt-lbl rejected">
+              {{ item.status }}
+            </span>
+          </div>
+
+          <div *ngIf="item.status == 'Pending'" class="apmn-rgt">
+            <span class="apmnt-lbl pending">
+              {{ item.status }}
+            </span>
+          </div>
+
+          <div *ngIf="item.status == 'Completed'" class="apmn-rgt">
+            <span
+              class="apmnt-lbl accepted                                    "
+            >
+              {{ item.status }}
+            </span>
+          </div>
+
+          <!-- <div class="apmn-rgt">
+            <span class="apmnt-lbl accepted">
+              {{ item.status }}
+            </span>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="selectRole == 'Doctor'">
+      <div
+        class="cmn-apmnt-row clearfix"
+        #slidingItem
+        *ngFor="let item of currentAppointlist"
+      >
+        <div class="apmn-lft">
+          <div class="dr-name">{{ item.name }}</div>
+          <div class="dr-adrs">
+            <img src="assets/images/location.png" />
+            {{ item.facilityCenterName }} {{ item.facilityCenterType }} - {{
+            item.fcLocationName }}
+          </div>
+          <div class="vst-type">
+            {{ item.medname }}
+          </div>
+          <div class="vst-type">
+            {{ item.visittype }}
+          </div>
+        </div>
+        <div class="apmn-rgt pt0">
+          <div class="dctr-vst-dt">
+            {{ item.apptdate | date: "dd/MM/yyyy" }}<span class="apmn-time"
+              >{{ item.patAppTimeTo | date: "shortTime" }}</span
+            >
+          </div>
+
+          <div *ngIf="item.status == 'Approved'" class="apmn-rgt">
+            <span class="apmnt-lbl accepted">
+              {{ item.status }}
+            </span>
+          </div>
+
+          <div *ngIf="item.status == 'Cancel'" class="apmn-rgt">
+            <span class="apmnt-lbl cancelled">
+              {{ item.status }}
+            </span>
+          </div>
+
+          <div *ngIf="item.status == 'Rejected'" class="apmn-rgt">
+            <span class="apmnt-lbl rejected">
+              {{ item.status }}
+            </span>
+          </div>
+
+          <div *ngIf="item.status == 'Pending'" class="apmn-rgt">
+            <span class="apmnt-lbl pending">
+              {{ item.status }}
+            </span>
+          </div>
+
+          <div *ngIf="item.status == 'Completed'" class="apmn-rgt">
+            <span
+              class="apmnt-lbl accepted                                    "
+            >
+              {{ item.status }}
+            </span>
+          </div>
+
+          <!-- <div class="apmn-rgt">
+            <span class="apmnt-lbl accepted">
+              {{ item.patAppStatus }}
+            </span>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<!-- <div class="cmn-list-page">
+  <div class="cmn-tab-dsgn"></div>
+
+  <ion-list class="cmn-tb-cntnt" *ngIf="selectRole == 'Patient'">
+    <ion-item-sliding #slidingItem *ngFor="let item of pharmadeliveredlist">
+      <ion-item>
+        <div class="ptnt-name">{{ item.providerName }}</div>
+        <div class="rson-fr-meet">
+          {{ item.facilityCenterName }} {{ item.facilityCenterType }} -
+          {{ item.fcLocationName }}
+        </div>
+        <div class="apmnt-tm">
+          {{ item.apptdate | date: "dd/MM/yyyy" }}
+          {{ item.patAppTimeTo | date: "shortTime" }}
+        </div>
+        <div class="apmnt-status">{{ item.status }}</div>
+        <div class="apmnt-medicinename">{{ item.medname }}</div>
+        <div class="pharma-visit">{{ item.visittype }}</div>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-list class="cmn-tb-cntnt" *ngIf="selectRole == 'MedicalCenter'">
+    <ion-item-sliding #slidingItem *ngFor="let item of pharmadeliveredlist">
+      <ion-item>
+        <div class="ptnt-name">{{ item.patientName }}</div>
+        <div class="apmnt-tm">
+          {{ item.apptdate | date: "dd/MM/yyyy" }}
+          {{ item.patAppTimeTo | date: "shortTime" }}
+        </div>
+        <div class="apmnt-status">{{ item.status }}</div>
+        <div class="apmnt-medicinename">{{ item.medname }}</div>
+        <div class="pharma-visit">{{ item.visittype }}</div>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-list class="cmn-tb-cntnt" *ngIf="selectRole == 'Doctor'">
+    <ion-item-sliding #slidingItem *ngFor="let item of currentAppointlist">
+      <div class="ptnt-name">{{ item.name }}</div>
+      <div class="rson-fr-meet">{{ item.patAppReason }}</div>
+      <div class="apmnt-tm">
+        {{ item.apptdate | date: "dd/MM/yyyy" }}
+        {{ item.patAppTimeTo | date: "shortTime" }}
+      </div>
+      <div class="apmnt-status">{{ item.patAppStatus }}</div>
+      <div class="apmnt-medicinename">{{ item.medname }}</div>
+      <div class="pharma-visit">{{ item.visittype }}</div>
+    </ion-item-sliding>
+  </ion-list>
+</div> -->

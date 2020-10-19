@@ -1,0 +1,134 @@
+<!--
+  Generated template for the PatientadmitformPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Patient Admit Form</ion-title>
+    <ion-buttons left>
+        <button ion-button icon-only >
+        <ion-icon name="" class="header-logo"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form text-center class="login-inner-hc" [formGroup]="patientAdmitFormvalidation" style="height: 50%;">
+    <ion-list >
+      <div class="login-signin-hc">  
+        <div class="login-head-hc">
+          <h5>Patient Admit Form</h5>
+        </div>     
+      
+        <ion-item>
+          <ion-label color="">Patient Name*</ion-label>
+          <ion-input type="text" placeholder="Patient Name" formControlName="patientName" [(ngModel)]="PatientAdmitForm.patientName" name="patientName"></ion-input>
+        </ion-item>
+        <control-messages [control]="patientAdmitFormvalidation.controls.patientName"></control-messages>
+
+
+        <ion-item>
+            <ion-label color="">Admitted Date*</ion-label>
+            <ion-datetime placeholder="Date Of Appointment" displayFormat="DD MMMM YYYY" formControlName="admitDate" [(ngModel)]="PatientAdmitForm.admitDate"></ion-datetime>
+        </ion-item>
+        <control-messages [control]="patientAdmitFormvalidation.controls.admitDate"></control-messages>
+         
+
+        <ion-item>
+            <ion-label color="">Admitted Time</ion-label>
+            <ion-datetime  displayFormat="HH:mm" formControlName="admitTime" [(ngModel)]="PatientAdmitForm.admitTime"></ion-datetime>
+        </ion-item>
+        <control-messages [control]="patientAdmitFormvalidation.controls.admitTime"></control-messages>
+        
+
+        <ion-item>
+            <ion-label color="">To Time</ion-label>
+            <ion-datetime  displayFormat="HH:mm" formControlName="admitTimeTo" [(ngModel)]="PatientAdmitForm.admitTimeTo"></ion-datetime>
+        </ion-item>
+        <control-messages [control]="patientAdmitFormvalidation.controls.admitTimeTo"></control-messages>
+
+
+
+        <ion-item>
+            <ion-label color="">Doctor Name*</ion-label>
+            <ion-select placeholder="Doctor Name" formControlName="doctorName" [(ngModel)]="PatientAdmitForm.doctorName">
+                <ion-option *ngFor="let doctor of doctors" [value]="doctor.providerID">{{doctor.providerName}}</ion-option>
+           </ion-select>
+        </ion-item>
+        <control-messages [control]="patientAdmitFormvalidation.controls.doctorName"></control-messages>
+
+
+        <ion-item>
+            <ion-label color="">Symptoms Found*</ion-label>
+            <ion-textarea placeholder="Symptoms Found" type="text" formControlName="symptomsFound" [(ngModel)]="PatientAdmitForm.symptomsFound"  name="symptomsFound"></ion-textarea>
+        </ion-item>
+        <control-messages [control]="patientAdmitFormvalidation.controls.symptomsFound"></control-messages>
+
+
+        <ion-item>
+            <ion-label color="">Treatment Provided*</ion-label>
+            <ion-textarea type="text" placeholder="Treatment Provided" formControlName="treatmentProvided" [(ngModel)]="PatientAdmitForm.treatmentProvided" name="treatmentProvided" ></ion-textarea>
+        </ion-item>
+        <control-messages [control]="patientAdmitFormvalidation.controls.treatmentProvided"></control-messages>
+
+
+        <ion-item>
+            <ion-label color="">Disease Name*</ion-label>
+            <ion-input type="text" placeholder="Disease Name" formControlName="diseaseName" [(ngModel)]="PatientAdmitForm.diseaseName"  name="diseaseName" ></ion-input>
+        </ion-item>
+        <control-messages [control]="patientAdmitFormvalidation.controls.diseaseName"></control-messages>
+
+
+        <ion-item>
+            <ion-label color="">Medicine given*</ion-label>
+            <ion-input type="text" placeholder="Medicine given" formControlName="medicine" [(ngModel)]="PatientAdmitForm.medicine"  name="medicine" ></ion-input>
+        </ion-item>
+        <control-messages [control]="patientAdmitFormvalidation.controls.medicine"></control-messages>
+
+
+        <ion-item>
+            <ion-label color="">Report Taken*</ion-label>
+            <ion-input type="text" placeholder="Report Taken" formControlName="reportTaken" [(ngModel)]="PatientAdmitForm.reportTaken" name="reportTaken"></ion-input>
+        </ion-item>
+        <control-messages [control]="patientAdmitFormvalidation.controls.reportTaken"></control-messages>
+
+        
+        <ion-item>
+            <ion-label color="">Ward Detail*</ion-label>
+            <ion-select placeholder="Ward Detail" formControlName="warDetail" [(ngModel)]="PatientAdmitForm.warDetail">
+                <ion-option [value]="0">Select Ward</ion-option>
+                <ion-option *ngFor="let Ward of Wards" [value]="Ward">{{Ward}}</ion-option>
+           </ion-select>
+       </ion-item>
+       <control-messages [control]="patientAdmitFormvalidation.controls.warDetail"></control-messages>
+
+
+        <ion-item>
+            <ion-label color="">Operation Detail*</ion-label>
+            <ion-textarea type="text" placeholder="Operation Detail" formControlName="operationDetail" [(ngModel)]="PatientAdmitForm.operationDetail" name="operationDetail" ></ion-textarea>
+        </ion-item>
+        <control-messages [control]="patientAdmitFormvalidation.controls.operationDetail"></control-messages>
+
+
+        <ion-item>
+            <ion-label color="">Extra Detail</ion-label>
+            <ion-textarea type="text" placeholder="Extra Detail" formControlName="extraDetail" [(ngModel)]="PatientAdmitForm.extraDetail" name="extraDetail"></ion-textarea>
+        </ion-item>
+        <control-messages [control]="patientAdmitFormvalidation.controls.extraDetail"></control-messages>
+
+
+        <ion-item style="text-align: center;">
+           <button ion-button (click)="Submit()" type="submit" [disabled]="!patientAdmitFormvalidation.valid">Submit</button>
+           <button ion-button color="danger" (click)="Cancel()">Cancel</button>
+        </ion-item>
+
+      </div>       
+    </ion-list>
+  </form>
+</ion-content>

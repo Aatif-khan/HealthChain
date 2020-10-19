@@ -1,0 +1,27 @@
+<style>
+    .tabbar::after {
+      content: none;
+    }
+  </style>
+  <ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle right>
+         <ion-icon name="" class="toggleMenu"></ion-icon>
+      </button>
+        <ion-title>Hospital Profile</ion-title>
+      <ion-buttons left>
+      <button ion-button icon-only >
+        <ion-icon name="" class="header-logo"></ion-icon>
+      </button>
+  </ion-buttons>
+  </ion-navbar>
+  </ion-header>
+  <ion-content>
+    <ion-tabs #ionTabs [scrollable-tabs]="ionTabs" [opts]="scrollableTabsopts" selectedIndex="0" color="default" tabsHighlight="true"
+      tabsPlacement="top">
+      <ion-tab [root]="tabPersonal" tabTitle="Hospital"></ion-tab>
+      <ion-tab [root]="tabDemographic" tabTitle="Demographic"></ion-tab>
+      <ion-tab [root]="tabProfessional" tabTitle="Professional Information"></ion-tab>
+      <ion-tab [root]="tabChangePassoword" tabTitle="Change Passoword"></ion-tab>
+    </ion-tabs>
+  </ion-content>

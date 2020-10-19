@@ -1,0 +1,415 @@
+<!--
+  Generated template for the AddbooklabPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle left>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>{{ titleheader }}</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <ion-icon name="" class="notification-icon"
+          ><span class="ntfctn-dot"></span
+        ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="book-apmnt pt-20 bg-fff">
+    <form class="cmn-form no-input-efct mb-20">
+      <div class="floating-label cmn-select">
+        <select
+          class="floating-select form-control"
+          name="facilityCenterName"
+          [(ngModel)]="addressLine1"
+          (change)="getAddressid($event.target.value)"
+        >
+          <option
+            *ngFor="let category of addressArray; let idx = index"
+            [value]="category.addressLine1"
+            selected="{{ (idx == 0).addressLine1 }}"
+            >{{ category.addressLine1 }}</option
+          >
+        </select>
+        <label>Address</label>
+      </div>
+      <div class="floating-label cmn-select">
+        <select
+          class="floating-select form-control"
+          name="fcLocationName"
+          [disabled]="labAvailableArray.length == 0"
+          [(ngModel)]="fcLocationMapID"
+          (change)="getAvailableLab($event.target.value)"
+        >
+          <option
+            *ngFor="let location of labAvailableArray; let idx = index"
+            [value]="location.fcLocationMapID"
+            selected="{{ (idx == 0).fcLocationMapID }}"
+            >{{ location.facilityName+"-"+location.fcLocationName }}</option
+          >
+        </select>
+        <label>Available Lab</label>
+      </div>
+      <div class="floating-label cmn-select">
+        <select
+          class="floating-select form-control"
+          name="labassistantname"
+          [disabled]="labassistantArray.length == 0"
+          [(ngModel)]="fclProviderMapID"
+          (change)="getlabassistantmapid($event.target.value)"
+        >
+          <option
+            *ngFor="let labassist of labassistantArray; let idx = index"
+            [value]="labassist.fclProviderMapID"
+            selected="{{ (idx == 0).fclProviderMapID }}"
+            >{{ labassist.providerName }}</option
+          >
+        </select>
+        <label>Lab Assistant</label>
+      </div>
+      <div class="pl15 pr15 form-bb">
+        <div class="form-group">
+          <label class="bmd-label-floating">Date of Appointment</label>
+          <ion-datetime
+            displayFormat="DD MMMM YYYY"
+            pickerFormat="DD MMMM YYYY"
+            name="date"
+            [(ngModel)]="patAppDate"
+          ></ion-datetime>
+          <span class="input-icon"><img src="assets/images/date.png"/></span>
+        </div>
+      </div>
+      <div class="pl15 pr15 form-bb">
+        <div class="form-group">
+          <label class="bmd-label-floating">Time From</label>
+          <ion-datetime
+            displayFormat="hh:mm a"
+            pickerFormat="hh:mm a"
+            [(ngModel)]="patAppTimeFrom"
+            name="timeFrom"
+          ></ion-datetime>
+          <span class="input-icon"><img src="assets/images/time.png"/></span>
+        </div>
+      </div>
+      <div class="pl15 pr15 form-bb">
+        <div class="form-group">
+          <label class="bmd-label-floating">Time To</label>
+          <ion-datetime
+            displayFormat="hh:mm a"
+            pickerFormat="hh:mm a"
+            [(ngModel)]="patAppTimeTo"
+            name="timeTo"
+          ></ion-datetime>
+          <span class="input-icon"><img src="assets/images/time.png"/></span>
+        </div>
+      </div>
+      <div class="floating-label cmn-select">
+        <select
+          class="floating-select form-control"
+          name="suggestedreportname"
+          [disabled]="labReportsLevel1.length == 0"
+          [(ngModel)]="labReportLevel1ID"
+          (change)="getreportid($event.target.value)"
+        >
+          <option
+            *ngFor="let report of labReportsLevel1; let idx = index"
+            [value]="report.labReportLevel1ID"
+            selected="{{ (idx == 0).labReportLevel1ID }}"
+            >{{ report.reportName }}</option
+          >
+        </select>
+        <label>Sugggested Report</label>
+      </div>
+
+      <div class="pl15 pr15 form-bb">
+        <div class="form-group">
+          <label class="bmd-label-floating">Cost Of selected report</label>
+          <input
+            type="number"
+            name="feesText"
+            [(ngModel)]="cost"
+            class="form-control"
+            readonly="true"
+          />
+        </div>
+      </div>
+
+      <div class="floating-label cmn-select">
+        <select
+          class="floating-select form-control"
+          [(ngModel)]="coupounCode"
+          name="promocode"
+          (change)="getapplypromocode($event.target.value)"
+        >
+          <option
+            *ngFor="let promo of promocodeArray; let idx = index"
+            [value]="promo.coupounCode"
+            selected="{{ (idx == 0).coupounCode }}"
+            >{{ promo.coupounCode }}</option
+          >
+          <!-- selected="{{ (idx == 0).key }}" -->
+        </select>
+        <label>Apply Coupan Code</label>
+      </div>
+
+      <div class="pl15 pr15 form-bb">
+        <div class="form-group">
+          <label class="bmd-label-floating">Total Fees Amount </label>
+          <input
+            type="number"
+            name="amountToutal"
+            [(ngModel)]="feesAmount"
+            class="form-control"
+            readonly="true"
+          />
+        </div>
+      </div>
+
+      <div class="floating-label cmn-select">
+        <select
+          class="floating-select form-control"
+          name="visittype"
+          [(ngModel)]="visittypeId"
+          (change)="getvisittypeid($event.target.value)"
+        >
+          <option
+            *ngFor="let visit of visittypeArray; let idx = index"
+            [value]="visit.key"
+            selected="{{ (idx == 0).key }}"
+            >{{ visit.value }}</option
+          >
+        </select>
+        <label>Visit Type</label>
+      </div>
+      <div class="floating-label cmn-select">
+        <select
+          class="floating-select form-control"
+          name="visittypereasonname"
+          [(ngModel)]="visittypereasonId"
+          [disabled]="visittypereasonarray.length == 0"
+          (change)="getlabvisittypereasonid($event.target.value)"
+        >
+          <option
+            *ngFor="
+              let visittypereason of visittypereasonarray;
+              let idx = index
+            "
+            [value]="visittypereason.key"
+            selected="{{ (idx == 0).key }}"
+            >{{ visittypereason.value }}</option
+          >
+        </select>
+        <label>Reason for Visit</label>
+      </div>
+      <div class="pl15 pr15 form-bb">
+        <div class="floating-label cmn-inpt">
+          <textarea
+            class="floating-input cmn-txtarea"
+            name="Desciption"
+            [(ngModel)]="patAppDescription"
+          ></textarea>
+          <label>Additional Detail</label>
+        </div>
+      </div>
+      <!-- <div class="avl-schdl">
+        <div class="scdl-ttl">Available Schedule</div>
+        <div class="cmn-checkbox mt-15">
+          <div class="form-check  d-inline-block">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="schedule" />
+              At Home
+              <span class="form-check-sign">
+                <span class="check"></span>
+              </span>
+            </label>
+          </div>
+          <div class="form-check d-inline-block">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="schedule" />
+              At Lab
+              <span class="form-check-sign">
+                <span class="check"></span>
+              </span>
+            </label>
+          </div>
+        </div>
+      </div> -->
+
+      <ion-list>
+        <ion-item>
+          <ion-label>COD (Cash On Delivery))</ion-label>
+          <ion-checkbox name="cod" (click)="addValue($event)"></ion-checkbox>
+        </ion-item>
+      </ion-list>
+
+      <div class="form-button bg-gray pt-25 text-center">
+        <button class="btn cmn-thm-btn mr-25" (click)="callAddBookLabApi()">
+          SAVE
+        </button>
+        <button type="button" class="btn  cmn-wht-btn">CANCEL</button>
+      </div>
+    </form>
+  </div>
+</ion-content>
+
+<!-- <div class="cmn-inr-form">
+  <ion-list>
+    <ion-item>
+      <ion-label color="" floating>Facility</ion-label>
+      <ion-select
+        [(ngModel)]="facilityCenterID"
+        (ionChange)="getFacilityid($event)"
+      >
+        <ion-option
+          *ngFor="let category of facilitiesArray; let idx = index"
+          [value]="category.facilityCenterID"
+          selected="{{ (idx == 0).facilityCenterID }}"
+          >{{ category.facilityCenterName }}</ion-option
+        >
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="" floating>Location</ion-label>
+      <ion-select
+        [disabled]="locationArray.length == 0"
+        [(ngModel)]="fcLocationMapID"
+        (ionChange)="getlocationid($event)"
+      >
+        <ion-option
+          *ngFor="let location of locationArray; let idx = index"
+          [value]="location.fcLocationMapID"
+          selected="{{ (idx == 0).fcLocationMapID }}"
+          >{{ location.fcLocationName }}</ion-option
+        >
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="" floating>Lab Assistant</ion-label>
+      <ion-select
+        [disabled]="labassistantArray.length == 0"
+        [(ngModel)]="fclProviderMapID"
+        (ionChange)="getlabassistantmapid($event)"
+      >
+        <ion-option
+          *ngFor="let labassist of labassistantArray; let idx = index"
+          [value]="labassist.fclProviderMapID"
+          selected="{{ (idx == 0).fclProviderMapID }}"
+          >{{ labassist.providerName }}</ion-option
+        >
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="" floating>Date Of Appointment </ion-label>
+      <ion-datetime
+        displayFormat="DD MMMM YYYY"
+        pickerFormat="DD MMMM YYYY"
+        [(ngModel)]="patAppDate"
+      ></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="" floating>Time From</ion-label>
+      <ion-datetime
+        displayFormat="hh:mm a"
+        pickerFormat="hh:mm a"
+        [(ngModel)]="patAppTimeFrom"
+      ></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="" floating>Time To</ion-label>
+      <ion-datetime
+        displayFormat="hh:mm a"
+        pickerFormat="hh:mm a"
+        [(ngModel)]="patAppTimeTo"
+      ></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="" floating>Suggested Report</ion-label>
+      <ion-select
+        [disabled]="labReportsLevel1.length == 0"
+        [(ngModel)]="labReportLevel1ID"
+        (ionChange)="getreportid($event)"
+      >
+        <ion-option
+          *ngFor="let report of labReportsLevel1; let idx = index"
+          [value]="report.labReportLevel1ID"
+          selected="{{ (idx == 0).labReportLevel1ID }}"
+          >{{ report.lrl1Name }}</ion-option
+        >
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="" floating>Visit Type</ion-label>
+      <ion-select
+        [(ngModel)]="visittypeId"
+        (ionChange)="getvisittypeid($event)"
+      >
+        <ion-option
+          *ngFor="let visit of visittypeArray; let idx = index"
+          [value]="visit.key"
+          selected="{{ (idx == 0).key }}"
+          >{{ visit.value }}</ion-option
+        >
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="" floating>Reason for visit</ion-label>
+      <ion-select
+        [(ngModel)]="visittypereasonId"
+        [disabled]="visittypereasonarray.length == 0"
+        (ionChange)="getlabvisittypereasonid($event)"
+      >
+        <ion-option
+          *ngFor="
+            let visittypereason of visittypereasonarray;
+            let idx = index
+          "
+          [value]="visittypereason.key"
+          selected="{{ (idx == 0).key }}"
+          >{{ visittypereason.value }}</ion-option
+        >
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="" floating>Additional Detail</ion-label>
+      <ion-input
+        type="text"
+        name="Desciption"
+        [(ngModel)]="patAppDescription"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-label>At Home</ion-label>
+      <ion-checkbox
+        [(ngModel)]="ischeckboxhomeactive"
+        (ionChange)="clickOnCheckBox()"
+      ></ion-checkbox>
+    </ion-item>
+
+    <div class="cmn-ftr-btn">
+      <button
+        (click)="callAddBookLabApi()"
+        ion-button
+        class="cmn-btn-styl prpl-btn"
+        block
+      >
+        Save
+      </button>
+    </div>
+  </ion-list>
+</div> -->

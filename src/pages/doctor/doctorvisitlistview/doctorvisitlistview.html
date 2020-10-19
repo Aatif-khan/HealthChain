@@ -1,0 +1,200 @@
+<!--
+  Generated template for the DoctorvisitlistviewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle left>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>Doctor Visit List View</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <ion-icon name="" class="notification-icon"
+          ><span class="ntfctn-dot"></span
+        ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="view-list">
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Visit Date
+      </div>
+      <div class="view-list-val pull-right">
+        {{ PatientDoctorVisitlistView.patVisitDate }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Visit Time
+      </div>
+      <div class="view-list-val pull-right">
+        {{ PatientDoctorVisitlistView.times }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Patient Name
+      </div>
+      <div class="view-list-val pull-right">
+        {{ PatientDoctorVisitlistView.name }}
+      </div>
+    </div>
+    <!-- <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Patient Id
+      </div>
+      <div class="view-list-val pull-right">
+        {{ PatientDoctorVisitlistView.patientID }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Purpose
+      </div>
+      <div class="view-list-val pull-right">
+        {{ PatientDoctorVisitlistView.patVisitType }}
+      </div>
+    </div> -->
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Symptoms Found
+      </div>
+      <div class="view-list-val pull-right">
+        {{ PatientDoctorVisitlistView.patSymptoms }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Treatment Provided
+      </div>
+      <div class="view-list-val pull-right">
+        {{ PatientDoctorVisitlistView.treatmentProvided }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Disease Name
+      </div>
+      <div class="view-list-val pull-right">
+        {{ DiseaseData }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Side Effects
+      </div>
+      <div class="view-list-val pull-right">
+        {{ PatientDoctorVisitlistView.patSideEffect }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Extra Detail
+      </div>
+      <div class="view-list-val pull-right">
+        {{ PatientDoctorVisitlistView.patExtraDetails }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Medicine Required
+      </div>
+      <div class="view-list-val pull-right">
+        {{ Medicine }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Report Required
+      </div>
+      <div class="view-list-val pull-right">
+        {{ Report +" - "+ Report1 }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Reffered Doctor
+      </div>
+      <div class="view-list-val pull-right">
+        {{ refferedDoctor }}
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<!-- <form text-center class="login-inner-hc" style="height: 50%;">
+    <ion-list >
+      <div class="login-signin-hc">  
+        <div class="login-head-hc">
+          <h5>Doctor Visit List View</h5>
+        </div>     
+      
+        <ion-item>
+          <ion-label color="">Visit Date :</ion-label>
+          <ion-input type="text" [(ngModel)]="PatientDoctorVisitlistView.patVisitDate" name="patVisitDate" disabled="true"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="">Visit Time :</ion-label>
+            <ion-input type="text" [(ngModel)]="PatientDoctorVisitlistView.times" name="times" disabled="true"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+            <ion-label color="">Patient Name :</ion-label>
+            <ion-input type="text" [(ngModel)]="PatientDoctorVisitlistView.name" name="name" disabled="true"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="">Patient Id :</ion-label>
+            <ion-input type="text" [(ngModel)]="PatientDoctorVisitlistView.patientID" name="patientID" disabled="true"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+            <ion-label color="">Purpose :</ion-label>
+            <ion-input type="text"  name="Purpose" [(ngModel)]="PatientDoctorVisitlistView.patVisitType" disabled="true"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="">Symptoms Found :</ion-label>
+            <ion-input type="text" [(ngModel)]="PatientDoctorVisitlistView.patSymptoms" name="Symptoms" disabled="true"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="">Treatment Provided :</ion-label>
+            <ion-input type="text" [(ngModel)]="PatientDoctorVisitlistView.treatmentProvided"  name="Treatment" disabled="true"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="">Disease Name :</ion-label>
+            <ion-input type="text" [(ngModel)]="DiseaseData"  name="Disease" disabled="true"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="">Side Effects :</ion-label>
+            <ion-input type="text" [(ngModel)]="PatientDoctorVisitlistView.patSideEffect" name="Side" disabled="true"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="">Extra Detail :</ion-label>
+            <ion-input type="text" [(ngModel)]="PatientDoctorVisitlistView.patExtraDetails"  name="Extra" disabled="true"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="">Medicine Required :</ion-label>
+            <ion-input type="text" [(ngModel)]="Medicine" name="Medicine" disabled="true"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="">Report Required :</ion-label>
+            <ion-input type="text" [(ngModel)]="Report" name="Report" disabled="true"></ion-input>
+        </ion-item>
+      </div>       
+    </ion-list>
+  </form> -->

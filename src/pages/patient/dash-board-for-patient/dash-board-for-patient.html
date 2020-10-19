@@ -1,0 +1,182 @@
+<!--
+  Generated template for the DashBoardForPatientPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle left>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>Dashboard</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="singlenotification()">
+        <ion-icon name="" class="notification-icon"
+          >
+
+    
+          <span class="ntfctn-dot"></span
+        ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="page-content-white">
+    <div class="page-wrapper">
+      <div class="page-container">
+        <!-- start page content -->
+        <div class="page-content-wrapper home">
+          <div class="page-content">
+            <div class="page-bar clearfix">
+              <div class="page-title-breadcrumb">
+                <div class=" pull-left">
+                  <div class="page-title">Welcome to Health Chain</div>
+                </div>
+                <!-- <ol class="breadcrumb page-breadcrumb pull-right">
+                            <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" routerLink="/home">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+                            </li>
+                            <li class="active">Dashboard</li>
+                        </ol> -->
+              </div>
+            </div>
+            <!-- start widget -->
+            <div class="state-overview">
+              <div class="">
+                <div class="col-xl-4 col-md-6 col-12">
+                  <div class="info-box orange-bg info-dctr-vst-icon">
+                    <div class="info-box-content d-flex align-items-center">
+                      <span class="info-box-text"
+                        >Doctor <br />
+                        Visit</span
+                      >
+                      <span class="info-box-number ml-auto">{{
+                        visitlistcount
+                      }}</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                    <!-- <button ion-button color="calm" (click)="editItem(item.patAppointmentID)"></button> -->
+                    <button class="view-dtl-btn" (click)="viewVisitList()">
+                      View Details
+                    </button>
+                  </div>
+                  <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+                <div class="col-xl-4 col-md-6 col-12">
+                  <div class="info-box pink-bg lab-report-icon">
+                    <div class="info-box-content d-flex align-items-center">
+                      <span class="info-box-text">
+                        Lab<br />
+                        Report</span
+                      >
+                      <span class="info-box-number ml-auto">{{
+                        patientlablistcount
+                      }}</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                    <button
+                      class="view-dtl-btn"
+                      (click)="viewLaboratoryReportList()"
+                    >
+                      View Details
+                    </button>
+                  </div>
+                  <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+                <div class="col-xl-4 col-md-6 col-12">
+                  <div class="info-box blue-bg pharma-delvers-icon">
+                    <div class="info-box-content d-flex align-items-center">
+                      <span class="info-box-text"
+                        >Pharma <br />
+                        Delivered</span
+                      >
+                      <span class="info-box-number ml-auto">{{
+                        pharmadeliverlistcount
+                      }}</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                    <button
+                      class="view-dtl-btn"
+                      (click)="viewPharmaDeliverdList()"
+                    >
+                      View Details
+                    </button>
+                  </div>
+                  <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+              </div>
+            </div>
+          </div>
+
+          <!-- start admited patient list -->
+
+          <!-- end of patient list -->
+
+          <!-- start of pharma list -->
+          <!-- <div class="col-xl-6 col-md-12 col-sm-12">
+                        <div class="card card-box pharma-appointment">
+                            <div class="card-head">
+                                <header>Pharmas Profile</header>
+                                <div class="tools">
+                                    <a class="btn btn-primary" (click)=ViewPharmaList(); title="View All">View All</a>
+                                </div>
+                            </div>
+                            <div class="card-body ">
+                               
+                                <div class="dshbord-empty-data hide">
+                                    <img src="../../images/pharma-empty-icon.png" alt="">
+                                    <h2>No appointments yet!</h2>
+                                    <div class=""><a href="#">Click here</a> to book Pharma Appointment</div>
+                                </div>
+                              
+                              <div class="table-wrap">
+                                    <div class="table-responsive">                                
+                                        <table id="pharmatable" datatable [dtOptions]="medoption" [dtTrigger]="medTrigger" class="table table-hover order-column valign-middle">
+                                            <colgroup>
+                                                <col width="16.66%">
+                                                <col width="16.66%">
+                                                <col width="16.66%">
+                                                <col width="16.66%">
+                                                <col width="16.66%">
+                                                <col width="16.66%"> 
+                                            </colgroup>
+                                            <thead class="thead-light">
+                                                  <tr>
+                                                    <th> Full Name </th>
+                                                    <th> Email </th>
+                                                    <th> phone no. </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr  *ngFor="let a of pharmaList">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+                                                        <td>{{a.fullName}}</td>
+                                                        <td> {{a.email}}</td>
+                                                        <td>  {{a.phoneNo}}</td>
+                                                        
+                                                     
+                                                     </tr>
+                                                  <tr *ngIf="medicineBoughtListModel ?.length == 0">
+                                                      <td colspan="6" class="no-data-available">No data!</td>
+                                                  </tr>
+                                                </tbody>
+                                          </table>
+                                    </div>
+                                </div>	
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+          <!-- end admited pharma list -->
+        </div>
+      </div>
+      <!-- end page content -->
+    </div>
+
+    <!-- include js -->
+  </div>
+</ion-content>

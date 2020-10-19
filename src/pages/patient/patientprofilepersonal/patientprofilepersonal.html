@@ -1,0 +1,223 @@
+<!--
+  Generated template for the PatientprofilepersonalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header> </ion-header>
+
+<ion-content>
+  <div class="profile-page">
+    <!-- profile top -->
+    <div class="">
+      <div class="cmn-tabs">
+        <div class="nav-tabs-navigation">
+          <div class="nav-tabs-wrapper"></div>
+        </div>
+        <!-- tabs content start -->
+        <div class="tab-content">
+          <!-- personal tab -->
+          <div class="tab-pane active" id="Personal">
+            <div class="personal-cntnt">
+              <!-- profile top part -->
+              <div class="profile-detail">
+                <div class="profile-img">
+                  <div class="usr-img">
+                    <img src="{{profilePersonal.perProfile}}" class="usr-pic" />
+                    <span class="img-upld-btn">
+                      <img
+                        src="assets/images/cam.png"
+                        (click)="buttonClickForChooseIDs()"
+                      />
+                    </span>
+                    <!-- <span class="img-upld-btn">
+                      <img
+                        src="assets/images/plus-ic.png"
+                        (click)="cropimage()"
+                      />
+                    </span> -->
+                  </div>
+                </div>
+                <div class="prfl-dtl-rw clearfix">
+                  <div class="prfl-dtl-lbl pull-left">
+                    First Name
+                  </div>
+                  <div class="prfl-dtl-val pull-right">
+                    {{profilePersonal.perFname}}
+                  </div>
+                </div>
+                <div class="prfl-dtl-rw clearfix">
+                  <div class="prfl-dtl-lbl pull-left">
+                    Email
+                  </div>
+                  <div class="prfl-dtl-val pull-right">
+                    {{profilePersonal.perEmailPrimary}}
+                  </div>
+                </div>
+                <div class="prfl-dtl-rw clearfix">
+                  <div class="prfl-dtl-lbl pull-left">
+                    Phone No
+                  </div>
+                  <div class="prfl-dtl-val pull-right">
+                    {{profilePersonal.perMobilePrimary}}
+                  </div>
+                </div>
+              </div>
+              <!-- profile top part end-->
+              <!-- form sec 1 -->
+              <div class="cmn-form no-input-efct bg-fff mt5">
+                <div class="pl15 pr15 form-bb">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">First Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="profilePersonal.perFname"
+                    />
+                  </div>
+                </div>
+                <div class="pl15 pr15 form-bb">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Last Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="profilePersonal.perLName"
+                    />
+                  </div>
+                </div>
+                <div class="pl15 pr15 form-bb">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Email</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="profilePersonal.perEmailPrimary"
+                      [readonly]="true"
+                    />
+                  </div>
+                </div>
+                <div class="pl15 pr15 form-bb">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Secondary Email</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="secondaryEmail"
+                    />
+                  </div>
+                </div>
+                <button class="btn cmn-thm-btn mr-25" (click)="addtoList()">
+                  Add
+                </button>
+              </div>
+              <ion-item>
+                <ion-list class="cmn-tb-cntnt">
+                  <ion-item-sliding
+                    #slidingItem
+                    *ngFor="let item of profilePersonal.perEmailList"
+                  >
+                    <ion-item>
+                      <div class="ptnt-name">{{item}}</div>
+                      <ion-icon
+                        class="trashicon"
+                        (click)="deleteelement(item)"
+                        name="trash"
+                        data-ng-if="(profilePersonal.perEmailList.length > 0)"
+                      ></ion-icon>
+                    </ion-item>
+                  </ion-item-sliding>
+                </ion-list>
+              </ion-item>
+
+              <div class="form-button bg-gray pt-25 mb-20 text-center">
+                <button class="btn cmn-thm-btn mr-25" (click)="submitDetails()">
+                  SAVE
+                </button>
+                <button type="button" class="cmn-wht-btn" (click)="cancle()">
+                  CANCEL
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<!-- <ion-item no-lines>
+  <ion-label>Upload Picture</ion-label>
+</ion-item>
+<ion-item no-lines>
+  <button ion-button small (click)="buttonClickForChooseIDs()">
+    Choose File
+  </button>
+</ion-item>
+<div class="uploaded-img">
+  <img src="{{profilePersonal.perProfile}}" style="width: 100%" />
+</div>
+
+<ion-item>
+  <ion-label floating>First name</ion-label>
+  <ion-input [(ngModel)]="profilePersonal.perFname" type="text"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label floating>Last name</ion-label>
+  <ion-input [(ngModel)]="profilePersonal.perLName" type="text"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label floating>Email</ion-label>
+  <ion-input
+    [(ngModel)]="profilePersonal.perEmailPrimary"
+    type="text"
+    [readonly]="true"
+  ></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label floating>Secondary Email</ion-label>
+  <ion-input type="text" [(ngModel)]="secondaryEmail"></ion-input>
+</ion-item>
+
+<button ion-button (click)="addtoList()">Add</button>
+
+    <ion-list class="cmn-tb-cntnt">
+      <ion-item-sliding #slidingItem *ngFor="let item of profilePersonal.perEmailList">
+        <ion-item>
+          <div class="ptnt-name">{{item}}</div>
+        </ion-item>
+
+        <ion-item-options>
+          <button ion-button color="danger" (click)="deleteelement(item)">Delete</button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-item>
+
+  <div padding align="center">
+    <div padding>
+      <button ion-button type="submit" (click)="submitDetails()">Submit</button>
+      <button ion-button type="Cancel" (click)="cancel()">Cancel</button>
+     
+    </div>
+  </div>
+<ion-item>
+  <ion-list class="cmn-tb-cntnt">
+    <ion-item-sliding
+      #slidingItem
+      *ngFor="let item of profilePersonal.perEmailList"
+    >
+      <ion-item>
+        <div class="ptnt-name">{{item}}</div>
+      </ion-item>
+
+      <ion-item-options>
+        <button ion-button color="danger" (click)="deleteelement(item)">
+          Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-item> -->

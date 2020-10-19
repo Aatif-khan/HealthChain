@@ -1,0 +1,401 @@
+<!--
+  Generated template for the PatientdoctorvisitlistviewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>Doctor Visit View</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle left>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>Doctor Visit View</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <ion-icon name="" class="notification-icon"
+          ><span class="ntfctn-dot"></span
+        ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="view-list">
+    <!-- <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Visit Date
+      </div>
+      <div class="view-list-val pull-right">
+        {{ PatientDoctorVisitlist.patVisitDate }}
+      </div>
+    </div> -->
+
+    <div class="app-title-main">
+      <h3 _ngcontent-c2="" class="app-title">
+        {{ PatientDoctorVisitlist.providerName }}
+      </h3>
+      <div class="d-flex">
+        <ul class="nav align-items-center">
+          <li class="nav-item">
+            <i class="fa fa-calendar"></i>
+            <span>{{ PatientDoctorVisitlist.patVisitDate }}</span>
+          </li>
+          <li class="nav-item ml-3">
+            <i class="fa fa-clock-o"></i>
+            <span> {{ PatientDoctorVisitlist.times }}</span>
+          </li>
+        </ul>
+        <div class="vw-app-pagination d-flex ml-auto">
+          <a class="previous" href="#" (click)="getDataforIndex(0)">Previous</a>
+          <a class="next" href="#" (click)="getDataforIndex(1)">Next</a>
+          <!-- <a class="previous" href="#" (click)="getIndex(0);">Previous</a>
+          <a class="next" href="#"  (click)="getIndex(1);">Next</a> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Visit Time
+      </div>
+      <div class="view-list-val  pull-right">
+        {{ PatientDoctorVisitlist.times }}
+      </div>
+    </div> -->
+
+    <!-- <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Consulting Doctor
+      </div>
+      <div class="view-list-val  pull-right">
+        {{ PatientDoctorVisitlist.providerName }}
+      </div>
+    </div> -->
+
+    <!-- <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Patient Id
+      </div>
+      <div class="view-list-val  pull-right">
+        {{ PatientDoctorVisitlist.patientID }}
+      </div>
+    </div> -->
+    <!-- <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Purpose
+      </div>
+      <div class="view-list-val  pull-right">
+        {{ PatientDoctorVisitlist.patVisitType }}
+      </div>
+    </div> -->
+    <!-- <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Symptoms Found
+      </div>
+      <div class="view-list-val  pull-right">
+        {{ PatientDoctorVisitlist.patSymptoms }}
+      </div>
+    </div> -->
+
+    <div class="view-lst-row doc-vis-view border-0">
+      <div class="vis-detail">
+        <div class="body">
+          <h6 class="title mt-0 mb-0">Symptoms Found</h6>
+          <ul class="mb-0">
+            <li>{{ PatientDoctorVisitlist.patSymptoms }}</li>
+          </ul>
+        </div>
+        <div class="vis-icon">
+          <img src="assets/images/symptoms-found-icon.png" />
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Treatment Provided
+      </div>
+      <div class="view-list-val  pull-right">
+        {{ PatientDoctorVisitlist.treatmentProvided }}
+      </div>
+    </div> -->
+
+    <div class="view-lst-row doc-vis-view border-0">
+      <div class="vis-detail">
+        <div class="body">
+          <h6 class="title mt-0 mb-0">Treatment Provided</h6>
+          <ul class="mb-0">
+            <li>{{ PatientDoctorVisitlist.treatmentProvided }}</li>
+          </ul>
+        </div>
+        <div class="vis-icon">
+          <img src="assets/images/speciality-icon.png" />
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Disease Name
+      </div>
+      <div class="view-list-val  pull-right">
+        {{ DiseaseData }}
+      </div>
+    </div> -->
+    <div class="view-lst-row doc-vis-view border-0">
+      <div class="vis-detail">
+        <div class="body">
+          <h6 class="title mt-0 mb-0">Disease Name</h6>
+          <ul class="mb-0">
+            <li>{{ DiseaseData }}</li>
+          </ul>
+        </div>
+        <div class="vis-icon">
+          <img src="assets/images/visit-icon.png" />
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Side Effects
+      </div>
+      <div class="view-list-val  pull-right">
+        {{ PatientDoctorVisitlist.patSideEffect }}
+      </div>
+    </div> -->
+    <div class="view-lst-row doc-vis-view border-0">
+      <div class="vis-detail">
+        <div class="body">
+          <h6 class="title mt-0 mb-0">Side Effects</h6>
+          <ul class="mb-0">
+            <li>{{ PatientDoctorVisitlist.patSideEffect }}</li>
+          </ul>
+        </div>
+        <div class="vis-icon">
+          <img src="assets/images/side-effect-icon.png" />
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Extra Detail
+      </div>
+      <div class="view-list-val  pull-right">
+        {{ PatientDoctorVisitlist.patExtraDetails }}
+      </div>
+    </div> -->
+
+    <div class="view-lst-row doc-vis-view border-0">
+      <div class="vis-detail">
+        <div class="body">
+          <h6 class="title mt-0 mb-0">Extra Detail</h6>
+          <ul class="mb-0">
+            <li>{{ PatientDoctorVisitlist.patExtraDetails }}</li>
+          </ul>
+        </div>
+        <div class="vis-icon">
+          <img src="assets/images/extra-details-icon.png" />
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Medicine Required
+      </div>
+      <div class="view-list-val  pull-right">
+        {{ Medicine }}
+      </div>
+    </div> -->
+    <div class="view-lst-row doc-vis-view border-0">
+      <div class="vis-detail">
+        <div class="body">
+          <h6 class="title mt-0 mb-0">Medicine Required</h6>
+          <ul class="mb-0">
+            <li>{{ Medicine }}</li>
+          </ul>
+        </div>
+        <div class="vis-icon">
+          <img src="assets/images/medicine-icon.png" />
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Report Required
+      </div>
+      <div class="view-list-val  pull-right">
+        {{ Report }}
+      </div>
+    </div> -->
+
+    <div class="view-lst-row doc-vis-view border-0">
+      <div class="vis-detail">
+        <div class="body">
+          <h6 class="title mt-0 mb-0">Report Required</h6>
+          <ul class="mb-0">
+            <li>{{ Report }}</li>
+          </ul>
+        </div>
+        <div class="vis-icon">
+          <img src="assets/images/report-required-icon.png" />
+        </div>
+      </div>
+    </div>
+
+    <div class="form-button bg-gray pt-25 mb-20 text-center">
+      <button type="button" class="cmn-thm-btn mr-25" (click)="bookLab()">
+        Book Laboratory
+      </button>
+      <button type="button" class="cmn-thm-btn mr-25" (click)="bookpharma()">
+        Book Pharmacy
+      </button>
+    </div>
+  </div>
+</ion-content>
+
+<!-- <form text-center class="login-inner-hc" style="height: 50%;">
+  <ion-list>
+    <div class="login-signin-hc">
+      <div class="login-head-hc">
+        <h5>Patient Doctor Visit View</h5>
+      </div>
+
+      <ion-item>
+        <ion-label color="">Visit Date :</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="PatientDoctorVisitlist.patVisitDate"
+          name="patVisitDate"
+          disabled="true"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="">Visit Time :</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="PatientDoctorVisitlist.times"
+          name="times"
+          disabled="true"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="">Patient Name :</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="PatientDoctorVisitlist.name"
+          name="name"
+          disabled="true"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="">Patient Id :</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="PatientDoctorVisitlist.patientID"
+          name="patientID"
+          disabled="true"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="">Purpose :</ion-label>
+        <ion-input
+          type="text"
+          name="Purpose"
+          [(ngModel)]="PatientDoctorVisitlist.patVisitType"
+          disabled="true"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="">Symptoms Found :</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="PatientDoctorVisitlist.patSymptoms"
+          name="Symptoms"
+          disabled="true"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="">Treatment Provided :</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="PatientDoctorVisitlist.treatmentProvided"
+          name="Treatment"
+          disabled="true"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="">Disease Name :</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="DiseaseData"
+          name="Disease"
+          disabled="true"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="">Side Effects :</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="PatientDoctorVisitlist.patSideEffect"
+          name="Side"
+          disabled="true"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="">Extra Detail :</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="PatientDoctorVisitlist.patExtraDetails"
+          name="Extra"
+          disabled="true"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="">Medicine Required :</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="Medicine"
+          name="Medicine"
+          disabled="true"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="">Report Required :</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="Report"
+          name="Report"
+          disabled="true"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <button ion-button (click)="bookLab()" style="float: right;">
+          Book Laboratory
+        </button>
+      </ion-item>
+    </div>
+  </ion-list>
+</form> -->

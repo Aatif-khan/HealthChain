@@ -1,0 +1,60 @@
+<!--
+  Generated template for the AppointmentlistPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle left>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>List Medicine Inventory</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <ion-icon name="" class="notification-icon"
+          ><span class="ntfctn-dot"></span
+        ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="cmn-list-page">
+    <div *ngIf="selectRole == 'MedicalCenter'">
+      <div
+        class="cmn-apmnt-row w-100 clearfix"
+        #slidingItem
+        *ngFor="let item of medicineinventorylist"
+      >
+        <div>
+          <div class="apmn-lft">
+            <div class="dr-name">{{ item.medicineName }}</div>
+            <div class="dr-name">{{ item.medicineQuantity }}</div>
+            <div class="dr-name">${{item.costpermedicine}}</div>
+            <button right ion-button (click)="editItem(item)">Edit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ion-fab bottom right>
+    <button class="cmn-create-btn" (click)="addItem()">
+      <ion-icon name="add"></ion-icon>Add Medicine List
+    </button>
+  </ion-fab>
+</ion-content>
+
+<!-- <div class="cmn-list-page">
+  <ion-list class="cmn-tb-cntnt" *ngIf="selectRole == 'MedicalCenter'">
+    <ion-item-sliding #slidingItem *ngFor="let item of medicineinventorylist">
+      <ion-item>
+        <div class="apmnt-medicinename">{{item.medicineName}}</div>
+        <div class="apmt-medicinequintity">{{item.medicineQuantity}}</div>
+        <div class="apmt-costpermedicine">${{item.costpermedicine}}</div>
+        <button right ion-button (click)="editItem(item)">Edit</button>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+</div> -->

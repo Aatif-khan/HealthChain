@@ -1,0 +1,161 @@
+<!--
+  Generated template for the PatientOrderDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>PatientOrderDetails</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div class="mt-10 clearfix odr-dtl-header">
+    <div class="apmn-lft">Medicines</div>
+    <div class="apmn-rgt pt-0">Total Medicines Cost : <span><i>₹</i>{{finalcost}}</span></div>
+  </div>  
+  <div class="cmn-list">  
+    <div class="cmn-apmnt-row clearfix" *ngFor="let pharmaID of selectedRole">
+      <div class="apmn-lft">
+        <img src="assets/images/drugs-icon.png" alt="" width="20" class="apmn-lft">
+        <div class="mdcin-dtl">
+          <div class="dr-name">{{pharmaID.medname}}</div>
+          <!-- <div class="mdcin-cmpny">By ZYDUS CADILA HEALTHCARE LTD </div> -->
+          <div class="mdcin-price"> Cost Per Medicine:&nbsp;<strong><i>₹</i>&nbsp;{{ pharmaID.costpermedicine }}</strong></div>
+          <div class="mdcin-qty-dtl">  
+              Medicine Quantity:&nbsp;<input type="number" id="medqua" name="pharmaID.medqua" [(ngModel)]="pharmaID.medqua" min="0" required>
+          </div>
+        </div>
+      </div>    
+    </div>
+
+    <div class="cmn-apmnt-row order-details-section border-0">                                    
+        <div class="order-radio-main mb-4">
+            <h5>Order Type</h5>
+            <div class="order-type-radio d-flex">
+                <div class="custom-control custom-radio ml-0">
+                    <input type="radio" 
+                          id="customRadio1" 
+                          name="customRadio" 
+                          [(ngModel)]="ordertype"
+                          value="Pick Up" 
+                          class="custom-control-input"
+                          >
+                    <label class="custom-control-label" 
+                    for="customRadio1">Pick up</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" 
+                           id="customRadio2" 
+                           name="customRadio" 
+                           [(ngModel)]="ordertype" 
+                           value="Home"
+                           class="custom-control-input">
+                    <label class="custom-control-label" 
+                           for="customRadio2">Home Delivery</label>
+                </div>
+            </div>
+        </div>
+
+         <div class="order-radio-main">
+            <h5>Payment Type</h5>
+            <div class="order-type-radio d-flex">
+                <div class="custom-control custom-radio ml-0">
+                    <input type="radio" 
+                           id="customRadio3" 
+                           name="customRadio4" 
+                           [(ngModel)]="paymenttype" 
+                           value="COD"
+                           class="custom-control-input">
+                    <label class="custom-control-label" 
+                    for="customRadio3">COD</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" 
+                           id="customRadio4" 
+                           name="customRadio4" 
+                           [(ngModel)]="paymenttype" 
+                           value="Paytm"
+                           class="custom-control-input">
+                    <label class="custom-control-label" 
+                    for="customRadio4">Paytm</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-radio-main">
+            <h5>Have Prescription ?</h5>
+            <div class="order-type-radio d-flex">
+                <div class="custom-control custom-radio ml-0">
+                    <input class="custom-control-input" id="customRadio6" type="radio" name="discounttype" [(ngModel)]="checkpres" value="Yes" (click)="checkpresmethod()">       
+                    <label class="custom-control-label" for="customRadio6">Yes</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input class="custom-control-input" id="customRadio7" type="radio" name="discounttype" [(ngModel)]="checkpres" value="No"  (click)="checkpresmethod()">                           
+                    <label class="custom-control-label" for="customRadio7">No</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+
+          <div
+         *ngIf="checkpres != 'No' && checkpres != ''"
+         class="w-100"
+       >
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <div class="pr15 form-bb">
+              <div class="form-group cmn-file-upld mb-0">
+                <div class="filename"></div>
+                <input
+                  id="license-upld"
+                  type="file"
+                  class="form-control cmn-fl-input custom-file-input"
+                  value=""
+                />
+                <label
+                  (click)="buttonClickForChooseIDs(3)"
+                  class="custom-file-label bmd-label-floating"
+                  ><span class="lbl-txt">Upload File</span></label
+                >
+              </div>
+            </div>
+            <div class="preview-thumb pl15 pr15">
+              <div class="prvw-doc"  *ngFor="let item of arrcertificates">
+                <img
+                  src="{{item}}"
+                  (click)="showPhoto(item)"
+                  class="prvw-doc"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+         </div>
+
+    <div class="cmn-apmnt-row order-details-section border-0 pt-0">              
+        <h5>Address</h5>                 
+        <div>
+            <div class="address-type-radio" *ngFor="let address of addresses">
+                <div class="custom-control custom-radio p-0">
+                    <input type="radio" id="customRadio10" name="address-radio" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadio10">
+                        <div class="area-name">{{address.addressLine1}}</div>
+                        <div class="area-dtl">{{address.addressLine2}}</div>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+    
+  </div>
+</ion-content>

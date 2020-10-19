@@ -1,0 +1,171 @@
+<!--
+  Generated template for the DoctorprofiledocumentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header> </ion-header>
+
+<ion-content>
+  <div class="tab-pane" id="Documents">
+    <div class="documents">
+      <!-- doc no start -->
+      <div class="document-no bg-fff cmn-form no-input-efct">
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">SSN No</label>
+            <input
+              type="number"
+              class="form-control"
+              name="ssnNo"
+              [(ngModel)]="profileDocument.perSSN"
+            />
+          </div>
+        </div>
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">SIN No</label>
+            <input
+              type="number"
+              class="form-control"
+              name="ssnNo"
+              [(ngModel)]="profileDocument.perSIN"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- doc no end -->
+      <!-- aadhar detail start -->
+      <div class="aadhar-dtl bg-fff cmn-form no-input-efct mt5">
+        <div class="dcmt-se-ttl">Aadhar Card</div>
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">Aadhar No</label>
+            <input
+              type="text"
+              class="form-control"
+              name="aadharCardNumber"
+              [(ngModel)]="profileDocument.perAadhaarCardNo"
+            />
+          </div>
+        </div>
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group cmn-file-upld mb-0 pt-30">
+            <div class="filename"></div>
+            <input
+              id="file-upld"
+              type="file"
+              class="form-control cmn-fl-input custom-file-input"
+              value=""
+            />
+            <label
+              class="custom-file-label bmd-label-floating"
+              (click)="buttonClickForChooseIDs(1)"
+              ><span class="lbl-txt">Upload File</span></label
+            >
+          </div>
+        </div>
+        <div class="preview-thumb pl15 pr15">
+          <div class="prvw-doc">
+            <img
+              src="{{profileDocument.perAadhaarCardID}}"
+              (click)="showPhoto(profileDocument.perAadhaarCardID)"
+              class="prvw-doc"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- aadhar detail end -->
+      <!-- Pan Card detail start -->
+      <div class="aadhar-dtl bg-fff cmn-form no-input-efct mt5">
+        <div class="dcmt-se-ttl">Pan Card</div>
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">Pan No</label>
+            <input
+              type="text"
+              class="form-control"
+              name="panNumber"
+              [(ngModel)]="profileDocument.perPANcardNo"
+            />
+          </div>
+        </div>
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group cmn-file-upld mb-0 pt-30">
+            <div class="filename"></div>
+            <input
+              id="pan-upld"
+              type="file"
+              class="form-control cmn-fl-input custom-file-input"
+              value=""
+            />
+            <label
+              (click)="buttonClickForChooseIDs(2)"
+              class="custom-file-label bmd-label-floating"
+              ><span class="lbl-txt">Upload File</span></label
+            >
+          </div>
+        </div>
+        <div class="preview-thumb pl15 pr15">
+          <div class="prvw-doc">
+            <img
+              src="{{profileDocument.perPANcardID}}"
+              (click)="showPhoto(profileDocument.perPANcardID)"
+              class="prvw-doc"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- Pan Card detail end -->
+      <!-- License detail start -->
+      <div class="aadhar-dtl bg-fff cmn-form no-input-efct mt5">
+        <div class="dcmt-se-ttl">License</div>
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">License No</label>
+            <input
+              type="text"
+              class="form-control"
+              name="licenseNumber"
+              [(ngModel)]="profileDocument.perDrivingLicenseNo"
+            />
+          </div>
+        </div>
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group cmn-file-upld mb-0 pt-30">
+            <div class="filename"></div>
+            <input
+              id="license-upld"
+              type="file"
+              class="form-control cmn-fl-input custom-file-input"
+              value=""
+            />
+            <label
+              (click)="buttonClickForChooseIDs(3)"
+              class="custom-file-label bmd-label-floating"
+              ><span class="lbl-txt">Upload File</span></label
+            >
+          </div>
+        </div>
+        <div class="preview-thumb pl15 pr15">
+          <div class="prvw-doc">
+            <img
+              src="{{profileDocument.perDrivingLicenseID}}"
+              (click)="showPhoto(profileDocument.perDrivingLicenseID)"
+              class="prvw-doc"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- License detail end -->
+      <div class="form-button bg-gray mb-20 pt-25 text-center">
+        <button class="btn cmn-thm-btn mr-25" (click)="clickOnButtonSave()">
+          SAVE
+        </button>
+        <button type="button" class="btn  cmn-wht-btn" (click)="cancel()">
+          CANCEL
+        </button>
+      </div>
+    </div>
+  </div>
+</ion-content>

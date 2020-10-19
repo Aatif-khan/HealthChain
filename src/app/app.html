@@ -1,0 +1,36 @@
+<ion-menu [content]="content">
+  <ion-header class="sdbr-mnu-hdr">
+    <ion-toolbar text-center>
+      <div class="userProfile-dtl">
+        <div class="userProfile">
+          <img src="{{perProfile}}" />
+        </div>
+        <!-- <h3>Mr. {{ username }}</h3> -->
+        <h3 class="pr-username">{{username}}</h3>
+        <!-- <span class="city-name">Seatle,USA</span> -->
+        <!-- <span>{{ profile }}</span> -->
+      </div>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list class="sdbr-mnu">
+      <ion-item
+        menuClose
+        ion-item
+        *ngFor="let p of pages"
+        (click)="openPage(p)"
+      >
+        <img src="{{p.icon}}" />
+        {{ p.title }}
+      </ion-item>
+      <ion-item menuClose ion-item (click)="logout()">
+        <img src="assets/images/logout-ic.png" />
+        Logout
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,245 @@
+<!--
+  Generated template for the ExtendedprofilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header> </ion-header>
+
+<ion-content>
+  <div class="tab-pane" id="Extended">
+    <div class="extnd-cntnt">
+      <form class="cmn-form no-input-efct mb-20 bg-fff">
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">Date of Birth</label>
+            <ion-datetime
+              displayFormat="DD MMMM YYYY"
+              pickerFormat="DD MMMM YYYY"
+              name="date"
+              [(ngModel)]="extendedProfile.perDOB"
+            ></ion-datetime>
+            <span class="input-icon"><img src="assets/images/date.png"/></span>
+          </div>
+        </div>
+        <div class="floating-label cmn-select">
+          <ion-list radio-group>
+            <ion-list-header>
+              Gender
+            </ion-list-header>
+            <ion-item *ngFor="let item of genderArray">
+              <ion-label>{{item.value}}</ion-label>
+              <ion-radio
+                value="{{item.value}}"
+                [checked]="item.value == extendedProfile.gender"
+                (click)="radioClicked(item.value)"
+              >
+              </ion-radio>
+            </ion-item>
+          </ion-list>
+        </div>
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">New Appointment Fess</label>
+            <input
+              type="text"
+              name="fees"
+              [(ngModel)]="extendedProfile.fees"
+              class="form-control"
+              [readonly]="false"
+            />
+          </div>
+        </div>
+
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">old Appointment Fess</label>
+            <input
+              type="text"
+              name="oldAptFees"
+              [(ngModel)]="extendedProfile.oldAptFees"
+              class="form-control"
+              [readonly]="false"
+            />
+          </div>
+        </div>
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">Degree</label>
+            <input
+              type="text"
+              name="degree"
+              [(ngModel)]="extendedProfile.perDegree"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">Designation</label>
+            <input
+              type="text"
+              name="designation"
+              [(ngModel)]="extendedProfile.perDesignation"
+              class="form-control"
+            />
+          </div>
+        </div>
+
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">Addittinal Details</label>
+            <input
+              type="text"
+              name="description"
+              [(ngModel)]="extendedProfile.description"
+              class="form-control"
+              [readonly]="false"
+            />
+          </div>
+        </div>
+
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">Attached Cirtificate</label>
+            <!-- <input
+              type="text"
+              name="description"
+              [(ngModel)]="extendedProfile.description"
+              class="form-control"
+              [readonly]="false"
+            /> -->
+
+            <div class="pl15 pr15 form-bb">
+              <div class="form-group cmn-file-upld mb-0 pt-30">
+                <div class="filename"></div>
+                <input
+                  id="license-upld"
+                  type="file"
+                  class="form-control cmn-fl-input custom-file-input"
+                  value=""
+                />
+                <label
+                  (click)="buttonClickForChooseIDs(3)"
+                  class="custom-file-label bmd-label-floating"
+                  ><span class="lbl-txt">Upload File</span></label
+                >
+              </div>
+            </div>
+            <div class="preview-thumb pl15 pr15">
+              <div class="prvw-doc"  *ngFor="let item of arrcertificates">
+                <img
+                  src="{{item}}"
+                  (click)="showPhoto(item)"
+                  class="prvw-doc"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="usr-img">
+          <label class="bmd-label-floating">Attached Cirtificate</label>
+          <img src="{{extendedProfile.perCertificate}}" class="usr-pic" />
+          <select
+            multiple
+            type="filename"
+            name="extendedProfile.perCertificate"
+            [(ngModel)]="extendedProfile.perCertificate"
+            (change)="onSelectChange($event)"
+          >
+          </select
+          >>
+          <span class="img-upld-btn">
+            <img
+              src="assets/images/cam.png"
+              (click)="buttonClickForChooseIDs()"
+            />
+          </span>
+        </div> -->
+
+        <!-- <div class="pl15 pr15 form-bb">
+              <div class="form-group">
+                <label class="bmd-label-floating">Attached Cirtificate</label>
+                <input
+                  type="filename"
+                  accept="image/*"
+                  name="perCertificate"
+                  [(ngModel)]="extendedProfile.perCertificate"
+                  multiple="true"
+                  class="form-control"
+
+                />
+
+                <span class="img-upld-btn">
+                    <img
+                      src="assets/images/cam.png"
+                      (click)="buttonClickForChooseIDs()"
+                    />
+                  </span>
+              </div>
+            </div> -->
+
+        <div class="form-button bg-gray pt-25 text-center">
+          <button class="btn cmn-thm-btn mr-25" (click)="submitDetails()">
+            Submit
+          </button>
+          <button type="button" class="btn  cmn-wht-btn">
+            CANCEL
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>
+<!-- <div padding align="center">
+      <div padding>
+        <button ion-button type="submit" (click)="submitDetails()">Submit</button>
+        <button ion-button type="Cancel">Cancel</button>
+      </div>
+    </div> -->
+
+<!-- <ion-item>
+  <ion-label>Date of Birth</ion-label>
+  <ion-datetime
+    displayFormat="DD MMMM YYYY"
+    pickerFormat="DD MMMM YYYY"
+    [(ngModel)]="extendedProfile.perDOB"
+  ></ion-datetime>
+</ion-item>
+
+<ion-list radio-group>
+  <ion-list-header>
+    Gender
+  </ion-list-header>
+  <ion-item *ngFor="let item of genderArray">
+    <ion-label>{{ item.value }}</ion-label>
+    <ion-radio
+      value="{{ item.value }}"
+      [checked]="item.value == extendedProfile.gender"
+      (click)="radioClicked(item.value)"
+    >
+    </ion-radio>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Fees</ion-label>
+    <ion-input
+      [(ngModel)]="extendedProfile.fees"
+      type="text"
+      [readonly]="true"
+    ></ion-input>
+  </ion-item>
+</ion-list>
+
+<ion-item>
+  <ion-label floating>Degree</ion-label>
+  <ion-input [(ngModel)]="extendedProfile.perDegree" type="text"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label floating>Designation</ion-label>
+  <ion-input
+    [(ngModel)]="extendedProfile.perDesignation"
+    type="text"
+  ></ion-input>
+</ion-item> -->

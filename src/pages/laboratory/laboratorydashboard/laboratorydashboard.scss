@@ -1,0 +1,10 @@
+page-laboratorydashboard {
+    .button {
+        background-color:#4633BE;
+        box-shadow:none;
+    }
+    
+    .button:hover:not(.disable-hover) {
+        background-color: #4633BE;
+    }
+}

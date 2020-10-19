@@ -1,0 +1,247 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle left>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>Incoming Appointment View</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <ion-icon name="" class="notification-icon"
+          ><span class="ntfctn-dot"></span
+        ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="view-list">
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Patient Name
+      </div>
+      <div class="view-list-val pull-right">
+        {{ viewLabAppointment.name }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Requied Report List
+      </div>
+      <div
+        class="view-list-val pull-right"
+        *ngFor="let rep of viewLabAppointment.data"
+      >
+        {{ rep.lrl1Name }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Appointment Date
+      </div>
+      <div class="view-list-val pull-right">
+        {{ Date }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Appointment Time
+      </div>
+      <div class="view-list-val pull-right">
+        {{ Time }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Home/Visit
+      </div>
+      <div class="view-list-val pull-right">
+        {{ viewLabAppointment.facilityCenterType }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Status
+      </div>
+
+      <div
+        *ngIf="viewLabAppointment.patAppStatus == 'Approved'"
+        class="view-list-val pull-right"
+      >
+        <span class="apmnt-lbl accepted">
+          {{ viewLabAppointment.patAppStatus }}
+        </span>
+      </div>
+
+      <div
+        *ngIf="viewLabAppointment.patAppStatus == 'Cancel'"
+        class="view-list-val pull-right"
+      >
+        <span class="apmnt-lbl cancelled">
+          {{ viewLabAppointment.patAppStatus }}
+        </span>
+      </div>
+      <div
+        *ngIf="viewLabAppointment.patAppStatus == 'Pending'"
+        class="view-list-val pull-right"
+      >
+        <span class="apmnt-lbl pending">
+          {{ viewLabAppointment.patAppStatus }}
+        </span>
+      </div>
+
+      <div
+        *ngIf="viewLabAppointment.patAppStatus == 'Rejected'"
+        class="view-list-val pull-right"
+      >
+        <span class="apmnt-lbl rejected">
+          {{ viewLabAppointment.patAppStatus }}
+        </span>
+      </div>
+      <div
+        *ngIf="viewLabAppointment.patAppStatus == 'Completed'"
+        class="view-list-val pull-right"
+      >
+        <span class="apmnt-lbl accepted">
+          {{ viewLabAppointment.patAppStatus }}
+        </span>
+      </div>
+
+      <!-- <div class="view-list-val pull-right">
+        <span class="accepted-lbl">{{ viewLabAppointment.patAppStatus }}</span>
+      </div> -->
+    </div>
+    <ion-item
+      *ngIf="
+        viewLabAppointment.patAppStatus == 'Pending' &&
+        selectRole == 'Laboratory'
+      "
+    >
+      <button ion-button (click)="Approved(item)">Approve</button>
+      <button ion-button color="danger" (click)="Rejected(item)">
+        Reject
+      </button>
+    </ion-item>
+
+    <ion-item
+      *ngIf="
+        viewLabAppointment.patAppStatus == 'Completed' &&
+        selectRole == 'Laboratory'
+      "
+    >
+      <button ion-button (click)="Add(item)">Add Leboratory Report</button>
+    </ion-item>
+
+    <ion-item
+      *ngIf="
+        viewLabAppointment.patAppStatus == 'Approved' &&
+        selectRole == 'Laboratory'
+      "
+    >
+      <button ion-button (click)="Add(item)">Add Leboratory Report</button>
+      <button ion-button color="danger" (click)="Canceled(item)">
+        Cancel
+      </button>
+    </ion-item>
+  </div>
+</ion-content>
+
+<!-- <form text-center class="login-inner-hc" style="height: 50%;">
+  <ion-list>
+    <div class="login-signin-hc">
+      <div class="login-head-hc">
+        <h5>Incoming Appointment View</h5>
+      </div>
+
+      <ion-item>
+        <ion-label color="">Patient Name :</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="viewLabAppointment.providerName"
+          name="PatientName"
+          disabled="true"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="">Requied Report List :</ion-label>
+        <ion-input
+          *ngFor="let rep of viewLabAppointment.data"
+          type="text"
+          [(ngModel)]="rep.lrl1Name"
+          name="ReportList"
+          disabled="true"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="">Appointment Date :</ion-label>
+        <ion-input [(ngModel)]="Date" name="date" disabled="true">
+          ></ion-input
+        >
+      </ion-item>
+      <ion-item>
+        <ion-label color="">Appointment Time :</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="Time"
+          name="Time"
+          disabled="true"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="">Home/Visit :</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="viewLabAppointment.facilityCenterType"
+          name="Visit"
+          disabled="true"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="">Status :</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="viewLabAppointment.patAppStatus"
+          name="Status"
+          disabled="true"
+        ></ion-input>
+      </ion-item>
+    </div>
+  </ion-list>
+  <ion-list no-lines>
+    <ion-item
+      *ngIf="
+        viewLabAppointment.patAppStatus == 'Pending' &&
+        selectRole == 'Laboratory'
+      "
+    >
+      <button ion-button (click)="Approved(item)">Approve</button>
+      <button ion-button color="danger" (click)="Rejected(item)">
+        Reject
+      </button>
+    </ion-item>
+
+    <ion-item
+      *ngIf="
+        viewLabAppointment.patAppStatus == 'Completed' &&
+        selectRole == 'Laboratory'
+      "
+    >
+      <button ion-button (click)="Add(item)">Add Leboratory Report</button>
+    </ion-item>
+
+    <ion-item
+      *ngIf="
+        viewLabAppointment.patAppStatus == 'Approved' &&
+        selectRole == 'Laboratory'
+      "
+    >
+      <button ion-button (click)="Add(item)">Add Leboratory Report</button>
+      <button ion-button color="danger" (click)="Canceled(item)">
+        Cancel
+      </button>
+    </ion-item>
+  </ion-list>
+</form> -->

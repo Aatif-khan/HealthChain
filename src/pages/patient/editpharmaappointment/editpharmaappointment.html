@@ -1,0 +1,210 @@
+<!--
+  Generated template for the AddAppointmentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle right>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>Edit Pharma Appointment</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only>
+        <ion-icon name="" class="header-logo"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="cmn-inr-form">
+    <ion-list>
+      <ion-item>
+        <ion-label color="" floating>Facility</ion-label>
+        <ion-select
+          [(ngModel)]="facilityCenterID"
+          [disabled]="facilitiesArray.length == 0"
+          (ionChange)="getFacilityid($event)"
+        >
+          <ion-option
+            *ngFor="let category of facilitiesArray; let idx = index"
+            [value]="category.facilityCenterID"
+            selected="{{ (idx == 0).facilityCenterID }}"
+            >{{ category.facilityCenterName }}</ion-option
+          >
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="" floating>Location</ion-label>
+        <ion-select
+          [disabled]="locationArray.length == 0"
+          [(ngModel)]="fcLocationMapID"
+          (ionChange)="getlocationid($event)"
+        >
+          <ion-option
+            *ngFor="let location of locationArray; let idx = index"
+            [value]="location.fcLocationMapID"
+            selected="{{ (idx == 0).fcLocationMapID }}"
+            >{{ location.fcLocationName }}</ion-option
+          >
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="" floating>Chemist</ion-label>
+        <ion-select
+          [disabled]="MedicalStoreArray.length == 0"
+          [(ngModel)]="fclProviderMapID"
+          (ionChange)="getmedicalStoreID($event)"
+        >
+          <ion-option
+            *ngFor="let medicalStore of MedicalStoreArray; let idx = index"
+            [value]="medicalStore.fclProviderMapID"
+            selected="{{ (idx == 0).fclProviderMapID }}"
+            >{{ medicalStore.providerName }}</ion-option
+          >
+        </ion-select>
+      </ion-item>
+
+      <!-- <ion-item>
+          <ion-label color="" floating>List of Doctors </ion-label>
+          <ion-select
+            [(ngModel)]="fclProviderMapID"
+            [disabled]="doctorArray.length == 0"
+            (ionChange)="getdoctorid($event)"
+          >
+            <ion-option
+              *ngFor="let doctor of doctorArray; let idx = index"
+              [value]="doctor.fclProviderMapID"
+              selected="{{ (idx == 0).fclProviderMapID }}"
+              >{{ doctor.providerName }}</ion-option
+            >
+          </ion-select>
+        </ion-item> -->
+      <!-- new  -->
+      <!-- <ion-item>
+          <ion-label floating> Fees of selected Doctor </ion-label>
+          <ion-input
+            type="number"
+            name="feesText"
+            [(ngModel)]="fees"
+            disabled
+          ></ion-input>
+  
+           <div class="col-md-5">
+                <input type="number" class="form-control input-height" required  [(ngModel)]="feesResponseModel" #feesResponseModelText="ngModel" name="feesResponseModelText" disabled>
+            </div>
+        </ion-item> -->
+
+      <ion-item>
+        <ion-label color="" floating>Date Of Appointment </ion-label>
+        <ion-datetime
+          displayFormat="DD MMMM YYYY"
+          pickerFormat="DD MMMM YYYY"
+          [(ngModel)]="selectedpatAppDate"
+        ></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="" floating>Time Of Appointment</ion-label>
+        <ion-datetime
+          displayFormat="hh:mm a"
+          pickerFormat="hh:mm a"
+          [(ngModel)]="selectedpatAppTime"
+        ></ion-datetime>
+      </ion-item>
+
+      <!-- <ion-item>
+          <ion-label color="" floating>Time To</ion-label>
+          <ion-datetime
+            displayFormat="hh:mm a"
+            pickerFormat="hh:mm a"
+            [(ngModel)]="patAppTimeTo"
+          ></ion-datetime>
+        </ion-item> -->
+
+      <ion-item>
+        <ion-label color="" floating>Medicine Required</ion-label>
+        <ion-select
+          [(ngModel)]="selecteddrugcompundID"
+          (ionChange)="getMedByPharmaID($event)"
+        >
+          <ion-option
+            *ngFor="let pharmaID of MedByPharmaArray; let idx = index"
+            [value]="pharmaID.medicineName"
+            selected="{{ (idx == 0).medicineName }}"
+            >{{ pharmaID.medicineName }}</ion-option
+          >
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="" floating>Visit Type</ion-label>
+        <ion-select [(ngModel)]="selectedvisittypeId">
+          <ion-option>
+            Visit
+          </ion-option>
+          <ion-option>
+            Home
+          </ion-option>
+        </ion-select>
+
+        <!-- <ion-select
+            [(ngModel)]="visittypeId"
+            (ionChange)="getvisittypeid($event)"
+          >
+            <ion-option
+              *ngFor="let visit of visittypeArray; let idx = index"
+              [value]="visit.key"
+              selected="{{ (idx == 0).key }}"
+              >{{ visit.value }}</ion-option
+            >
+          </ion-select> -->
+      </ion-item>
+
+      <!-- <ion-item>
+          <ion-label color="" floating>Medicine Detail</ion-label>
+          <ion-select
+            [(ngModel)]="visitreasonId"
+            [disabled]="visitreasonArray.length == 0"
+            (ionChange)="getvisitreasonid($event)"
+          >
+            <ion-option
+              *ngFor="let reason of visitreasonArray; let idx = index"
+              [value]="reason.key"
+              selected="{{ (idx == 0).key }}"
+              >{{ reason.value }}</ion-option
+            >
+          </ion-select>
+        </ion-item> -->
+
+      <ion-item>
+        <ion-label color="" floating>Medicine Detail</ion-label>
+
+        <ion-input
+          type="text"
+          name="Desciption"
+          [(ngModel)]="selectedpatAppDescription"
+        ></ion-input>
+      </ion-item>
+
+      <div class="cmn-ftr-btn">
+        <button
+          (click)="callAddAppointmentApi()"
+          ion-button
+          class="cmn-btn-styl prpl-btn"
+          block
+        >
+          Edit
+        </button>
+      </div>
+    </ion-list>
+  </div>
+
+  <!-- <div class="add-action">
+              <button ion-button class="add-round"><img src="../assets/imgs/plus-ic.png"></button>
+            </div> -->
+</ion-content>

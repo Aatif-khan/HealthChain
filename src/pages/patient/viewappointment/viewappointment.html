@@ -1,0 +1,308 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle left>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>View Appointment</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <ion-icon name="" class="notification-icon"
+          ><span class="ntfctn-dot"></span
+        ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="view-list">
+    <div *ngIf="selectRole == 'Patient'">
+      <div class="app-title-main">
+        <h3 _ngcontent-c2="" class="app-title">
+          {{ ViewAppointment.providerName }}
+        </h3>
+        <ul class="nav ml-auto align-items-center">
+          <li class="nav-item">
+            <i class="fa fa-calendar"></i>
+            <span>{{ Date }}</span>
+          </li>
+          <li class="nav-item ml-3">
+            <i class="fa fa-clock-o"></i>
+            <span> {{ Time }}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="view-lst-row doc-vis-view border-0">
+        <div class="vis-detail">
+          <div class="body">
+            <h6 class="title mt-0 mb-0">Appointment Location</h6>
+            <ul class="mb-0">
+              <li>{{ ViewAppointment.fcLocationName }}</li>
+            </ul>
+          </div>
+          <div class="vis-icon">
+            <img src="assets/images/app-location-icon.png" />
+          </div>
+        </div>
+      </div>
+
+      <div class="view-lst-row doc-vis-view border-0">
+        <div class="vis-detail">
+          <div class="body">
+            <h6 class="title mt-0 mb-0">Appointment Time</h6>
+            <ul class="mb-0">
+              <li>{{Time}}</li>
+            </ul>
+          </div>
+          <div class="vis-icon">
+            <img src="assets/images/app-time-icon.png" />
+          </div>
+        </div>
+      </div>
+
+      <div class="view-lst-row doc-vis-view border-0">
+        <div class="vis-detail">
+          <div class="body">
+            <h6 class="title mt-0 mb-0">Speciality</h6>
+            <ul class="mb-0">
+              <li>{{ ViewAppointment.specialityName }}</li>
+            </ul>
+          </div>
+          <div class="vis-icon">
+            <img src="assets/images/speciality-icon.png" />
+          </div>
+        </div>
+      </div>
+
+      <div class="view-lst-row doc-vis-view border-0">
+        <div class="vis-detail">
+          <div class="body">
+            <h6 class="title mt-0 mb-0">Reason for Visit</h6>
+            <ul class="mb-0">
+              <li>{{ ViewAppointment.patAppReason }}</li>
+            </ul>
+          </div>
+          <div class="vis-icon">
+            <img src="assets/images/visit-icon.png" />
+          </div>
+        </div>
+      </div>
+
+      <div class="view-lst-row doc-vis-view border-0">
+        <div class="vis-detail">
+          <div class="body">
+            <h6 class="title mt-0 mb-0">Extra Detail</h6>
+            <ul class="mb-0">
+              <li>{{ ViewAppointment.patAppDescription }}</li>
+            </ul>
+          </div>
+          <div class="vis-icon">
+            <img src="assets/images/extra-details-icon.png" />
+          </div>
+        </div>
+
+        <!-- <div class="view-list-val  pull-right">
+          <span class="accepted-lbl">{{ ViewAppointment.patAppStatus }}</span>
+        </div> -->
+        <!-- <ion-item *ngIf="ViewAppointment.patAppStatus == 'Pending'">
+          <button
+            ion-button
+            color="calm"
+            (click)="editItem(ViewAppointment.patAppointmentID)"
+          >
+            Edit
+          </button>
+        </ion-item>
+        <ion-item *ngIf="ViewAppointment.patAppStatus == 'Completed'">
+          <button ion-button (click)="ReBook(ViewAppointment)">Re-Book</button>
+        </ion-item>
+        <ion-item *ngIf="ViewAppointment.patAppStatus == 'Approved'">
+          <button ion-button color="danger" (click)="Cancel(ViewAppointment)">
+            Cancel
+          </button>
+        </ion-item>
+        <ion-item *ngIf="ViewAppointment.patAppStatus == 'Rejected'">
+          <button ion-button (click)="ReBook(ViewAppointment)">Re-Book</button>
+        </ion-item>
+        <ion-item *ngIf="ViewAppointment.patAppStatus == 'Cancel'">
+          <button ion-button (click)="ReBook(ViewAppointment)">Re-Book</button>
+        </ion-item> -->
+
+        <!-- <div class="form-button bg-gray pt-25 text-center">
+          <button
+            type="button"
+            class="cmn-thm-btn mr-25"
+            (click)="bookPharma()"
+          >
+            Book Pharma
+          </button>
+          <button type="button" class="cmn-wht-btn" (click)="bookLab()">
+            Book Laboratory
+          </button>
+        </div> -->
+      </div>
+    </div>
+
+    <div class="view-lst-row doc-vis-view border-0">
+      <div class="vis-detail">
+        <div class="body">
+          <h6 class="title mt-0 mb-0">Appointment Status</h6>
+          <ul class="mb-0">
+            <li>{{ ViewAppointment.patAppStatus }}</li>
+          </ul>
+        </div>
+        <div class="vis-icon">
+          <img src="assets/images/app-status-icon.png" />
+        </div>
+      </div>
+    </div>
+
+    <div class="form-button bg-gray pt-25 mb-20 text-center">
+      <button class="btn cmn-thm-btn mr-4" (click)="bookPharma()">
+        Book Pharma
+      </button>
+      <button type="button" class="cmn-wht-btn mr-4" (click)="bookLab()">
+        Book Laboratary
+      </button>
+      <button type="button" class="cmn-wht-btn mr-4">
+        View Prescription
+      </button>
+    </div>
+  </div>
+
+  <!-- Appointment for Doctor -->
+
+  <div *ngIf="selectRole == 'Doctor'">
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Appointment Date
+      </div>
+      <div class="view-list-val pull-right">
+        {{ Date }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Appointment Location
+      </div>
+      <div class="view-list-val pull-right">
+        {{ ViewAppointment.fcLocationName }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Appointment Time
+      </div>
+      <div class="view-list-val pull-right">
+        {{ Time }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Patient Name
+      </div>
+      <div class="view-list-val pull-right">
+        {{ ViewAppointment.name }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Facility
+      </div>
+      <div class="view-list-val pull-right">
+        {{ ViewAppointment.facilityCenterName }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Case
+      </div>
+      <div class="view-list-val pull-right">
+        {{ ViewAppointment.patAppType }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Reason For Visit
+      </div>
+      <div class="view-list-val pull-right">
+        {{ ViewAppointment.patAppReason }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Additional Detail
+      </div>
+      <div class="view-list-val pull-right">
+        {{ ViewAppointment.patAppDescription }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Status
+      </div>
+
+      <div
+        *ngIf="ViewAppointment.patAppStatus == 'Approved'"
+        class="view-list-val pull-right"
+      >
+        <span class="apmnt-lbl accepted">
+          {{ ViewAppointment.patAppStatus }}
+        </span>
+      </div>
+
+      <div
+        *ngIf="ViewAppointment.patAppStatus == 'Cancel'"
+        class="view-list-val pull-right"
+      >
+        <span class="apmnt-lbl cancelled">
+          {{ ViewAppointment.patAppStatus }}
+        </span>
+      </div>
+      <div
+        *ngIf="ViewAppointment.patAppStatus == 'Pending'"
+        class="view-list-val pull-right"
+      >
+        <span class="apmnt-lbl pending">
+          {{ ViewAppointment.patAppStatus }}
+        </span>
+      </div>
+
+      <div
+        *ngIf="ViewAppointment.patAppStatus == 'Rejected'"
+        class="view-list-val pull-right"
+      >
+        <span class="apmnt-lbl rejected">
+          {{ ViewAppointment.patAppStatus }}
+        </span>
+      </div>
+      <div
+        *ngIf="ViewAppointment.patAppStatus == 'Completed'"
+        class="view-list-val pull-right"
+      >
+        <span class="apmnt-lbl accepted">
+          {{ ViewAppointment.patAppStatus }}
+        </span>
+      </div>
+
+      <!-- <div class="view-list-val pull-right">
+          <span class="accepted-lbl">{{ ViewAppointment.patAppStatus }}</span>
+        </div> -->
+    </div>
+    <ion-item *ngIf="ViewAppointment.patAppStatus == 'Pending'">
+      <button ion-button (click)="Approved(ViewAppointment)">Approve</button>
+      <button ion-button color="danger" (click)="Rejected(ViewAppointment)">
+        Reject
+      </button>
+      <button ion-button color="danger" (click)="Canceled(ViewAppointment)">
+        Cancel
+      </button>
+    </ion-item>
+    <ion-item *ngIf="ViewAppointment.patAppStatus == 'Approved'">
+      <!-- <button ion-button (click)="Addvisit(ViewAppointment)">Add Visit</button> -->
+      <button ion-button color="danger" (click)="Canceled(ViewAppointment)">
+        Cancel
+      </button>
+    </ion-item>
+  </div>
+</ion-content>

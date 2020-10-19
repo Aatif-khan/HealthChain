@@ -1,0 +1,107 @@
+.orange-bg {
+  background-color: #f36847;
+}
+.pink-bg {
+  background-color: #f4516c;
+}
+.blue-bg {
+  background-color: #5075e4;
+}
+.info-box {
+  min-height: 100px;
+  width: 100%;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 45px;
+  padding: 5px 27px 22px 27px;
+  position: relative;
+}
+.info-box-content {
+  position: relative;
+  z-index: 11;
+}
+.info-dctr-vst-icon:after {
+  background: url(imgs/doctor-visit-db-icon.png) no-repeat center center;
+  bottom: -29px;
+}
+.lab-report-icon:after {
+  background: url(imgs/lab-report-db-icon.png) no-repeat center center;
+  bottom: -14px;
+}
+.pharma-delvers-icon:after {
+  background: url(imgs/pharma-delvers-db-icon.png) no-repeat center center;
+  bottom: -12px;
+}
+.info-box:after {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  content: "";
+  z-index: 1;
+}
+.info-box-text,
+.progress-description {
+  display: block;
+  font-size: 26px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 32px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+.state-overview {
+  color: #fff;
+}
+.info-box-number {
+  font-weight: 300;
+  font-size: 68px;
+}
+.orange-bg .view-dtl-btn {
+  color: #f36847;
+}
+.pink-bg .view-dtl-btn {
+  color: #f4516c;
+}
+.blue-bg .view-dtl-btn {
+  color: #5075e4;
+}
+
+button.view-dtl-btn {
+  background: #fff;
+  border: none;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 5px 52px;
+  min-height: 44px;
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.14);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.14);
+  position: absolute;
+  bottom: -22px;
+  max-width: 216px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100%;
+  z-index: 11;
+}
+.page-content-white .page-title {
+  font-size: 22px;
+}
+.page-container-bg-solid .page-title,
+.page-content-white .page-title {
+  color: rgba(0, 0, 0, 0.8);
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.page-container-bg-solid .page-bar,
+.page-content-white .page-bar {
+  background-color: #eaeef3;
+  /* position: relative;
+  padding: 0 20px; */
+  /* margin: 0px -20px 15px; */
+}

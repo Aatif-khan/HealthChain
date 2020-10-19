@@ -1,0 +1,67 @@
+<!--
+  Generated template for the PatientaddinsurancePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle right>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>Add Insurance</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only>
+        <ion-icon name="" class="header-logo"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div class="cmn-inr-form">
+    <ion-item>
+      <ion-label color="" floating>Plan Name</ion-label>
+      <ion-input type="text" name="planname" [(ngModel)]="insurance.planname"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="" floating> Insurance Company Name</ion-label>
+      <ion-input type="text" name="insurancecompanyname" [(ngModel)]="insurance.companyname"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="" floating>Coverage</ion-label>
+      <ion-input type="text" name="coverage" [(ngModel)]="insurance.coverage"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="" floating> Years</ion-label>
+      <ion-input name="years" [(ngModel)]="insurance.years"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="" floating>Status</ion-label>
+      <ion-select [(ngModel)]="insurance.status">
+        <ion-option *ngFor="let status of statusoptions; let id=index;" [value]="status.statusname" selected="{{(idx==0).statusname}}">{{status.statusname}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="" floating>Additional Detail</ion-label>
+      <ion-input type="text" name="additionaldetail" [(ngModel)]="insurance.additionaldetail"></ion-input>
+    </ion-item>
+
+    Add Document
+
+    <button ion-button small (click)="choosedocument()">Choose File</button>
+    <ion-label>{{filename}}</ion-label>
+
+    <div class="cmn-ftr-btn">
+      <button ion-button (click)="addinsurance()" class="cmn-btn-styl prpl-btn">Submit</button>
+      <button ion-button class="cmn-btn-styl prpl-btn">Cancel</button>
+    </div>
+  </div>
+
+</ion-content>

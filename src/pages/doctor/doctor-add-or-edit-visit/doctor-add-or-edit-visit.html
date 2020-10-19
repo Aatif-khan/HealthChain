@@ -1,0 +1,314 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle left>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>Add Visit</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <ion-icon name="" class="notification-icon"
+          ><span class="ntfctn-dot"></span
+        ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="book-apmnt pt-20 bg-fff">
+    <form class="cmn-form no-input-efct mb-20">
+      <div class="floating-label cmn-select">
+        <select
+          class="floating-select form-control"
+          name="DoctorVisit.Facility"
+          [(ngModel)]="DoctorVisit.Facility"
+          (change)="onSelectChange($event)"
+        >
+          <option *ngFor="let f of Facilities" [value]="f"
+            >{{ f.facilityCenterName }}</option
+          >
+        </select>
+        <label>Facility</label>
+      </div>
+      <div class="floating-label cmn-select">
+        <select
+          class="floating-select form-control"
+          name="DoctorVisit.Location"
+          [(ngModel)]="DoctorVisit.Location"
+        >
+          <option *ngFor="let L of Locations" [value]="L"
+            >{{ L.fcLocationName }}</option
+          >
+        </select>
+        <label>Locations</label>
+      </div>
+
+      <div class="floating-label cmn-select">
+        <select
+          class="floating-select form-control"
+          name="DoctorVisit.Patient"
+          [(ngModel)]="DoctorVisit.Patient"
+        >
+          <option *ngFor="let P of PatientNames" [value]="P"
+            >{{ P.patientName }}</option
+          >
+        </select>
+        <label>Patient Name</label>
+      </div>
+      <div class="pl15 pr15 form-bb">
+        <div class="floating-label cmn-inpt">
+          <textarea
+            class="floating-input cmn-txtarea"
+            name="DoctorVisit.Symptoms"
+            [(ngModel)]="DoctorVisit.Symptoms"
+          ></textarea>
+          <label>Symptoms</label>
+        </div>
+      </div>
+      <div class="pl15 pr15 form-bb">
+        <div class="floating-label cmn-inpt">
+          <textarea
+            class="floating-input cmn-txtarea"
+            name="DoctorVisit.TreatmentProvided"
+            [(ngModel)]="DoctorVisit.TreatmentProvided"
+          ></textarea>
+          <label>Treatment Provided</label>
+        </div>
+      </div>
+      <div class="floating-label cmn-select">
+        <select
+          class="floating-select form-control"
+          name="DoctorVisit.PossibleDiseaseName"
+          [(ngModel)]="DoctorVisit.PossibleDiseaseName"
+        >
+          <option *ngFor="let D of PossibleDiseaseNames" [value]="D"
+            >{{ D.diagnosiseName }}</option
+          >
+        </select>
+        <label>Possible Disease Name</label>
+      </div>
+      <div class="pl15 pr15 form-bb">
+        <div class="floating-label cmn-inpt">
+          <textarea
+            class="floating-input cmn-txtarea"
+            name="DoctorVisit.SideEffect"
+            [(ngModel)]="DoctorVisit.SideEffect"
+          ></textarea>
+          <label>Side Effect</label>
+        </div>
+      </div>
+      <div class="pl15 pr15 form-bb">
+        <div class="floating-label cmn-inpt">
+          <textarea
+            class="floating-input cmn-txtarea"
+            name="DoctorVisit.ExtraDetails"
+            [(ngModel)]="DoctorVisit.ExtraDetails"
+          ></textarea>
+          <label>Extra Details</label>
+        </div>
+      </div>
+      <div class="floating-label cmn-select">
+        <select
+          class="floating-select form-control"
+          name="DoctorVisit.MedicineRequired"
+          [(ngModel)]="DoctorVisit.MedicineRequired"
+        >
+          <option *ngFor="let M of arrMedicineRequired" [value]="M"
+            >{{ M.drugCompoundName }}</option
+          >
+        </select>
+        <label>Medicine Required</label>
+      </div>
+      <div class="floating-label cmn-select">
+        <select
+          class="floating-select form-control"
+          name="DoctorVisit.ReportRequired"
+          [(ngModel)]="DoctorVisit.ReportRequired"
+        >
+          <option *ngFor="let R of arrReportRequired" [value]="R"
+            >{{ R.lrl1Name }}</option
+          >
+        </select>
+        <label>Report Required</label>
+      </div>
+      <div class="floating-label cmn-select">
+        <select
+          class="floating-select form-control"
+          name="DoctorVisit.ReportRequired"
+          [(ngModel)]="DoctorVisit.ReportRequired"
+        >
+          <option *ngFor="let R of arrDoctorReference" [value]="R"
+            >{{ R.providerName }}</option
+          >
+        </select>
+        <label>Refer a doctor</label>
+      </div>
+
+      <!-- <div class="floating-label cmn-select">
+        <ion-label>Have Prescription ?</ion-label>
+        <div class="col-md-5">
+          <input
+            type="radio"
+            name="discounttype"
+            [(ngModel)]="checkpres"
+            value="Yes"
+            (click)="checkpresmethod()"
+          />
+          Yes &nbsp;
+          <input
+            type="radio"
+            name="discounttype"
+            [(ngModel)]="checkpres"
+            value="No"
+            (click)="checkpresmethod()"
+          />
+          No <br />
+        </div>
+      </div> -->
+      <div class="form-button bg-gray pt-25 text-center">
+        <button
+          type="button"
+          class="cmn-thm-btn mr-25"
+          (click)="SubmitClicked()"
+        >
+          SAVE
+        </button>
+        <button type="button" class="cmn-wht-btn" (click)="CancelClicked()">
+          CANCEL
+        </button>
+      </div>
+    </form>
+  </div>
+</ion-content>
+<!-- <form text-center class="login-inner-hc">
+        <ion-list>
+          <div class="login-signin-hc">
+            <ion-item>
+              <ion-label>Facility</ion-label>
+              <ion-select
+                [(ngModel)]="DoctorVisit.Facility"
+                name="DoctorVisit.Facility"
+                (ionChange)="onSelectChange($event)"
+              >
+                <ion-option *ngFor="let f of Facilities" [value]="f">
+                  {{ f.facilityCenterName }}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+    
+            <ion-item>
+              <ion-label>Locations</ion-label>
+              <ion-select
+                [(ngModel)]="DoctorVisit.Location"
+                name="DoctorVisit.Location"
+              >
+                <ion-option *ngFor="let L of Locations" [value]="L">
+                  {{ L.fcLocationName }}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+    
+            <ion-item>
+              <ion-label>Patient Name</ion-label>
+              <ion-select
+                [(ngModel)]="DoctorVisit.Patient"
+                name="DoctorVisit.Patient"
+              >
+                <ion-option *ngFor="let P of PatientNames" [value]="P">
+                  {{ P.patientName }}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+    
+            <ion-item>
+              <ion-label color="" floating>Symptoms</ion-label>
+              <ion-textarea
+                type="text"
+                [(ngModel)]="DoctorVisit.Symptoms"
+                name="DoctorVisit.Symptoms"
+              ></ion-textarea>
+            </ion-item>
+    
+            <ion-item>
+              <ion-label color="" floating>Treatment Provided</ion-label>
+              <ion-textarea
+                type="text"
+                [(ngModel)]="DoctorVisit.TreatmentProvided"
+                name="DoctorVisit.TreatmentProvided"
+              ></ion-textarea>
+            </ion-item>
+    
+            <ion-item>
+              <ion-label>Possible Disease Name</ion-label>
+              <ion-select
+                [(ngModel)]="DoctorVisit.PossibleDiseaseName"
+                name="DoctorVisit.PossibleDiseaseName"
+                multiple="true"
+              >
+                <ion-option *ngFor="let D of PossibleDiseaseNames" [value]="D">
+                  {{ D.diagnosiseName }}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+    
+            <ion-item>
+              <ion-label color="" floating>Side Effect</ion-label>
+              <ion-textarea
+                type="text"
+                [(ngModel)]="DoctorVisit.SideEffect"
+                name="DoctorVisit.SideEffect"
+              ></ion-textarea>
+            </ion-item>
+    
+            <ion-item>
+              <ion-label color="" floating>Extra Details</ion-label>
+              <ion-textarea
+                [(ngModel)]="DoctorVisit.ExtraDetails"
+                name="DoctorVisit.ExtraDetails"
+              ></ion-textarea>
+            </ion-item>
+    
+            <ion-item>
+              <ion-label>Medicine Required</ion-label>
+              <ion-select
+                [(ngModel)]="DoctorVisit.MedicineRequired"
+                name="DoctorVisit.MedicineRequired"
+                multiple="true"
+              >
+                <ion-option *ngFor="let M of arrMedicineRequired" [value]="M">
+                  {{ M.drugCompoundName }}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+    
+            <ion-item>
+              <ion-label>Report Required</ion-label>
+              <ion-select
+                [(ngModel)]="DoctorVisit.ReportRequired"
+                name="DoctorVisit.ReportRequired"
+                multiple="true"
+              >
+                <ion-option *ngFor="let R of arrReportRequired" [value]="R">
+                  {{ R.lrl1Name }}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+    
+            <div padding>
+              <button
+                (click)="SubmitClicked()"
+                ion-button
+                class=""
+                color="secondary"
+                light
+              >
+                Submit
+              </button>
+    
+              <button (click)="CancelClicked()" ion-button class="" light>
+                Cancel
+              </button>
+            </div>
+          </div>
+        </ion-list>
+      </form> -->

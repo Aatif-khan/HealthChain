@@ -1,0 +1,142 @@
+<!--
+  Generated template for the DashBoardForDoctorPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle left>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>Dashboard</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <ion-icon name="" class="notification-icon"
+          ><span class="ntfctn-dot"></span
+        ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="page-content-white">
+    <div class="page-wrapper">
+      <div class="page-container">
+        <!-- start page content -->
+        <div class="page-content-wrapper home">
+          <div class="page-content">
+            <div class="page-bar clearfix">
+              <div class="page-title-breadcrumb">
+                <div class=" pull-left">
+                  <div class="page-title">Welcome to Health Chain</div>
+                </div>
+                <!-- <ol class="breadcrumb page-breadcrumb pull-right">
+                            <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" routerLink="/home">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+                            </li>
+                            <li class="active">Dashboard</li>
+                        </ol> -->
+              </div>
+            </div>
+            <!-- start widget -->
+            <div class="state-overview">
+              <div class="">
+                <div class="col-xl-4 col-md-6 col-12">
+                  <div class="info-box orange-bg info-dctr-vst-icon">
+                    <div class="info-box-content d-flex align-items-center">
+                      <span class="info-box-text">Appointments </span>
+                      <span class="info-box-number ml-auto"
+                        >{{ appointmentlistcount }}</span
+                      >
+                    </div>
+                    <!-- /.info-box-content -->
+                    <!-- <button ion-button color="calm" (click)="editItem(item.patAppointmentID)"></button> -->
+                    <button
+                      class="view-dtl-btn"
+                      (click)="viewAppointmentList()"
+                    >
+                      View Details
+                    </button>
+                  </div>
+                  <!-- /.info-box -->
+                </div>
+                .
+                <!-- /.col -->
+                <div class="col-xl-4 col-md-6 col-12">
+                  <div class="info-box pink-bg lab-report-icon">
+                    <div class="info-box-content d-flex align-items-center">
+                      <span class="info-box-text">
+                        Patient<br />
+                        Visit</span
+                      >
+                      <span class="info-box-number ml-auto"
+                        >{{ doctorvisitlistcount }}</span
+                      >
+                    </div>
+                    <!-- /.info-box-content -->
+                    <button
+                      class="view-dtl-btn"
+                      (click)="viewDoctorVisitList()"
+                    >
+                      View Details
+                    </button>
+                  </div>
+                  <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+                <div class="col-xl-4 col-md-6 col-12">
+                  <div class="info-box blue-bg pharma-delvers-icon">
+                    <div class="info-box-content d-flex align-items-center">
+                      <span class="info-box-text"
+                        >Patient <br />
+                        Report</span
+                      >
+                      <span class="info-box-number ml-auto"
+                        >{{ patientreportlist.length }}</span
+                      >
+                    </div>
+                    <!-- /.info-box-content -->
+                    <button
+                      class="view-dtl-btn"
+                      (click)="viewPatientReportList()"
+                    > 
+                      View Details
+                    </button>
+                  </div>
+                  <!-- /.info-box -->
+                </div>
+                <!-- /.col -->
+                <div class="col-xl-4 col-md-6 col-12">
+                  <div class="info-box orange-bg info-dctr-vst-icon">
+                    <div class="info-box-content d-flex align-items-center">
+                      <span class="info-box-text"
+                        >Transaction <br />
+                        History
+                      </span>
+                      <span class="info-box-number ml-auto"
+                        >{{ transactionHistorycount }}</span
+                      >
+                    </div>
+                    <!-- /.info-box-content -->
+                    <!-- <button ion-button color="calm" (click)="editItem(item.patAppointmentID)"></button> -->
+                    <button
+                      class="view-dtl-btn"
+                      (click)="viewTransactionList()"
+                    >
+                      View Details
+                    </button>
+                  </div>
+                  <!-- /.info-box -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end page content -->
+    </div>
+
+    <!-- include js -->
+  </div>
+</ion-content>

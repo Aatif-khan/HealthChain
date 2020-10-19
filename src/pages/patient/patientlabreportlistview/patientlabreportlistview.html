@@ -1,0 +1,172 @@
+<!--
+  Generated template for the PatientlabreportlistviewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Patient Lab Report List View</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="view-list">
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Patient Name
+      </div>
+      <div class="view-list-val  pull-right">
+        {{ PatientLabReportListView.patientName }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Report Date
+      </div>
+      <div class="view-list-val pull-right">
+        {{ PatientLabReportListView.date }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Report Time
+      </div>
+      <div class="view-list-val  pull-right">
+        {{ PatientLabReportListView.time }}
+      </div>
+    </div>
+
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Report Detail
+      </div>
+      <div
+        class="view-list-val  pull-right"
+        *ngFor="let item of PatientLabReportListView.reportLapdata"
+      >
+        {{item.labReportsLevel1Pojo.lrl1Name }}
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Disease Associated
+      </div>
+
+      <div class="view-list-val  pull-right">
+        <span
+          *ngFor="let reportDetails of PatientLabReportListView.reportLapdata"
+        >
+          <span *ngFor="let diagnosis of reportDetails.diagnosisMasterdata">
+            {{diagnosis.diagnosiseName}}
+          </span>
+        </span>
+        <!-- {{ item.diagnosiseName }} -->
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Attached Report
+      </div>
+      <div
+        class="view-list-val  pull-right"
+        *ngFor="let item of PatientLabReportListView.reportLapdata"
+      >
+        <img
+          src="{{ item.reportfullPath }}"
+          height="75px"
+          width="100px"
+          data-toggle="modal"
+          data-target="#myModal"
+          (click)="showPhoto(item.reportfullPath)"
+        />
+      </div>
+    </div>
+    <div class="view-lst-row clearfix">
+      <div class="view-lst-lbl pull-left">
+        Attached Video Report
+      </div>
+      <div
+        class="view-list-val  pull-right"
+        *ngFor="let item of PatientLabReportListView.reportLapdata"
+      >
+        <img
+          src="{{ item.vidreportPath }}"
+          height="75px"
+          width="100px"
+          data-toggle="modal"
+          data-target="#myModal"
+          (click)="showPhoto(item.vidreportPath)"
+        />
+      </div>
+    </div>
+    <div class="form-button bg-gray pt-25 text-center">
+      <button type="button" class="cmn-thm-btn mr-25" (click)="bookPharma()">
+        Book Pharma
+      </button>
+      <!-- <button type="button" class="cmn-wht-btn" (click)="bookLab()">
+        Book Laboratory
+      </button> -->
+    </div>
+  </div>
+</ion-content>
+
+<!-- <ion-item>
+  <ion-label color="">Date :</ion-label>
+  <ion-input
+    type="text"
+    [(ngModel)]="PatientLabReportListView.date"
+    name="date"
+    disabled="true"
+  ></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label color="">Time:</ion-label>
+  <ion-input
+    type="text"
+    [(ngModel)]="PatientLabReportListView.time"
+    name="time"
+    disabled="true"
+  ></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label color="">Lab Name :</ion-label>
+  <ion-input
+    type="text"
+    [(ngModel)]="PatientLabReportListView.patientName"
+    name="labName"
+    disabled="true"
+  ></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label color="">Disease Name :</ion-label>
+  <ion-input
+    type="text"
+    [(ngModel)]="PatientLabReportListView.patientID"
+    name="disease"
+    disabled="true"
+  ></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label color="">Report Detail :</ion-label>
+  <ion-input
+    type="text"
+    name="reportDetail"
+    [(ngModel)]="PatientLabReportListView.reportDetail"
+    disabled="true"
+  ></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label color="">Attached Report :</ion-label>
+  <ion-input
+    type="text"
+    [(ngModel)]="PatientLabReportListView.additionalDetail"
+    name="Attachedreport"
+    disabled="true"
+  ></ion-input>
+</ion-item> -->

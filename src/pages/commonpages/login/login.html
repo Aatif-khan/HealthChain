@@ -1,0 +1,103 @@
+<ion-content padding class="loginpage">
+  <div class="">
+    <div class="dis-tbl">
+      <div class="dis-tbl-cl">
+        <div class="lgn-cntnt">
+          <div class="lgn-lgo text-center">
+            <a href="javascript:;"
+              ><img
+                class="img-responsive"
+                src="assets/images/logo.png"
+                alt="Logo"
+            /></a>
+          </div>
+
+          <div class="lgn-frm-box">
+            <div class="login-form">
+              <div class="lgn-ttl text-center">LOGIN</div>
+
+              <form class="cmn-form mt-10">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <ion-label class="bmd-label-floating"
+                        >User Name</ion-label
+                      >
+                      <input
+                        type="email"
+                        [(ngModel)]="account.username"
+                        name="Username"
+                        class="form-control"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <ion-label class="bmd-label-floating">Password</ion-label>
+                      <input
+                        type="password"
+                        [(ngModel)]="account.password"
+                        name="Password"
+                        class="form-control"
+                      />
+                    </div>
+                  </div>
+
+                  
+
+                  <div class="frgt-lnk col-md-12 text-right mt-10 mb-30">
+                    <a (click)="gotoforgotpassword()" href="javascript:;"
+                      >Forgot Password?</a
+                    >
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="ml-auto mr-auto text-center">
+                    <button class="btn lgn-btn thm-btn" (click)="openNav()">
+                      Login Now <img src="assets/images/arwrgt.png" />
+                    </button>
+                  </div>
+                </div>
+                <br>
+                <br>
+                <br>
+
+                
+                  <button ion-button icon-left (click)="googlelogin()" block outline>
+                    <ion-icon name="logo-googleplus"></ion-icon> 
+                    Login With Google
+                    <ion-select>
+                        <ion-option>
+                          Patient
+                        </ion-option>
+                        <ion-option>
+                          Doctor
+                        </ion-option>
+                        <ion-option>
+                            Laboratort
+                        </ion-option>
+                        <ion-option>
+                              Pharma
+                        </ion-option>
+                      </ion-select>
+                  </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- </ion-list>
+    </form> -->
+  <!-- <div class="alredayHave-hc" text-center>
+        Don't have account? <a (click)="gotosignup()" href="#">Signup</a>
+      </div>  -->
+
+  <div class="signup-link">
+    <span class="opacity-6" f>Don’t have an account?</span>
+    <a (click)="gotosignup()" href="javascript:;">Sign Up</a>
+  </div>
+</ion-content>

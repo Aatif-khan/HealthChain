@@ -1,0 +1,353 @@
+<!--
+  Generated template for the AddAppointmentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle left>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>Re - Book Appointment</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <ion-icon name="" class="notification-icon"
+          ><span class="ntfctn-dot"></span
+        ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="book-apmnt pt-20 bg-fff">
+    <form class="cmn-form no-input-efct mb-20">
+      <div class="floating-label cmn-select">
+        <select
+          class="floating-select form-control"
+          name="faciltyCenterName"
+          [(ngModel)]="facilityCenterID"
+          [disabled]="facilitiesArray.length == 0"
+          (change)="getFacilityid($event.target.value)"
+        >
+          <option
+            *ngFor="let category of facilitiesArray; let idx = index"
+            [value]="category.facilityCenterID"
+            selected="{{ (idx == 0).facilityCenterID }}"
+            >{{ category.facilityCenterName }}</option
+          >
+        </select>
+        <label>Facility</label>
+      </div>
+      <div class="floating-label cmn-select">
+        <select
+          class="floating-select form-control"
+          name="fcLocationName"
+          [(ngModel)]="fcLocationMapID"
+          [disabled]="locationArray.length == 0"
+          (change)="getlocationid($event.target.value)"
+        >
+          <option
+            *ngFor="let location of locationArray; let idx = index"
+            [value]="location.fcLocationMapID"
+            selected="{{ (idx == 0).fcLocationMapID }}"
+            >{{ location.fcLocationName }}</option
+          >
+        </select>
+        <label>Location</label>
+      </div>
+      <div class="floating-label cmn-select">
+        <select
+          class="floating-select form-control"
+          name="specialityName"
+          [(ngModel)]="specialityID"
+          [disabled]="specialityArray.length == 0"
+          (change)="getspecialityid($event.target.value)"
+        >
+          <option
+            *ngFor="let speciality of specialityArray; let idx = index"
+            [value]="speciality.specialityID"
+            selected="{{ (idx == 0).specialityID }}"
+            >{{ speciality.specialityName }}</option
+          >
+        </select>
+        <label>Speciality</label>
+      </div>
+      <div class="floating-label cmn-select">
+        <select
+          class="floating-select form-control"
+          name="providerName"
+          [(ngModel)]="fclProviderMapID"
+          [disabled]="doctorArray.length == 0"
+          (change)="getdoctorid($event)"
+        >
+          <option
+            *ngFor="let doctor of doctorArray; let idx = index"
+            [value]="doctor.fclProviderMapID"
+            selected="{{ (idx == 0).fclProviderMapID }}"
+            >{{ doctor.providerName }}</option
+          >
+        </select>
+        <label>List of Doctor</label>
+      </div>
+      <div class="floating-label cmn-select">
+        <select
+          class="floating-select form-control"
+          [(ngModel)]="visittypeId"
+          name="visitType"
+          (change)="getvisittypeid($event.target.value)"
+        >
+          <option
+            *ngFor="let visit of visittypeArray; let idx = index"
+            [value]="visit.key"
+            selected="{{ (idx == 0).key }}"
+            >{{ visit.value }}</option
+          >
+          <!-- selected="{{ (idx == 0).key }}" -->
+        </select>
+        <label>Case</label>
+      </div>
+      <!-- <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">Fees of selected Doctor</label>
+            <input
+              type="number"
+              name="feesText"
+              [(ngModel)]="fees"
+              class="form-control"
+              readonly="true"
+            />
+          </div>
+        </div> -->
+      <!-- <div class="floating-label cmn-select">
+          <select
+            class="floating-select form-control"
+            [(ngModel)]="coupounCode"
+            name="promocode"
+            (change)="getapplypromocode($event.target.value)"
+          >
+            <option
+              *ngFor="let promo of promocodeArray; let idx = index"
+              [value]="promo.coupounCode"
+              selected="{{ (idx == 0).coupounCode }}"
+              >{{ promo.coupounCode }}</option
+            >
+          </select>
+          <label>Apply Coupan Code</label>
+        </div> -->
+
+      <!-- <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">Total Fees Amount </label>
+            <input
+              type="number"
+              name="amountToutal"
+              [(ngModel)]="feesAmount"
+              class="form-control"
+              readonly="true"
+            />
+          </div>
+        </div> -->
+
+      <!-- <div class="avl-schdl"> -->
+      <!-- <div class="scdl-ttl">Available Schedule</div>
+          <div class="scdl-row clearfix">
+            <div class="scdl-day pull-left">Monday</div>
+            <div class="scdl-time pull-right">12:00 PM to 04:00 PM</div>
+          </div>
+          <div class="scdl-row clearfix">
+            <div class="scdl-day pull-left">Wednesday</div>
+            <div class="scdl-time pull-right">12:00 PM to 04:00 PM</div>
+          </div>
+          <div class="scdl-row clearfix">
+            <div class="scdl-day pull-left">Saturday</div>
+            <div class="scdl-time pull-right">06:00 PM to 08:00 PM</div>
+          </div>
+          <div class="scdl-row clearfix">
+            <div class="scdl-day pull-left">Sunday</div>
+            <div class="scdl-time pull-right">06:00 PM to 08:00 PM</div>
+          </div> -->
+      <!-- </div> -->
+      <div class="pl15 pr15 form-bb">
+        <div class="form-group">
+          <label class="bmd-label-floating">Date of Appointment</label>
+          <ion-datetime
+            displayFormat="DD MMMM YYYY"
+            pickerFormat="DD MMMM YYYY"
+            name="date"
+            [(ngModel)]="selectedpatAppDate"
+          ></ion-datetime>
+          <span class="input-icon"><img src="assets/images/date.png"/></span>
+        </div>
+      </div>
+      <div class="pl15 pr15 form-bb">
+        <div class="form-group">
+          <label class="bmd-label-floating">Time From</label>
+          <ion-datetime
+            displayFormat="hh:mm a"
+            pickerFormat="hh:mm a"
+            [(ngModel)]="selectedpatAppTimeFrom"
+            name="timeFrom"
+          ></ion-datetime>
+          <span class="input-icon"><img src="assets/images/time.png"/></span>
+        </div>
+      </div>
+      <div class="pl15 pr15 form-bb">
+        <div class="form-group">
+          <label class="bmd-label-floating">Time To</label>
+          <ion-datetime
+            displayFormat="hh:mm a"
+            pickerFormat="hh:mm a"
+            [(ngModel)]="selectedpatAppTimeTo"
+            name="timeTo"
+          ></ion-datetime>
+          <span class="input-icon"><img src="assets/images/time.png"/></span>
+        </div>
+      </div>
+      <div class="floating-label cmn-select">
+        <select
+          class="floating-select form-control"
+          [(ngModel)]="visitreasonId"
+          [disabled]="visitreasonArray.length == 0"
+          (ionChange)="getvisitreasonid($event)"
+          name="reasonForVisit"
+        >
+          <option
+            *ngFor="let reason of visitreasonArray; let idx = index"
+            [value]="reason.key"
+            selected="{{ (idx == 0).key }}"
+            >{{ reason.value }}</option
+          >
+        </select>
+        <label>Reason for Visit</label>
+      </div>
+      <div class="pl15 pr15 form-bb">
+        <div class="floating-label cmn-inpt">
+          <textarea
+            class="floating-input cmn-txtarea"
+            type="text"
+            name="Desciption"
+            [(ngModel)]="selectedpatAppDescription"
+            rows="4"
+          ></textarea>
+          <label>Additional Detail</label>
+        </div>
+      </div>
+
+      <!-- <ion-list>
+          <ion-item>
+            <ion-label>COD (Cash On Delivery))</ion-label>
+            <ion-checkbox name="cod" (click)="addValue($event)"></ion-checkbox>
+          </ion-item>
+        </ion-list> -->
+
+      <div class="form-button bg-gray pt-25 text-center">
+        <button
+          type="button"
+          class="cmn-thm-btn mr-25"
+          (click)="callEditAppointmentApi()"
+        >
+          SAVE
+        </button>
+        <button type="button" class="cmn-wht-btn">
+          CANCEL
+        </button>
+      </div>
+    </form>
+  </div>
+</ion-content>
+
+<!-- <ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle right>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>Re - Book Appointment</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only>
+        <ion-icon name="" class="header-logo"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="cmn-inr-form">
+    <ion-list>
+      
+      <ion-item>
+        <ion-label color="" floating>Facility</ion-label>
+        <ion-select [(ngModel)]="facilityCenterID"[disabled]="facilitiesArray.length == 0"  (ionChange)="getFacilityid($event)">
+
+          <ion-option *ngFor="let category of facilitiesArray;let idx=index" [value]="category.facilityCenterID" selected="{{(idx==0).facilityCenterID}}">{{category.facilityCenterName}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="" floating>Location</ion-label>
+        <ion-select [disabled]="locationArray.length == 0" [(ngModel)]="selectedLocation" (ionChange)="getlocationid($event)">
+          <ion-option *ngFor="let location of locationArray;let idx=index" [value]="location.fcLocationMapID" selected="{{(idx==0).fcLocationMapID}}">{{location.fcLocationName}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="" floating>Speciality </ion-label>
+        <ion-select [(ngModel)]="specialityID" [disabled]="specialityArray.length == 0" (ionChange)="getspecialityid($event)">
+          <ion-option *ngFor="let speciality of specialityArray;let idx=index" [value]="speciality.specialityID" selected="{{(idx==0).specialityID}}">{{speciality.specialityName}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="" floating>List of Doctors </ion-label>
+        <ion-select [(ngModel)]="fclProviderMapID" [disabled]="doctorArray.length == 0" (ionChange)="getdoctorid($event)">
+          <ion-option *ngFor="let doctor of doctorArray;let idx=index" [value]="doctor.fclProviderMapID" selected="{{(idx==0).fclProviderMapID}}">{{doctor.providerName}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="" floating>Date Of Appointment </ion-label>
+        <ion-datetime displayFormat="DD MMMM YYYY" pickerFormat="DD MMMM YYYY" [(ngModel)]="selectedpatAppDate"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="" floating>Time From</ion-label>
+        <ion-datetime displayFormat="hh:mm a" pickerFormat="hh:mm a" [(ngModel)]="selectedpatAppTimeFrom"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="" floating>Time To</ion-label>
+        <ion-datetime displayFormat="hh:mm a" pickerFormat="hh:mm a" [(ngModel)]="selectedpatAppTimeTo"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="" floating>Visit Type</ion-label>
+        <ion-select [(ngModel)]="visittypeId" (ionChange)="getvisittypeid($event)">
+          <ion-option *ngFor="let visit of visittypeArray;let idx=index" [value]="visit.key" selected="{{(idx==0).key}}">{{visit.value}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="" floating>Reason for visit</ion-label>
+        <ion-select [(ngModel)]="visitreasonId" [disabled]="visitreasonArray.length == 0" (ionChange)="getvisitreasonid($event)">
+          <ion-option *ngFor="let reason of visitreasonArray;let idx=index" [value]="reason.key" selected="{{(idx==0).key}}">{{reason.value}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+    
+
+
+    <ion-item>
+        <ion-label color="" floating>Additional Desciption</ion-label>
+
+        <ion-input type="text" name="Desciption" [(ngModel)]="selectedpatAppDescription"></ion-input>
+    </ion-item>
+
+      <div class="cmn-ftr-btn">
+        <button (click)="callEditAppointmentApi()" ion-button class="cmn-btn-styl prpl-btn" block>Save</button>
+      </div>
+
+    </ion-list>
+  </div>
+</ion-content> -->

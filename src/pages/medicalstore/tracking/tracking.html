@@ -1,0 +1,70 @@
+<!--
+  Generated template for the TrackingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-navbar>
+      <button ion-button menuToggle right>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+      </button>
+      <ion-title>Tracking</ion-title>
+      <ion-buttons left>
+      <button ion-button icon-only >
+      <ion-icon name="" class="header-logo"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form text-center class="login-inner-hc" [formGroup]="tracking" style="height: 50%;">
+    <ion-list >
+      <div class="login-signin-hc">  
+        <!-- <div class="login-head-hc">
+          <h5>Pharmacy tracking</h5>
+        </div>      -->
+      
+        <ion-item>
+          <ion-label color="">Estimated time *</ion-label>
+          <ion-input type="text" formControlName="estimatedtime" [(ngModel)]="trackingData.estimatedtime" name="estimatedtime"></ion-input>
+        </ion-item>
+        <control-messages [control]="tracking.controls.estimatedtime"></control-messages>
+
+
+        <ion-item>
+            <ion-label color="">Package Prepared *</ion-label>
+            <ion-toggle [(ngModel)]="trackingData.packageprepared" formControlName="packageprepared"></ion-toggle>
+        </ion-item>
+        <control-messages [control]="tracking.controls.packageprepared"></control-messages>
+
+
+        <ion-item>
+            <ion-label color="">Out for Delivery *</ion-label>
+            <ion-toggle [(ngModel)]="trackingData.outfordelivery" formControlName="outfordelivery"></ion-toggle>
+        </ion-item>
+        <control-messages [control]="tracking.controls.outfordelivery"></control-messages>
+
+
+        <ion-item>
+            <ion-label color="">Delivered *</ion-label>
+            <ion-toggle [(ngModel)]="trackingData.delivered" formControlName="delivered"></ion-toggle>
+        </ion-item>
+        <control-messages [control]="tracking.controls.delivered"></control-messages>
+
+
+
+        <ion-item style="text-align: center;">
+           <button ion-button (click)="Submit()" type="submit" (click)="Submit()" [disabled]="!tracking.valid">Submit</button>
+           <button ion-button color="danger" (click)="Cancel()">Cancel</button>
+        </ion-item>
+
+      </div>       
+    </ion-list>
+  </form>
+
+</ion-content>

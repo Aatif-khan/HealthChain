@@ -1,0 +1,87 @@
+<!--
+  Generated template for the ProfiledemographicPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  </ion-header>
+  
+  
+  <ion-content padding>
+  
+    <ion-item>
+      <ion-label floating>Address Line 1</ion-label>
+      <ion-input [(ngModel)]="demographicProfile.addressLine1" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Address Line 2</ion-label>
+      <ion-input [(ngModel)]="demographicProfile.addressLine2" type="text"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label floating>Address Line 3</ion-label>
+      <ion-input [(ngModel)]="demographicProfile.addressLine3" type="text"></ion-input>
+    </ion-item>
+  
+    
+  
+    <ion-item>
+      <ion-label floating>ZipCode</ion-label>
+      <ion-input [(ngModel)]="demographicProfile.zipcode" type="text"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-select [(ngModel)]="selectedCountry">
+        <ion-label floating>Select Country</ion-label>
+        <ion-option *ngFor="let country of countries;" [value]="country">{{country.title}}</ion-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-select [(ngModel)]="selectedState">
+        <ion-label floating>Select State</ion-label>
+        <ion-option *ngFor="let state of states;" [value]="state">{{state.title}}</ion-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-select [(ngModel)]="selectedLocation" (ionChange)="showlocation($event)">
+        <ion-label floating>Select Location</ion-label>
+        <ion-option *ngFor="let location of locationArray; let idx = index" selected="{{(idx==0).locationID}}" [value]="location.locationID">{{location.city}}</ion-option>
+      </ion-select>
+    </ion-item>
+    
+    <div padding align="center">
+      <button ion-button type="submit" (click)="addAddress()" block>Add New Address</button>
+    </div>
+  
+    <ion-item>
+      <ion-label floating>Phone</ion-label>
+      <ion-input [(ngModel)]="demographicProfile.phone" type="number"></ion-input>
+    </ion-item>
+  
+  
+    <ion-item>
+        <ion-label floating>Secondary Phone</ion-label>
+        <ion-input type="number" [(ngModel)]="secondaryPhone"></ion-input>
+      </ion-item>
+    
+      <button ion-button (click)="addtoList()">Add</button>
+    
+      <ion-item>
+        <ion-list>
+          <ion-item *ngFor="let list of demographicProfile.perMobileList">
+            {{list}}
+            <ion-icon class="trashicon" (click)="deleteelement(list)" name="trash" data-ng-if="(demographicProfile.perMobileList.length > 0)"></ion-icon>
+          </ion-item>
+        </ion-list>
+      </ion-item>
+  
+    <div padding align="center">
+      <div padding>
+        <button ion-button type="submit" (click)="submitDetails()">Submit</button>
+        <button ion-button type="Cancel">Cancel</button>
+      </div>
+    </div>
+  </ion-content>

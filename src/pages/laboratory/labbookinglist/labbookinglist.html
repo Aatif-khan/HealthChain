@@ -1,0 +1,54 @@
+<!--
+  Generated template for the LabbookinglistPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  
+  <ion-navbar>
+    <button ion-button menuToggle right>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>Labbooking List</ion-title>
+    <ion-buttons left>
+        <button ion-button icon-only>
+          <ion-icon name="" class="header-logo"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div class="cmn-list-page">
+
+        
+        <ion-list class="cmn-tb-cntnt">
+          <ion-item-sliding #slidingItem *ngFor="let item of labbookinglist">
+              <ion-item (click)="openItem(item)" >
+                  <div class="ptnt-name">{{item.name}}</div>
+                  <div class="rson-fr-meet">{{item.facilityCenterName}} {{item.facilityCenterType}} - {{item.fcLocationName}}</div>
+                  <div class="apmnt-tm">{{item.patAppDate}} {{item.patAppTimeTo}}</div>
+                  <button ion-button *ngIf="item.athome">Yes</button>
+                  <button ion-button *ngIf="!item.athome">No</button>
+                  <div class="apmnt-status" >{{item.patAppStatus}}</div>
+              </ion-item>
+              
+            <ion-item-options *ngIf="item.patAppStatus == 'Pending'">
+                <button ion-button (click)="Approved(item)">Approve</button>
+                <button ion-button color="danger" (click)="Rejected(item)">Reject</button>
+                <button ion-button color="danger" (click)="Canceled(item)">Cancel</button>
+            </ion-item-options>
+
+            <ion-item-options *ngIf="item.patAppStatus == 'Approved'">
+                <button ion-button (click)="Add(item)">Add</button>
+                <button ion-button color="danger" (click)="Canceled(item)">Cancel</button>
+            </ion-item-options>  
+  
+            </ion-item-sliding>
+        </ion-list>
+  
+      </div>
+</ion-content>

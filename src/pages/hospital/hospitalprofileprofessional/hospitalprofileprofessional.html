@@ -1,0 +1,102 @@
+<!--
+  Generated template for the ProfiledemographicPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  </ion-header>
+  
+  
+  <ion-content padding>
+  
+    
+  <ion-item>
+        <ion-label floating>Associated Department</ion-label>
+        <ion-input type="text" [(ngModel)]="associatedDepartment"></ion-input>
+      </ion-item>
+    
+      <button ion-button (click)="addtoListDepartment()">Add Department</button>
+    
+      <ion-item>
+        <ion-list>
+          <ion-item *ngFor="let list of hospitalProfile.associatedDepartmentList">
+            {{list}}
+            <ion-icon class="trashicon" (click)="deleteelementDepartment(list)" name="trash" data-ng-if="(hospitalProfile.associatedDepartmentList.length > 0)"></ion-icon>
+          </ion-item>
+        </ion-list>
+      </ion-item>
+  
+  
+      <ion-item>
+        <ion-label floating>Associated Doctor</ion-label>
+        <ion-input type="text" [(ngModel)]="associatedDoctor"></ion-input>
+      </ion-item>
+    
+      <button ion-button (click)="addtoListDoctor()">Add Doctor</button>
+    
+      <ion-item>
+        <ion-list>
+          <ion-item *ngFor="let list of hospitalProfile.associatedDoctorList">
+            {{list}}
+            <ion-icon class="trashicon" (click)="deleteelementDoctor(list)" name="trash" data-ng-if="(hospitalProfile.associatedDoctorList.length > 0)"></ion-icon>
+          </ion-item>
+        </ion-list>
+      </ion-item>
+  
+  
+      <ion-item>
+        <ion-label floating>Associated Laboratory</ion-label>
+        <ion-input type="text" [(ngModel)]="associatedLaboratory"></ion-input>
+      </ion-item>
+    
+      <button ion-button (click)="addtoListLaboratory()">Add Laboratory</button>
+    
+      <ion-item>
+        <ion-list>
+          <ion-item *ngFor="let list of hospitalProfile.associatedLaboratoryList">
+            {{list}}
+            <ion-icon class="trashicon" (click)="deleteelementLaboratory(list)" name="trash" data-ng-if="(hospitalProfile.associatedLaboratoryList.length > 0)"></ion-icon>
+          </ion-item>
+        </ion-list>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label floating>Associated Medical store</ion-label>
+        <ion-input type="text" [(ngModel)]="associatedMedical"></ion-input>
+      </ion-item>
+    
+      <button ion-button (click)="addtoListMedical()">Add Medical store </button>
+    
+      <ion-item>
+        <ion-list>
+          <ion-item *ngFor="let list of hospitalProfile.associatedMedicalList">
+            {{list}}
+            <ion-icon class="trashicon" (click)="deleteelementMedical(list)" name="trash" data-ng-if="(hospitalProfile.associatedMedicalList.length > 0)"></ion-icon>
+          </ion-item>
+        </ion-list>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label floating>Associated Disease</ion-label>
+        <ion-input type="text" [(ngModel)]="associatedDisease"></ion-input>
+      </ion-item>
+    
+      <button ion-button (click)="addtoListDisease()">Add Disease </button>
+    
+      <ion-item>
+        <ion-list>
+          <ion-item *ngFor="let list of hospitalProfile.associatedDiseaseList">
+            {{list}}
+            <ion-icon class="trashicon" (click)="deleteelementDisease(list)" name="trash" data-ng-if="(hospitalProfile.associatedDiseaseList.length > 0)"></ion-icon>
+          </ion-item>
+        </ion-list>
+      </ion-item>
+      
+    <div padding align="center">
+      <div padding>
+        <button ion-button type="submit" (click)="submitDetails()">Submit</button>
+        <button ion-button type="Cancel">Cancel</button>
+      </div>
+    </div>
+  </ion-content>

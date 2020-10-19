@@ -1,0 +1,66 @@
+{
+  "_from": "cordova-plugin-fcm-with-dependecy-updated",
+  "_id": "cordova-plugin-fcm-with-dependecy-updated@4.1.0",
+  "_inBundle": false,
+  "_integrity": "sha512-vNmsDPQNe7OGiqTLILojz1IwOdlXjui4GbhlpEg3UMPYOGxOepe6rCW6M7XGf+f72hiIdFnO4W9L20lOqLyLZA==",
+  "_location": "/cordova-plugin-fcm-with-dependecy-updated",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-fcm-with-dependecy-updated",
+    "name": "cordova-plugin-fcm-with-dependecy-updated",
+    "escapedName": "cordova-plugin-fcm-with-dependecy-updated",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-fcm-with-dependecy-updated/-/cordova-plugin-fcm-with-dependecy-updated-4.1.0.tgz",
+  "_shasum": "a7f28d93228010a421966c36169ccec1cff765a4",
+  "_spec": "cordova-plugin-fcm-with-dependecy-updated",
+  "_where": "/home/srikanth/aatif ionic/ionic",
+  "author": {
+    "name": "André Augusto Tissot"
+  },
+  "bugs": {
+    "url": "https://github.com/andrehtissot/cordova-plugin-fcm-with-dependecy-updated/issues"
+  },
+  "bundleDependencies": false,
+  "cordova_name": "Cordova FCM Push Plugin",
+  "deprecated": false,
+  "description": "Google Firebase Cloud Messaging Cordova Push Plugin fork with dependecy updated",
+  "engines": [],
+  "englishdoc": "",
+  "homepage": "https://github.com/andrehtissot/cordova-plugin-fcm-with-dependecy-updated#readme",
+  "issue": "",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "notifications",
+    "push",
+    "firebase",
+    "fcm",
+    "ios",
+    "android",
+    "cordova"
+  ],
+  "license": "MIT",
+  "main": "www/FCMPlugin.js",
+  "name": "cordova-plugin-fcm-with-dependecy-updated",
+  "platforms": [
+    "android",
+    "ios"
+  ],
+  "repo": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrehtissot/cordova-plugin-fcm-with-dependecy-updated.git"
+  },
+  "typings": "src/FCMPlugin.d.ts",
+  "version": "4.1.0"
+}

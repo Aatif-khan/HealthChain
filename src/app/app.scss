@@ -1,0 +1,99 @@
+// http://ionicframework.com/docs/theming/
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+/*changes new css */
+.ion-app.md {
+  font-family: "Poppins", sans-serif;
+}
+.toggleMenu {
+  background: url(../assets/images/menu-btn.png) no-repeat;
+  background-size: 34px;
+  background-position: center;
+}
+.notification-icon {
+  background: url(../assets/images/notification.png) no-repeat;
+  background-size: 23px;
+  height: 34px;
+  width: 34px;
+  background-position: center;
+}
+.header .toolbar-background {
+  background: #01a6b0;
+  border: none;
+}
+.toolbar-title-md {
+  padding: 0 12px;
+  font-size: 24px;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+}
+span.ntfctn-dot {
+  background: red;
+  height: 8px;
+  width: 8px;
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  right: 5px;
+  top: 6px;
+}
+.page-container-bg-solid .page-bar,
+.page-content-white .page-bar {
+  background: none;
+}
+.userProfile {
+  padding: 0;
+  width: auto;
+  height: auto;
+  background: none;
+  margin: 0 auto;
+}
+.userProfile-dtl h3 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 0;
+  margin-top: 15px;
+  font-family: "Poppins", sans-serif;
+}
+.userProfile img {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  border: 3px solid #fff;
+  padding: 0;
+  border-radius: 50%;
+}
+.userProfile-dtl > span.city-name {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 17px;
+}
+
+.sdbr-mnu-hdr .userProfile-dtl {
+  padding-top: 25px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 25px;
+  background: url(../assets/images/nav-prfil-bg.png);
+  background-size: cover;
+}
+
+.sdbr-mnu-hdr .toolbar-md {
+  padding: 0;
+}
+
+.menu-inner {
+  width: 270px;
+}

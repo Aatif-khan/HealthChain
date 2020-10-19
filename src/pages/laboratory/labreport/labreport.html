@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle left>
+      <ion-icon name="" class="toggleMenu"></ion-icon>
+    </button>
+    <ion-title>Laboratory Report List</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only>
+        <ion-icon name="" class="notification-icon"
+          ><span class="ntfctn-dot"></span
+        ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="cmn-list">
+    <div
+      class="cmn-apmnt-row clearfix"
+      (click)="openItem(item)"
+      *ngFor="let item of currentLabReportList"
+    >
+      <div class="apmn-lft">
+        <div class="dr-name">Patient Name - {{ item.patientName }}</div>
+        <div class="rson-fr-meet">
+          <p *ngFor="let rep of item.reportLapdata">
+            <span>{{ rep.labReportsLevel1Pojo.lrl1Name }}</span>
+          </p>
+        </div>
+        <div class="dr-adrs">
+          Disease Associated :
+          <p *ngFor="let d of item.reportLapdata">
+            <span *ngFor="let ds of d.diagnosisMasterdata">{{
+              ds.diagnosiseName
+            }}</span>
+          </p>
+        </div>
+        <div class="dr-adrs">{{ item.date }} {{ item.time }}</div>
+      </div>
+      <div class="view-dtl">
+        <a href="javascript:;">View Details</a>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<!-- <div class="cmn-list-page">
+  <div class="cmn-tab-dsgn"></div>
+  <ion-list class="cmn-tb-cntnt">
+    <ion-item-sliding #slidingItem *ngFor="let item of currentLabReportList">
+      <ion-item (click)="openItem(item)" text-wrap>
+        <div class="ptnt-name">Patient Name - {{ item.patientName }}</div>
+        <div class="rson-fr-meet">
+          <p *ngFor="let rep of item.reportLapdata">
+            <span>{{ rep.labReportsLevel1Pojo.lrl1Name }}</span>
+          </p>
+        </div>
+        <div class="apmnt-tm">
+          Disease Associated :
+          <p *ngFor="let d of item.reportLapdata">
+            <span *ngFor="let ds of d.diagnosisMasterdata">{{
+              ds.diagnosiseName
+            }}</span>
+          </p>
+        </div>
+        <div class="apmnt-status">{{ item.date }} {{ item.time }}</div>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+</div> -->

@@ -1,0 +1,307 @@
+<!--
+  Generated template for the ExtendedprofilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header> </ion-header>
+
+<ion-content>
+  <div class="tab-pane" id="Extended">
+    <div class="extnd-cntnt">
+      <form class="cmn-form no-input-efct mb-20 bg-fff">
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">Date of Birth</label>
+            <ion-datetime
+              displayFormat="DD MMMM YYYY"
+              pickerFormat="DD MMMM YYYY"
+              name="date"
+              [(ngModel)]="extendedProfile.perDOB"
+            ></ion-datetime>
+            <span class="input-icon"><img src="assets/images/date.png"/></span>
+          </div>
+        </div>
+        <div class="floating-label cmn-select">
+          <ion-list radio-group>
+            <ion-list-header>
+              Gender
+            </ion-list-header>
+            <ion-item *ngFor="let item of genderArray">
+              <ion-label>{{item.value}}</ion-label>
+              <ion-radio
+                value="{{item.value}}"
+                [checked]="item.value == extendedProfile.gender"
+                (click)="radioClicked(item.value)"
+              >
+              </ion-radio>
+            </ion-item>
+          </ion-list>
+        </div>
+        <!-- <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">Degree</label>
+            <input
+              type="text"
+              name="degree"
+              [(ngModel)]="extendedProfile.perDegree"
+              class="form-control"
+            />
+          </div>
+        </div> -->
+        <div class="floating-label cmn-select">
+          <select
+            class="floating-select form-control"
+            name="workstatus"
+            [(ngModel)]="selectedWorkStatus"
+            (ionChange)="onWorkStatusSelected($event)"
+          >
+            <option
+              *ngFor="let workStatus of allWorkStatus;let idx=index"
+              [value]="workStatus.value"
+              selected="{{(idx==0).value}}"
+              >{{workStatus.value}}</option
+            >
+          </select>
+          <label>Occupation</label>
+        </div>
+        <!-- <div class="floating-label cmn-select">
+          <select
+            class="floating-select form-control"
+            name="employment"
+            [(ngModel)]="selectedEmployement"
+            (ionChange)="onEmployementSelected($event)"
+          >
+            <option
+              *ngFor="let employment of allEmploymentsStatus;let idx=index"
+              [value]="employment.value"
+              selected="{{(idx==0).value}}"
+              >{{employment.value}}</option
+            >
+          </select>
+          <label>Select Employment</label>
+        </div> -->
+        <div class="floating-label cmn-select">
+          <select
+            class="floating-select form-control"
+            name="maritalStatus"
+            [(ngModel)]="selectedMaritalStatus"
+            (ionChange)="onMaritalStatusSelected($event)"
+          >
+            <option
+              *ngFor="let maritalStatus of allMaritalStatus; let idx = index"
+              [value]="maritalStatus.value"
+              selected="{{(idx==0).value}}"
+              >{{maritalStatus.value}}</option
+            >
+          </select>
+          <label>Select Marital status</label>
+        </div>
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">Height</label>
+            <input
+              type="number"
+              class="form-control"
+              name="height"
+              [(ngModel)]="extendedProfile.bodyHeight"
+              step="0.01"
+            />
+            <span class="input-icon-txt fc-theme">ft</span>
+          </div>
+        </div>
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">Weight</label>
+            <input
+              type="number"
+              class="form-control"
+              name="weight"
+              [(ngModel)]="extendedProfile.bodyWeightInKG"
+              step="0.01"
+            />
+            <span class="input-icon-txt fc-theme">Kg</span>
+          </div>
+        </div>
+        <!-- <div class="floating-label cmn-select">
+          <select
+            class="floating-select form-control"
+            name="bloodGroup"
+            [(ngModel)]="selectedBloodGroup"
+            (ionChange)="onBloogGroupSelected($event)"
+          >
+            <option *ngFor="let bloodGroup of bloodGroups;" [value]="bloodGroup"
+              >{{bloodGroup.title}}</option
+            >
+          </select>
+          <label>Select Blood group</label>
+        </div> -->
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">Blood Group</label>
+            <input
+              type="text"
+              name="bloodgroup"
+              [(ngModel)]="extendedProfile.perBloodGroup"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">Chest</label>
+            <input
+              type="text"
+              name="chest"
+              [(ngModel)]="extendedProfile.chestInches"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <div class="pl15 pr15 form-bb">
+          <div class="form-group">
+            <label class="bmd-label-floating">Waist</label>
+            <input
+              type="text"
+              name="waist"
+              [(ngModel)]="extendedProfile.waistInches"
+              class="form-control"
+            />
+          </div>
+        </div>
+        <div class="form-button bg-gray pt-25 text-center">
+          <button class="btn cmn-thm-btn mr-25" (click)="submitDetails()">
+            SUBMIT
+          </button>
+
+          <button
+            type="button"
+            class="btn  cmn-wht-btn"
+            (click)="cancel(DashBoardForPatientPage)"
+          >
+            CANCEL
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>
+<!-- 
+<ion-item>
+  <ion-label>Date of Birth</ion-label>
+  <ion-datetime
+    displayFormat="DD MMMM YYYY"
+    pickerFormat="DD MMMM YYYY"
+    [(ngModel)]="extendedProfile.perDOB"
+  ></ion-datetime>
+</ion-item>
+
+<ion-list radio-group>
+  <ion-list-header>
+    Gender
+  </ion-list-header>
+  <ion-item *ngFor="let item of genderArray">
+    <ion-label>{{item.value}}</ion-label>
+    <ion-radio
+      value="{{item.value}}"
+      [checked]="item.value == extendedProfile.gender"
+      (click)="radioClicked(item.value)"
+    >
+    </ion-radio>
+  </ion-item>
+</ion-list>
+
+<ion-item>
+  <ion-label floating>Degree</ion-label>
+  <ion-input [(ngModel)]="extendedProfile.perDegree" type="text"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-select
+    [(ngModel)]="selectedWorkStatus"
+    (ionChange)="onWorkStatusSelected($event)"
+  >
+    <ion-label floating>Work status</ion-label>
+    <ion-option
+      *ngFor="let workStatus of allWorkStatus;let idx=index"
+      [value]="workStatus.value"
+      selected="{{(idx==0).value}}"
+      >{{workStatus.value}}</ion-option
+    >
+  </ion-select>
+</ion-item>
+<ion-item>
+  <ion-select
+    [(ngModel)]="selectedEmployement"
+    (ionChange)="onEmployementSelected($event)"
+  >
+    <ion-label floating>Select Employment</ion-label>
+    <ion-option
+      *ngFor="let employment of allEmploymentsStatus;let idx=index"
+      [value]="employment.value"
+      selected="{{(idx==0).value}}"
+      >{{employment.value}}</ion-option
+    >
+  </ion-select>
+</ion-item>
+
+<ion-item>
+  <ion-select
+    [(ngModel)]="selectedMaritalStatus"
+    (ionChange)="onMaritalStatusSelected($event)"
+  >
+    <ion-label floating>Select Marital status</ion-label>
+    <ion-option
+      *ngFor="let maritalStatus of allMaritalStatus; let idx = index"
+      [value]="maritalStatus.value"
+      selected="{{(idx==0).value}}"
+      >{{maritalStatus.value}}</ion-option
+    >
+  </ion-select>
+</ion-item>
+
+<ion-item>
+  <ion-label floating>Height ft</ion-label>
+  <ion-input
+    [(ngModel)]="extendedProfile.bodyHeight"
+    type="number"
+    step="0.01"
+  ></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label floating>Weight</ion-label>
+  <ion-input
+    [(ngModel)]="extendedProfile.bodyWeightInKG"
+    type="number"
+    step="0.01"
+  ></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-select
+    [(ngModel)]="selectedBloodGroup"
+    (ionChange)="onBloogGroupSelected($event)"
+  >
+    <ion-label floating>Select Blood group</ion-label>
+    <ion-option *ngFor="let bloodGroup of bloodGroups;" [value]="bloodGroup"
+      >{{bloodGroup.title}}</ion-option
+    >
+  </ion-select>
+</ion-item>
+
+<ion-item>
+  <ion-label floating>Chest</ion-label>
+  <ion-input [(ngModel)]="extendedProfile.chestInches" type="text"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label floating>Waist</ion-label>
+  <ion-input [(ngModel)]="extendedProfile.waistInches" type="text"></ion-input>
+</ion-item>
+<div padding align="center">
+  <div padding>
+    <button ion-button type="submit" (click)="submitDetails()">Submit</button>
+    <button ion-button type="Cancel" (click)="cancel()">Cancel</button>
+  </div>
+</div> -->

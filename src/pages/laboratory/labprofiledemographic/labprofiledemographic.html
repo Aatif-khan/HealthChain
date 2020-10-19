@@ -1,0 +1,317 @@
+<!--
+  Generated template for the LabprofiledemographicPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header> </ion-header>
+
+<ion-content>
+  <div class="cmn-form no-input-efct bg-fff mt5">
+    <div class="floating-label cmn-select">
+      <select
+        class="floating-select form-control"
+        name="faciltyCenterName"
+        [(ngModel)]="Facility"
+        (change)="onSelectChange($event.target.value)"
+      >
+        <option *ngFor="let f of Facility" [value]="f.facilityCenterID"
+          >{{ f.facilityCenterName }}</option
+        >
+      </select>
+      <label>Facility</label>
+    </div>
+    <div class="floating-label cmn-select">
+      <select
+        class="floating-select form-control"
+        name="fcLocationName"
+        [(ngModel)]="Locations"
+        (change)="showlocation($event.target.value)"
+      >
+        <option *ngFor="let L of Locations" [value]="L.fcLocationMapID"
+          >{{ L.fcLocationName }}</option
+        >
+      </select>
+      <label>Location</label>
+    </div>
+    <div class="pl15 pr15 form-bb">
+      <div class="form-group">
+        <label class="bmd-label-floating">Address Line 1</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="addressObject.addressLine1"
+        />
+      </div>
+    </div>
+    <div class="pl15 pr15 form-bb">
+      <div class="form-group">
+        <label class="bmd-label-floating">Address Line 2</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="addressObject.addressLine2"
+        />
+      </div>
+    </div>
+    <div class="pl15 pr15 form-bb">
+      <div class="form-group">
+        <label class="bmd-label-floating">Address Line 3</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="addressObject.addressLine3"
+        />
+      </div>
+    </div>
+    <div class="pl15 pr15 form-bb">
+      <div class="form-group">
+        <label class="bmd-label-floating">ZipCode</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="addressObject.zip"
+        />
+      </div>
+    </div>
+    <div class="pl15 pr15 form-bb">
+      <div class="form-group">
+        <label class="bmd-label-floating">city</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="addressObject.city"
+        />
+      </div>
+    </div>
+    <div class="pl15 pr15 form-bb">
+      <div class="form-group">
+        <label class="bmd-label-floating">State</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="addressObject.state"
+        />
+      </div>
+    </div>
+    <div class="pl15 pr15 form-bb">
+      <div class="form-group">
+        <label class="bmd-label-floating">Country</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="addressObject.country"
+        />
+      </div>
+    </div>
+    <div align="left">
+      <button
+        class="btn cmn-thm-btn mr-25"
+        type="submit"
+        (click)="addAddress()"
+        block
+      >
+        Add New Address
+      </button>
+    </div>
+    <ion-item>
+      <ion-list class="cmn-tb-cntnt">
+        <ion-item-sliding
+          #slidingItem
+          *ngFor="let item of demographicProfile.locationMaster"
+        >
+          <ion-item>
+            <div class="ptnt-name">
+              {{item.addressLine1}}, {{item.addressLine2}},
+              {{item.addressLine3}}
+            </div>
+            <div class="rson-fr-meet">{{item.area}}, {{item.zip}}</div>
+            <div class="apmnt-tm">
+              {{item.city}}, {{item.state}}, {{item.country}}
+            </div>
+            <div class="apmnt-status">{{item.patAppStatus}}</div>
+          </ion-item>
+
+          <ion-item-options>
+            <button ion-button color="danger" (click)="deleteAddress(item)">
+              Delete
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </ion-item>
+    <div class="pl15 pr15 form-bb">
+      <div class="form-group">
+        <label class="bmd-label-floating">Phone</label>
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="demographicProfile.perMobilePrimary"
+        />
+      </div>
+    </div>
+    <div class="pl15 pr15 form-bb">
+      <div class="form-group">
+        <label class="bmd-label-floating">Secondary Phone</label>
+        <input type="text" class="form-control" [(ngModel)]="secondaryPhone" />
+      </div>
+    </div>
+    <button class="btn cmn-thm-btn mr-25" (click)="addtoList()">Add</button>
+    <ion-item>
+      <ion-list>
+        <ion-item *ngFor="let list of demographicProfile.perMobileList">
+          {{list.value}}
+          <ion-icon
+            class="trashicon"
+            (click)="deleteelement(list)"
+            name="trash"
+            data-ng-if="(demographicProfile.perMobileList.length > 0)"
+          ></ion-icon>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+
+    <div padding align="center">
+      <div padding>
+        <button
+          class="btn cmn-thm-btn mr-25"
+          type="submit"
+          (click)="submitDetails()"
+        >
+          Submit
+        </button>
+        <button class="cmn-wht-btn" type="Cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<!-- <ion-content>
+  <ion-item>
+    <ion-label>Facility</ion-label>
+    <ion-select
+      [(ngModel)]="Facilities"
+      name="Facility"
+      (ionChange)="onSelectChange($event)"
+    >
+      <ion-option *ngFor="let f of Facility" [value]="f.facilityCenterID">
+        {{f.facilityCenterName}}
+      </ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Locations</ion-label>
+    <ion-select
+      [(ngModel)]="Location"
+      name="Location"
+      (ionChange)="showlocation($event)"
+    >
+      <ion-option *ngFor="let L of Locations" [value]="L.fcLocationMapID">
+        {{L.fcLocationName}}
+      </ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Address Line 1</ion-label>
+    <ion-input [(ngModel)]="addressObject.addressLine1" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Address Line 2</ion-label>
+    <ion-input [(ngModel)]="addressObject.addressLine2" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Address Line 3</ion-label>
+    <ion-input [(ngModel)]="addressObject.addressLine3" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>ZipCode</ion-label>
+    <ion-input [(ngModel)]="addressObject.zip" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>city</ion-label>
+    <ion-input [(ngModel)]="addressObject.city" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>State</ion-label>
+    <ion-input [(ngModel)]="addressObject.state" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Country</ion-label>
+    <ion-input [(ngModel)]="addressObject.country" type="text"></ion-input>
+  </ion-item>
+
+  <div padding align="center">
+    <button ion-button type="submit" (click)="addAddress()" block>
+      Add New Address
+    </button>
+  </div>
+
+  <ion-item>
+    <ion-list class="cmn-tb-cntnt">
+      <ion-item-sliding
+        #slidingItem
+        *ngFor="let item of demographicProfile.locationMaster"
+      >
+        <ion-item>
+          <div class="ptnt-name">
+            {{item.addressLine1}}, {{item.addressLine2}}, {{item.addressLine3}}
+          </div>
+          <div class="rson-fr-meet">{{item.area}}, {{item.zip}}</div>
+          <div class="apmnt-tm">
+            {{item.city}}, {{item.state}}, {{item.country}}
+          </div>
+          <div class="apmnt-status">{{item.patAppStatus}}</div>
+        </ion-item>
+
+        <ion-item-options>
+          <button ion-button color="danger" (click)="deleteAddress(item)">
+            Delete
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Phone</ion-label>
+    <ion-input
+      [(ngModel)]="demographicProfile.perMobilePrimary"
+      type="number"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Secondary Phone</ion-label>
+    <ion-input type="number" [(ngModel)]="secondaryPhone"></ion-input>
+  </ion-item>
+
+  <button ion-button (click)="addtoList()">Add</button>
+
+  <ion-item>
+    <ion-list>
+      <ion-item *ngFor="let list of demographicProfile.perMobileList">
+        {{list.value}}
+        <ion-icon
+          class="trashicon"
+          (click)="deleteelement(list)"
+          name="trash"
+          data-ng-if="(demographicProfile.perMobileList.length > 0)"
+        ></ion-icon>
+      </ion-item>
+    </ion-list>
+  </ion-item>
+
+  <div padding align="center">
+    <div padding>
+      <button ion-button type="submit" (click)="submitDetails()">Submit</button>
+      <button ion-button type="Cancel">Cancel</button>
+    </div>
+  </div>
+</ion-content> -->
